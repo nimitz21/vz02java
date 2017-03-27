@@ -13,10 +13,12 @@ public class Animal{
                   Pair _position
                   ) {
         id = _id;
+        /*
         number = _number;
         legend = _legend;
         eat = _eat;
         type = _type;
+        */
         position.first = _position.first;
         position.second = _position.second;
         if(_id == "WF") {
@@ -398,11 +400,13 @@ public class Animal{
                   double _weight,
                   Pair _position) {
         id = _id;
+        /*
         number = _number;
         legend = _legend;
-        weight = _weight;
         eat = _eat;
         type = _type;
+        */
+				weight = _weight;
         position.first = _position.first;
         position.second = _position.second;
         if(_id == "WF") {
