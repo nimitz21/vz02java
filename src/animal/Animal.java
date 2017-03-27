@@ -14,7 +14,7 @@ public class Animal{
                   char _legend,
                   float _eat,
                   char _type,
-                  Pair _position,
+                  Pair _position
                   ) {
         id = _id;
         number = _number;
@@ -381,7 +381,7 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "SGL") {
-            sugar_glider_nb++:
+            sugar_glider_nb++;
             food = 0.5;
             weight = 0.12;
             habitat.add('L');
@@ -746,7 +746,7 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "SGL") {
-            sugar_glider_nb++:
+            sugar_glider_nb++;
             food = 0.5;
             habitat.add('L');
             habitat.add('A');
@@ -783,17 +783,17 @@ public class Animal{
     public final char GetLegend() {
         return legend;
     }
-    public final Set<char> GetHabitat() {
+    public final Set<Character> GetHabitat() {
         return habitat;
     }
-    void SetWeight(float _weight){
+    public void SetWeight(float _weight){
         weight = _weight;
     }
-    void SetPos(Pair _position) {
+    public void SetPos(Pair _position) {
         position.first = _position.first;
         position.second = _position.second;
     }
-    void final Set<String> GetCompatible() {
+    public final Set<String> GetCompatible() {
         return compatible;
     }
     public final void Act() {
@@ -953,7 +953,7 @@ public class Animal{
     private char type;
     private Pair position;
     private TreeSet<String> compatible = new TreeSet<String>();
-    private TreeSet<char> habitat = new TreeSet<char>();
+    private TreeSet<Character> habitat = new TreeSet<Character>();
     private final float food;
     private static int bat_nb;
     private static int cockatoo_nb;
