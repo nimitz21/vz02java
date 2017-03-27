@@ -10,10 +10,6 @@ import pair.Pair;
  */
 public class Animal{
     public Animal(String _id,
-                  int _number,
-                  char _legend,
-                  double _eat,
-                  char _type,
                   Pair _position
                   ) {
         id = _id;
@@ -399,11 +395,7 @@ public class Animal{
         }
     }
     public Animal(String _id,
-                  int _number,
-                  char _legend,
                   double _weight,
-                  double _eat,
-                  char _type,
                   Pair _position) {
         id = _id;
         number = _number;
@@ -414,7 +406,8 @@ public class Animal{
         position.first = _position.first;
         position.second = _position.second;
         if(_id == "WF") {
-            wolf_nb++;
+        		number = ++wolf_nb;
+        		legend = 'X';
             food = 0.2;
             compatible.add("WF");
             compatible.add("ELP");
