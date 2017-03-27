@@ -25,18 +25,15 @@ public class Cell {
   public Cell() {
     int i;
     Random rand = new Random();
-    initial_symbol = new Character();
-    symbol = new Character();
+    initial_symbol = new Character('-');
+    symbol = new Character('-');
     sekat = new Boolean[4];
     plant = new String();
     food = new String();
-    open = new Boolean();
-    initial_symbol = '-';
-    symbol = '-';
+    open = new Boolean(true);
     for (i = 0; i < 4; ++i) {
       sekat[i] = false;
     }
-    open = true;
     i = rand.nextInt(10);
     switch (i) {
       case 0: {
