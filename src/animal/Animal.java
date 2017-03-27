@@ -395,6 +395,9 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         }
+        else{
+        	food = 0.1;
+				}
     }
     public Animal(String _id,
                   double _weight,
@@ -760,6 +763,9 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         }
+        else{
+        	food = 0.1;
+				}
     }
     public final String GetId(){
         return id;
