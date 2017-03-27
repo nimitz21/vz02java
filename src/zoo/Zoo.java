@@ -234,11 +234,11 @@ public class Zoo {
 				Animal animal;
 				Pair position = new Pair(py, px);
 				if (weight != 0) {
-					//animal = new Animal(weight, position);
+					animal = new Animal(id.toString(), weight, position);
 				} else {
-					//animal = new Animal(position);
+					animal = new Animal(id.toString(), position);
 				}
-				//AddAnimal(animal);
+				AddAnimal(animal);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -292,11 +292,11 @@ public class Zoo {
 				Animal animal;
 				Pair position = new Pair(py, px);
 				if (weight != 0) {
-					//animal = new Animal(weight, position);
+					animal = new Animal(id.toString(), weight, position);
 				} else {
-					//animal = new Animal(position);
+					animal = new Animal(id.toString(), position);
 				}
-				//AddAnimal(animal);
+				AddAnimal(animal);
 			}
 		} while (option == 'Y' || option == 'y');
 	}

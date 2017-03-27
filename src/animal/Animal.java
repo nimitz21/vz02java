@@ -953,7 +953,7 @@ public class Animal{
     private Pair position;
     private TreeSet<String> compatible = new TreeSet<String>();
     private TreeSet<Character> habitat = new TreeSet<Character>();
-    private final double food;
+    private double food = 0;
     private static int bat_nb;
     private static int cockatoo_nb;
     private static int colugo_nb;
