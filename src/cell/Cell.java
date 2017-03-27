@@ -11,12 +11,12 @@ import java.util.Random;
  * \details Kelas untuk mengisi sel-sel dalam matriks pada Zoo.
  */
 public class Cell {
-  private char initial_symbol; /**< simbol asli untuk sel dengan jenis tertentu*/
-  private char symbol; /**< simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)*/
-  private boolean[] sekat; /**< state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup */
+  private Character initial_symbol; /**< simbol asli untuk sel dengan jenis tertentu*/
+  private Character symbol; /**< simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)*/
+  private Boolean[] sekat; /**< state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup */
   private String plant; /**< tanaman yang ditanam di taman*/
   private String food; /**< jenis makanan yang dijual di restoran*/
-  private boolean open; /**< penanda restoran buka atau tutup; true untuk buka, false untuk tutup*/
+  private Boolean open; /**< penanda restoran buka atau tutup; true untuk buka, false untuk tutup*/
 
   /**
    * \brief Constructor dengan parameter.
@@ -25,9 +25,14 @@ public class Cell {
   public Cell() {
     int i;
     Random rand = new Random();
+    initial_symbol = new Character();
+    symbol = new Character();
+    sekat = new Boolean[4];
+    plant = new String();
+    food = new String();
+    open = new Boolean();
     initial_symbol = '-';
     symbol = '-';
-    sekat = new boolean [4];
     for (i = 0; i < 4; ++i) {
       sekat[i] = false;
     }
@@ -156,7 +161,7 @@ public class Cell {
     switch (initial_symbol) {
       case 'P': {
         System.out.print("This park has ");
-        if (plant != "") {
+        if (!"".equals(plant)) {
           System.out.print(plant);
         } else {
           System.out.print("nothing");
