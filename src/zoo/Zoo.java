@@ -44,6 +44,12 @@ public class Zoo {
 	 * \details Mengenerate cage dari matrix cell
 	 */
 	private void CageInit() {
+		cage_map = new int[width][length];
+		for (int i = 0; i < width; ++i) {
+			for (int j = 0; j < length; ++j) {
+				cage_map[i][j] = -99;
+			}
+		}
 		int counter = 1;
 		for (int i = 0; i < width; ++i) {
 			for (int j = 0; j < length; ++j) {
@@ -179,16 +185,11 @@ public class Zoo {
 			while (scanner.hasNext()) {
 				line.append(scanner.nextLine());
 				for (int j = 0; j < length; ++j) {
+						System.out.println(cells[0][0].GetInitSymbol());
 						cells[i][j].SetInitSymbol(line.charAt(j));
 						cells[i][j].SetSymbol(line.charAt(j));
 				}
 				++i;
-			}
-			cage_map = new int[width][length];
-			for (i = 0; i < width; ++i) {
-				for (int j = 0; j < length; ++j) {
-					cage_map[i][j] = -99;
-				}
 			}
 			CageInit();
 			scanner = new Scanner(new FileInputStream("asset/animals.txt"));

@@ -13,9 +13,9 @@ import java.util.Random;
 public class Cell {
   private char initial_symbol; /**< simbol asli untuk sel dengan jenis tertentu*/
   private char symbol; /**< simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)*/
-  private boolean sekat[4]; /**< state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup */
-  private StringBuffer plant; /**< tanaman yang ditanam di taman*/
-  private StringBuffer food; /**< jenis makanan yang dijual di restoran*/
+  private boolean[] sekat; /**< state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup */
+  private String plant; /**< tanaman yang ditanam di taman*/
+  private String food; /**< jenis makanan yang dijual di restoran*/
   private boolean open; /**< penanda restoran buka atau tutup; true untuk buka, false untuk tutup*/
 
   /**
@@ -27,6 +27,7 @@ public class Cell {
     Random rand = new Random();
     initial_symbol = '-';
     symbol = '-';
+    sekat = new boolean [4];
     for (i = 0; i < 4; ++i) {
       sekat[i] = false;
     }
@@ -177,7 +178,7 @@ public class Cell {
    * \details Mengembalikan jenis makanan yang dijual restoran
    * \return jenis makanan
    */
-  public StringBuffer GetFood() {
+  public String GetFood() {
     return food;
   }
 
@@ -195,7 +196,7 @@ public class Cell {
    * \details Mengubah jenis makanan yang dijual restoran
    * \param f Jenis makanan yang akan dijual
    */
-  public void SetFood(string f) {
+  public void SetFood(String f) {
     food = f;
   }
 
@@ -216,7 +217,7 @@ public class Cell {
    * \details Mengembalikan tanaman yang tertanam pada taman
    * \return jenis tanaman
    */
-  public StringBuffer GetPlant() {
+  public String GetPlant() {
     return plant;
   }
 
@@ -225,7 +226,7 @@ public class Cell {
    * \details Mengubah tanaman yang tertanam pada taman dengan p
    * \param p Tanaman yang ingin ditanam
    */
-  public void SetPlant(string p) {
+  public void SetPlant(String p) {
     plant = p;
   }
 }
