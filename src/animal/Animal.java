@@ -415,7 +415,7 @@ public class Animal{
         if(_id == "WF") {
         		number = ++wolf_nb; // ini jadi gini
         		legend = '1'; // ini juga
-        		eat = 0; // ini diambil dari wolf.cpp yang dlu diliat isinya berapa
+        		eat = 0.2; // ini diambil dari wolf.cpp yang dlu diliat isinya berapa
 						type = 'K'; // ini juga diliat
             food = 0.2;
             compatible.add("WF");
@@ -423,12 +423,18 @@ public class Animal{
             compatible.add("HPP");
             habitat.add('L');
         } else if (_id == "LI") {
-            lion_nb++;
+            number = ++lion_nb;
+            legend = '2';
+            eat = 0.5;
+            type = 'K';
             food = 0.5;
             compatible.add("LI");
             habitat.add('L');
         } else if (_id == "ZBR") {
-            zebra_nb++;
+            number = ++zebra_nb;
+            legend = '3';
+            eat = 0.3;
+            type = 'H';
             food = 0.3;
             compatible.add("ZBR");
             compatible.add("ELP");
@@ -441,7 +447,10 @@ public class Animal{
             compatible.add("SGL");
             habitat.add('L');
         } else if (_id == "ELP") {
-            elephant_nb++;
+            number = ++elephant_nb;
+            legend = '4';
+            eat = 0.7;
+            type = 'H';
             food = 0.7;
             habitat.add('L');
             compatible.add("WF");
@@ -452,7 +461,10 @@ public class Animal{
             compatible.add("PNG");
             compatible.add("HPP");
         } else if (_id == "MCQ") {
-            macaque_nb++;
+            number = ++macaque_nb;
+            legend = '5';
+            eat = 0.2;
+            type = 'O';
             food=0.2;
             habitat.add('L');
             compatible.add("ZBR");
@@ -464,7 +476,10 @@ public class Animal{
             compatible.add("CLG");
             compatible.add("SGL");
         } else if (_id == "HG") {
-            hog_nb++;
+            number = ++hog_nb;
+            legend = '6';
+            eat = 0.2;
+            type = 'O';
             food = 0.2;
             habitat.add('L');
             compatible.add("ZBR");
@@ -473,13 +488,19 @@ public class Animal{
             compatible.add("HG");
             compatible.add("HPP");
         } else if (_id == "SHK") {
-            shark_nb++;
+            number = ++shark_nb;
+            legend = '7';
+            eat = 0.2;
+            type = 'K';
             food = 0.2;
             habitat.add('W');
             compatible.add("SHK");
             compatible.add("WHL");
         } else if (_id == "MRE") {
-            moray_eel_nb++;
+            number = ++moray_eel_nb;
+            legend = '8';
+            eat = 0.2;
+            type = 'K';
             food = 0.2;
             habitat.add('W');
             compatible.add("MRE");
@@ -489,7 +510,10 @@ public class Animal{
             compatible.add("WHL");
             compatible.add("HPP");
         } else if (_id == "DGG") {
-            dugong_nb++;
+            number = ++dugong_nb;
+            legend = '9';
+            eat = 0.2;
+            type = 'H';
             food = 0.2;
             habitat.add('W');
             compatible.add("MRE");
@@ -503,7 +527,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "TRL") {
-            turtle_nb++;
+            number = ++turtle_nb;
+            legend = '0';
+            eat = 0.05;
+            type = 'H';
             food = 0.05;
             habitat.add('W');
             compatible.add("MRE");
@@ -516,7 +543,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "DLP") {
-            dolphin_nb++;
+            number = ++dolphin_nb;
+            legend = '!';
+            eat = 0.2;
+            type = 'K';
             food = 0.2;
             habitat.add('W');
             compatible.add("MRE");
@@ -530,7 +560,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "WHL") {
-            whale_nb++;
+            number = ++whale_nb;
+            legend = '@';
+            eat = 0.1;
+            type = 'O';
             food = 0.1;
             habitat.add('W');
             compatible.add("SHK");
@@ -545,14 +578,20 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "EGL") {
-            eagle_nb++;
+            number = ++eagle_nb;
+            legend = '#';
+            eat = 0.7;
+            type = 'K';
             food = 0.7;
             habitat.add('A');
             compatible.add("EGL");
             compatible.add("OW");
             compatible.add("PLC");
         } else if (_id == "OW") {
-            owl_nb++;
+            number = ++owl_nb;
+            legend = '$';
+            eat = 0.3;
+            type = 'K';
             food = 0.3;
             habitat.add('A');
             compatible.add("EGL");
@@ -560,7 +599,10 @@ public class Animal{
             compatible.add("PLC");
             compatible.add("DRL");
         } else if (_id == "HMB") {
-            hummingbird_nb++;
+            number = ++hummingbird_nb;
+            legend = '%';
+            eat = 0.3;
+            type = 'H';
             food = 0.3;
             habitat.add('A');
             compatible.add("HMB");
@@ -573,7 +615,10 @@ public class Animal{
             compatible.add("CLG");
             compatible.add("SGL");
         } else if (_id == "CKT") {
-            cockatoo_nb++;
+            number = ++cockatoo_nb;
+            legend = '^';
+            eat = 0.3;
+            type = 'H';
             food = 0.3;
             habitat.add('A');
             compatible.add("HMB");
@@ -585,7 +630,10 @@ public class Animal{
             compatible.add("CRN");
             compatible.add("CLG");
         } else if (_id == "RBN") {
-            robin_nb++;
+            number = ++robin_nb;
+            legend = '&';
+            eat = 0.3;
+            type = 'O';
             food = 0.3;
             habitat.add('A');
             compatible.add("HMB");
@@ -598,7 +646,10 @@ public class Animal{
             compatible.add("CLG");
             compatible.add("DRL");
         } else if (_id == "BT") {
-            bat_nb++;
+            number = ++bat_nb;
+            legend = '*';
+            eat = 0.4;
+            type = 'O';
             food = 0.4;
             habitat.add('A');
             compatible.add("HMB");
@@ -609,7 +660,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "PNG") {
-            penguin_nb++;
+            number = ++penguin_nb;
+            legend = '(';
+            eat = 0.25;
+            type = 'K';
             food = 0.25;
             habitat.add('L');
             habitat.add('W');
@@ -628,7 +682,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "HPP") {
-            hippopotamus_nb++;
+            number = ++hippopotamus_nb;
+            legend = ')';
+            eat = 0.65;
+            type = 'H';
             food = 0.65;
             habitat.add('L');
             habitat.add('W');
@@ -649,7 +706,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "PLC") {
-            pelican_nb++;
+            number = ++pelican_nb;
+            legend = '`';
+            eat = 0.3;
+            type = 'K';
             food = 0.3;
             habitat.add('W');
             habitat.add('A');
@@ -671,7 +731,10 @@ public class Animal{
             compatible.add("CLG");
             compatible.add("SGL");
         } else if (_id == "GSE") {
-            goose_nb++;
+            number = ++goose_nb;
+            legend = '+';
+            eat = 0.3;
+            type = 'H';
             food = 0.3;
             habitat.add('W');
             habitat.add('A');
@@ -692,7 +755,10 @@ public class Animal{
             compatible.add("CLG");
             compatible.add("SGL");
         } else if (_id == "CRN") {
-            crane_nb++;
+            number = ++crane_nb;
+            legend = '-';
+            eat = 0.3;
+            type = 'O';
             food = 0.3;
             habitat.add('W');
             habitat.add('A');
@@ -714,7 +780,10 @@ public class Animal{
             compatible.add("CLG");
             compatible.add("SGL");
         } else if (_id == "DRL") {
-            draco_lizard_nb++;
+            number = ++draco_lizard_nb;
+            legend = '=';
+            eat = 0.2;
+            type = 'K';
             food = 0.2;
             habitat.add('L');
             habitat.add('A');
@@ -730,7 +799,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "CLG") {
-            colugo_nb++;
+            number = ++colugo_nb;
+            legend = '<';
+            eat = 0.25;
+            type = 'H';
             food = 0.25;
             habitat.add('L');
             habitat.add('A');
@@ -748,7 +820,10 @@ public class Animal{
             compatible.add("GSE");
             compatible.add("CRN");
         } else if (_id == "SGL") {
-            sugar_glider_nb++;
+            number = ++sugar_glider_nb;
+            legend = '>';
+            eat = 0.5;
+            type = 'O';
             food = 0.5;
             habitat.add('L');
             habitat.add('A');
