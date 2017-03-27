@@ -406,8 +406,10 @@ public class Animal{
         position.first = _position.first;
         position.second = _position.second;
         if(_id == "WF") {
-        		number = ++wolf_nb;
-        		legend = 'X';
+        		number = ++wolf_nb; // ini jadi gini
+        		legend = '1'; // ini juga
+        		eat = 0; // ini diambil dari wolf.cpp yang dlu diliat isinya berapa
+						type = 'K'; // ini juga diliat
             food = 0.2;
             compatible.add("WF");
             compatible.add("ELP");
