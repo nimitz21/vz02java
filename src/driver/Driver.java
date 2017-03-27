@@ -4,6 +4,7 @@
 package driver;
 
 import java.util.Scanner;
+import zoo.Zoo;
 
 /**
  * Created by ASUS INDONESIA on 3/27/2017.
@@ -21,7 +22,7 @@ public class Driver {
         char option;
         Scanner scanner = new Scanner(System.in);
         int width = 33, length = 32;
-        //Zoo z;
+        Zoo z;
         do {
             System.out.println("Auto generate zoo? (y/n) ");
             option = scanner.next().charAt(0);
@@ -32,9 +33,9 @@ public class Driver {
                 width = scanner.nextInt();
                 length = scanner.nextInt();
             } while (width <= 0 || length <= 0);
-            //z = new Zoo (0, width, length);
+            z = new Zoo(width, length);
         } else{
-            //z = new Zoo;
+            z = new Zoo();
         }
         do {
             System.out.println("Apa yang ingin anda lakukan?");
@@ -46,7 +47,7 @@ public class Driver {
             option = scanner.next().charAt(0);
             switch (option) {
                 case '1':
-                    //z->Display(0, 0, width-1, length-1);
+                    z.Display(0, 0, width-1, length-1);
                     break;
                 case '2':
                     //System.out.println("Daging: " << z->GetTotalMeat() << " kg");

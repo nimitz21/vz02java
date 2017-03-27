@@ -51,6 +51,7 @@ public class Zoo {
 			}
 		}
 		int counter = 1;
+		Random random = new Random();
 		for (int i = 0; i < width; ++i) {
 			for (int j = 0; j < length; ++j) {
 				if (cage_map[i][j] == -99) {
@@ -66,8 +67,10 @@ public class Zoo {
 						}
 						boolean cek = true;
 						cage_map[i][j] = counter;
-						Random random = new Random();
 						Pair[] moveable = new Pair [12];
+						for (int k = 0; k < 12; ++k) {
+							moveable[k] = new Pair();
+						}
 						int ii = 0;
 						int jj = 0;
 						int i_temp = i;
@@ -132,8 +135,14 @@ public class Zoo {
 			change = 0;
 			for (int i = 0; i < width; ++i) {
 				for (int j = 0; j < length; ++j) {
+					System.out.print(i);
+					System.out.print(" ");
+					System.out.println(j);
 					if (cage_map[i][j] == -99) {
 						Pair[] moveable = new Pair [4];
+						for (int k = 0; k < 4; ++k) {
+							moveable[k] = new Pair();
+						}
 						int count = 0;
 						int ii = 0;
 						int jj = 0;
@@ -160,9 +169,16 @@ public class Zoo {
 								if (cells[ii][jj].GetSymbol() == cells[i][j].GetSymbol() && cage_map[ii][jj] != -99) {
 									moveable[count].first = ii;
 									moveable[count].second = jj;
-									++change;
+									++count;
 								}
 							}
+						}
+						if (count > 0) {
+							int move = random.nextInt(count);
+							ii = moveable[move].first;
+							jj = moveable[move].second;
+							cage_map[i][j] = cage_map[ii][jj];
+							++change;
 						}
 					}
 				}
@@ -177,15 +193,20 @@ public class Zoo {
 	public Zoo() {
 		width = 33;
 		length = 32;
-		int i = 0;
 		cells = new Cell[width][length];
+		for (int i = 0; i < width; ++i) {
+			for (int j = 0; j < length; ++j) {
+				cells[i][j] = new Cell();
+			}
+		}
+		int i = 0;
 		try {
 			Scanner scanner = new Scanner(new FileInputStream("asset/map.txt"));
 			StringBuffer line = new StringBuffer(length + 1);
 			while (scanner.hasNext()) {
+
 				line.append(scanner.nextLine());
 				for (int j = 0; j < length; ++j) {
-						System.out.println(cells[0][0].GetInitSymbol());
 						cells[i][j].SetInitSymbol(line.charAt(j));
 						cells[i][j].SetSymbol(line.charAt(j));
 				}
@@ -217,16 +238,20 @@ public class Zoo {
 				}
 				if (line.charAt(j) == '|') {
 					++j;
-					while (line.charAt(j) != '.' && j < line.length()) {
-						weight = 10 * weight + line.charAt(j) - '0';
-						++j;
-					}
-					if (line.charAt(j) == '.') {
-						int multiplier = 1;
-						while (j < line.length()) {
-							multiplier *= 0.1;
-							decimal_weight += multiplier * (line.charAt(j) - '0');
+					while (j < line.length()) {
+						if (line.charAt(j) != '.') {
+							weight = 10 * weight + line.charAt(j) - '0';
 							++j;
+						}
+					}
+					if (j < line.length()) {
+						if (line.charAt(j) == '.') {
+							int multiplier = 1;
+							while (j < line.length()) {
+								multiplier *= 0.1;
+								decimal_weight += multiplier * (line.charAt(j) - '0');
+								++j;
+							}
 						}
 					}
 					weight += decimal_weight;
