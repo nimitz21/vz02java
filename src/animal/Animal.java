@@ -12,7 +12,7 @@ public class Animal{
     public Animal(String _id,
                   int _number,
                   char _legend,
-                  float _eat,
+                  double _eat,
                   char _type,
                   Pair _position
                   ) {
@@ -401,8 +401,8 @@ public class Animal{
     public Animal(String _id,
                   int _number,
                   char _legend,
-                  float _weight,
-                  float _eat,
+                  double _weight,
+                  double _eat,
                   char _type,
                   Pair _position) {
         id = _id;
@@ -768,10 +768,10 @@ public class Animal{
     public final int GetNumber() {
         return number;
     }
-    public final float GetWeight() {
+    public final double GetWeight() {
         return weight;
     }
-    public final float GetEat() {
+    public final double GetEat() {
         return eat;
     }
     public final Pair GetPos() {
@@ -786,7 +786,7 @@ public class Animal{
     public final Set<Character> GetHabitat() {
         return habitat;
     }
-    public void SetWeight(float _weight){
+    public void SetWeight(double _weight){
         weight = _weight;
     }
     public void SetPos(Pair _position) {
@@ -948,13 +948,13 @@ public class Animal{
     private String id;
     private int number;
     private char legend;
-    private float weight;
-    private float eat;
+    private double weight;
+    private double eat;
     private char type;
     private Pair position;
     private TreeSet<String> compatible = new TreeSet<String>();
     private TreeSet<Character> habitat = new TreeSet<Character>();
-    private final float food;
+    private final double food;
     private static int bat_nb;
     private static int cockatoo_nb;
     private static int colugo_nb;
