@@ -12,32 +12,32 @@ import java.util.Random;
  */
 public class Cell {
     /**
-     * simbol asli untuk sel dengan jenis tertentu.
+     * Simbol asli untuk sel dengan jenis tertentu.
      */
     private Character initial_symbol;
 
     /**
-     * simbol yang akan ditampilkan pada layar (dapat dioverwrite animal).
+     * Simbol yang akan ditampilkan pada layar (dapat dioverwrite animal).
      */
     private Character symbol;
 
     /**
-     * state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup.
+     * State dari sekat untuk habitat; true untuk terbuka, false untuk tertutup.
      */
     private Boolean[] sekat;
 
     /**
-     * tanaman yang ditanam di taman.
+     * Tanaman yang ditanam di taman.
      */
     private String plant;
 
     /**
-     * jenis makanan yang dijual di restoran.
+     * Jenis makanan yang dijual di restoran.
      */
     private String food;
 
     /**
-     * penanda restoran buka atau tutup; true untuk buka, false untuk tutup.
+     * Penanda restoran buka atau tutup; true untuk buka, false untuk tutup.
      */
     private Boolean open;
 
