@@ -43,9 +43,10 @@ public class Cell {
 
     /**
      * Constructor.
+     * @param _initial_symbol initial symbol untuk diisi ke <code>Cell</code>
      * Menciptakan cell
      */
-    public Cell(char final _initial_symbol) {
+    public Cell(final char _initial_symbol) {
         int i;
         Random rand = new Random();
         initial_symbol = new Character(_initial_symbol);
