@@ -2,13 +2,48 @@ package animal;
 import java.util.HashSet;
 import java.util.Set;
 import pair.Pair;
-/**
- * Created by ASUS INDONESIA on 3/27/2017.
- */
+
+
+
 /**
  * Created by asuspc on 3/27/2017.
  */
 public class Animal{
+    private String id;
+    private int number;
+    private char legend;
+    private double weight;
+    private double eat;
+    private char type;
+    private Pair position = new Pair();
+    private HashSet<String> compatible = new HashSet<String>();
+    private HashSet<Character> habitat = new HashSet<Character>();
+    private static int bat_nb = 0;
+    private static int cockatoo_nb = 0;
+    private static int colugo_nb = 0;
+    private static int crane_nb = 0;
+    private static int dolphin_nb = 0;
+    private static int draco_lizard_nb = 0;
+    private static int dugong_nb = 0;
+    private static int eagle_nb = 0;
+    private static int elephant_nb = 0;
+    private static int goose_nb = 0;
+    private static int hippopotamus_nb = 0;
+    private static int hog_nb = 0;
+    private static int hummingbird_nb = 0;
+    private static int lion_nb = 0;
+    private static int macaque_nb = 0;
+    private static int moray_eel_nb = 0;
+    private static int owl_nb = 0;
+    private static int pelican_nb = 0;
+    private static int penguin_nb = 0;
+    private static int robin_nb = 0;
+    private static int shark_nb = 0;
+    private static int sugar_glider_nb = 0;
+    private static int turtle_nb = 0;
+    private static int whale_nb = 0;
+    private static int wolf_nb = 0;
+    private static int zebra_nb = 0;
     public Animal(String _id,
                   Pair _position
     ) {
@@ -1042,40 +1077,4 @@ public class Animal{
           break;
       }
     }
-    //atribut
-    private String id;
-    private int number;
-    private char legend;
-    private double weight;
-    private double eat;
-    private char type;
-    private Pair position = new Pair();
-    private HashSet<String> compatible = new HashSet<String>();
-    private HashSet<Character> habitat = new HashSet<Character>();
-    private static int bat_nb;
-    private static int cockatoo_nb;
-    private static int colugo_nb;
-    private static int crane_nb;
-    private static int dolphin_nb;
-    private static int draco_lizard_nb;
-    private static int dugong_nb;
-    private static int eagle_nb;
-    private static int elephant_nb;
-    private static int goose_nb;
-    private static int hippopotamus_nb;
-    private static int hog_nb;
-    private static int hummingbird_nb;
-    private static int lion_nb;
-    private static int macaque_nb;
-    private static int moray_eel_nb;
-    private static int owl_nb;
-    private static int pelican_nb;
-    private static int penguin_nb;
-    private static int robin_nb;
-    private static int shark_nb;
-    private static int sugar_glider_nb;
-    private static int turtle_nb;
-    private static int whale_nb;
-    private static int wolf_nb;
-    private static int zebra_nb;
 }
