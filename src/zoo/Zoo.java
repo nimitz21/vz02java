@@ -207,13 +207,6 @@ public class Zoo {
 				++i;
 			}
 			CageInit();
-			for (i = 0; i < width; ++i) {
-				for (int j = 0; j < length; ++j) {
-					System.out.print(cage_map[i][j]);
-					System.out.print(" ");
-				}
-				System.out.println();
-			}
 			animals = new ArrayList<Animal>();
 			scanner = new Scanner(new FileInputStream("asset/animals.txt"));
 			while (scanner.hasNext()) {
@@ -272,6 +265,10 @@ public class Zoo {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		}
+		System.out.println(animals.size());
+		for (i = 0; i < animals.size(); ++i) {
+			System.out.println(animals.get(i).GetId());
 		}
   }
 
@@ -354,7 +351,7 @@ public class Zoo {
     public int FindAnimal(Pair pos) {
         int i = 0;
         while (i < animals.size()) {
-	        while (animals.get(i).GetPos() != pos) {
+	        if (animals.get(i).GetPos() != pos) {
 		        ++i;
 	        }
         }
@@ -376,12 +373,13 @@ public class Zoo {
         if (posx >= 0 && posx < width && posy >= 0 && posy < length) {
             int cage = cage_map[posx][posy];
             // cek if habitat dlu
-            Set<Character> hab = animal.GetHabitat();
             Set<String> compability = animal.GetCompatible();
             Pair pos;
             pos = new Pair(posx, posy);
             if (FindAnimal(pos) == animals.size()) {
-                if (hab.contains(cells[posx][posy].GetSymbol())) {
+            	System.out.println("animal not found");
+                if (animal.GetHabitat().contains(cells[posx][posy].GetSymbol())) {
+                	System.out.println("habitat compatible");
                     boolean compatible = true;
                     // cek apakah ada hewan yang tidak kompatible dengan hewan animal
                     int count = 0; // count animal yang ada di cage yang sama
@@ -402,6 +400,7 @@ public class Zoo {
                         }
                     }
                     if (0.3 * max >= (count + 1) && compatible) { // masih muat cagenya
+	                      System.out.println("test");
                         animals.add(animal);
                         cells[posx][posy].SetSymbol(animal.GetLegend());
                     }
@@ -644,12 +643,9 @@ public class Zoo {
         }
         Random random = new Random();
         int selection = random.nextInt(entrance.size() - 1);
-        Deque<Pair> dstack;
-        dstack = new ArrayDeque<Pair>();
-        ArrayList<Integer> route;
-        route = new ArrayList<Integer>();
-        List<Pair> listEntrance;
-        listEntrance = new ArrayList<Pair>(entrance);
+        Stack<Pair> dstack = new Stack<Pair>();
+        ArrayList<Integer> route = new ArrayList<Integer>();
+        List<Pair> listEntrance = new ArrayList<Pair>(entrance);
         int posi = listEntrance.get(selection).first, posj = listEntrance.get(selection).second;
         dstack.push(listEntrance.get(selection));
         boolean found = false;
@@ -661,13 +657,13 @@ public class Zoo {
                 route.remove((Integer)4);
             } else {
                 char c;
-                Set<Integer> choice;
+                HashSet<Integer> choice;
                 choice = new HashSet<Integer>();
                 if (i-1 >= 0) {
                     c = cells[i-1][j].GetSymbol();
                     if (c == 'r' || c == 'X') {
                         if (!vis[i-1][j]) {
-                            choice.add(0);
+                            choice.add(new Integer(0));
                         }
                     }
                 }
@@ -675,7 +671,7 @@ public class Zoo {
                     c = cells[i][j-1].GetSymbol();
                     if (c == 'r' || c == 'X') {
                         if (!vis[i][j-1]) {
-                            choice.add(1);
+                            choice.add(new Integer(1));
                         }
                     }
                 }
@@ -683,7 +679,7 @@ public class Zoo {
                     c = cells[i][j+1].GetSymbol();
                     if (c == 'r' || c == 'X') {
                         if (!vis[i][j+1]) {
-                            choice.add(2);
+                            choice.add(new Integer(2));
                         }
                     }
                 }
@@ -691,13 +687,13 @@ public class Zoo {
                     c = cells[i+1][j].GetSymbol();
                     if (c == 'r' || c == 'X') {
                         if (!vis[i+1][j]) {
-                            choice.add(3);
+                            choice.add(new Integer(3));
                         }
                     }
                 }
                 if (choice.size() > 0) {
                     selection = random.nextInt(choice.size() - 1);
-                    List<Integer> listChoice;
+                    ArrayList<Integer> listChoice;
                     listChoice = new ArrayList<Integer>(choice);
                     route.remove(listChoice.get(selection));
                     Pair pairInput;
