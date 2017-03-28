@@ -344,16 +344,11 @@ public class Zoo {
     while (i < animals.size()) {
       if (animals.get(i).GetPos() != pos) {
         ++i;
-      }
-      else{
+      } else {
         break;
       }
     }
-    if (i < animals.size()) {
-      return i;
-    } else {
-      return animals.size();
-    }
+    return i;
   }
 
   /**
@@ -710,15 +705,13 @@ public class Zoo {
             VisCage[i] = false;
         }
         while (!route.isEmpty()) {
-            Pair pairPos;
             if (posi - 1 >= 0) {
                 char c = cells[posi-1][posj].GetInitSymbol();
                 if (c == 'P' || c == 'R') {
                     cells[posi-1][posj].Interact();
                 } else if (c == 'W' || c == 'L' || c == 'A') {
                     if (!VisCage[cage_map[posi-1][posj]]) {
-                        pairPos = new Pair((posi-1),posj);
-                        InteractCage(pairPos, cage_map[posi-1][posj]);
+                        InteractCage(new Pair(posi - 1, posj), cage_map[posi-1][posj]);
                         VisCage[cage_map[posi-1][posj]] = true;
                     }
                 }
@@ -729,8 +722,7 @@ public class Zoo {
                     cells[posi][posj-1].Interact();
                 } else if (c == 'W' || c == 'L' || c == 'A') {
                     if (!VisCage[cage_map[posi][posj-1]]) {
-                        pairPos = new Pair(posi,(posj-1));
-                        InteractCage(pairPos, cage_map[posi][posj-1]);
+                        InteractCage(new Pair(posi,posj - 1), cage_map[posi][posj-1]);
                         VisCage[cage_map[posi][posj-1]] = true;
                     }
                 }
@@ -741,8 +733,7 @@ public class Zoo {
                     cells[posi][posj+1].Interact();
                 } else if (c == 'W' || c == 'L' || c == 'A') {
                     if (!VisCage[cage_map[posi][posj+1]]) {
-                        pairPos = new Pair(posi,(posj+1));
-                        InteractCage(pairPos, cage_map[posi][posj+1]);
+                        InteractCage(new Pair(posi,posj + 1), cage_map[posi][posj+1]);
                         VisCage[cage_map[posi][posj+1]] = true;
                     }
                 }
@@ -753,8 +744,7 @@ public class Zoo {
                     cells[posi+1][posj].Interact();
                 } else if (c == 'W' || c == 'L' || c == 'A') {
                     if (!VisCage[cage_map[posi+1][posj]]) {
-                        pairPos = new Pair((posi+1),posj);
-                        InteractCage(pairPos, cage_map[posi+1][posj]);
+                        InteractCage(new Pair(posi + 1, posj), cage_map[posi+1][posj]);
                         VisCage[cage_map[posi+1][posj]] = true;
                     }
                 }
@@ -798,9 +788,9 @@ public class Zoo {
     while (bqueue.peek() != null) {
       int i = bqueue.element().first, j = bqueue.element().second;
       bqueue.remove();
-      Pair pair;
-      pair = new Pair(i, j);
+      Pair pair = new Pair(i, j);
       if (FindAnimal(pair) != animals.size()) {
+      	System.out.println("test");
         animals.get(FindAnimal(pair)).Interact();
       }
       if (i - 1 >= 0) {
