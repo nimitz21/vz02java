@@ -4,7 +4,6 @@ package zoo;
 
 import animal.Animal;
 import cell.Cell;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import pair.Pair;
 
 import java.io.FileInputStream;
@@ -20,27 +19,35 @@ import java.util.*;
  * @version %I%, %G%
  */
 public class Zoo {
+	/**
+	 * dimensi zoo; jumlah baris
+	 */
   private int width;
-  /**
-   * dimensi zoo; jumlah baris
-   */
+
+	/**
+	 * dimensi zoo; jumlah kolom
+	 */
   private int length;
-  /**
-   * dimensi zoo; jumlah kolom
-   */
+
+	/**
+	 * matriks Cell yang dimiliki zoo
+	 */
   private Cell[][] cells;
-  /**
-   * matriks Cell yang dimiliki zoo
-   */
+
+	/**
+	 * daftar Animals yang ada dalam zoo
+	 */
   private ArrayList<Animal> animals;
-  /**
-   * daftar Animals yang ada dalam zoo
-   */
+
+	/**
+	 * matriks penanda nomor cage dalam zoo
+	 */
   private int[][] cage_map;
-  /**
-   * matriks penanda nomor cage dalam zoo
-   */
-  private int cage_nb; /**< jumlah cage yang ada dalam zoo*/
+
+	/**
+	 *  jumlah cage yang ada dalam zoo
+	 */
+  private int cage_nb;
 
 	/**
 	 * initCage
