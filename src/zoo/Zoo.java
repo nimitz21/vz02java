@@ -20,27 +20,27 @@ import java.util.*;
  */
 public class Zoo {
 	/**
-	 * dimensi zoo; jumlah baris
+	 * dimensi <code>Zoo</code>jumlah baris
 	 */
   private int width;
 
 	/**
-	 * dimensi zoo; jumlah kolom
+	 * dimensi <code>Zoo</code> jumlah kolom
 	 */
   private int length;
 
 	/**
-	 * matriks Cell yang dimiliki zoo
+	 * matriks <code>Cell</code> yang dimiliki <code>Zoo</code>
 	 */
   private Cell[][] cells;
 
 	/**
-	 * daftar Animals yang ada dalam zoo
+	 * daftar <code>Animal</code> yang ada dalam <code>Zoo</code>
 	 */
   private ArrayList<Animal> animals;
 
 	/**
-	 * matriks penanda nomor cage dalam zoo
+	 * matriks penanda nomor cage dalam <code>Zoo</code>
 	 */
   private int[][] cage_map;
 
@@ -51,8 +51,8 @@ public class Zoo {
 
 	/**
 	 * initCage
-	 * I.S: Cage tidak terdefenisi
-	 * F.S: Cage terdefenisi
+	 * I.S: <code>cage_map</code> tidak terdefenisi
+	 * F.S: <code>cage_map</code> terdefenisi
 	 */
 	private void CageInit() {
 		cage_map = new int[width][length];
@@ -327,8 +327,8 @@ public class Zoo {
 
   /**
    * Display
-   * I.S: cells terdefenisi
-   * F.S: cells tercetak di layar
+   * I.S: <code>cells</code> terdefenisi
+   * F.S: <code>cells</code> tercetak di layar
    */
   public void Display(int x1, int y1, int x2, int y2) {
     for (int i = x1; i <= x2; ++i) {
@@ -407,7 +407,7 @@ public class Zoo {
   /**
    * DelAnimal dengan id
    * I.S: sembarang
-   * F.S: Animal dengan id=_id dan number=_number dihapus jika ada
+   * F.S: <code>Animal</code> dengan id=_id dan number=_number dihapus jika ada
    *
    * @param _id id jenis hewan
    * @param _number nomor pada jenis hewan tersebut
@@ -428,7 +428,7 @@ public class Zoo {
   /**
    * DelAnimal dengan posisi
    * I.S: sembarang
-   * F.S: Animal pada posisi x y
+   * F.S: <code>Animal</code> pada posisi x y
    *
    * @param x posisi pada width
    * @param y posisi pada length
@@ -444,9 +444,9 @@ public class Zoo {
 
   /**
    * GetTotalMeat
-   * Mengeluarkan total daging yang diperlukan di zoo dalam kilogram
+   * Mengeluarkan total daging yang diperlukan di <code>Zoo</code> dalam kilogram
    *
-   * @return float Total daging yang dibutuhkan zoo
+   * @return float Total daging yang dibutuhkan <code>Zoo</code>
    */
   public float GetTotalMeat() {
     float sum = 0;
@@ -462,9 +462,9 @@ public class Zoo {
 
   /**
    * GetTotalVegetables
-   * Mengeluarkan total sayur yang diperlukan di zoo dalam kilogram
+   * Mengeluarkan total sayur yang diperlukan di <code>Zoo</code> dalam kilogram
    *
-   * @return flaot Total sayur yang dibutuhkan zoo
+   * @return float Total sayur yang dibutuhkan <code>Zoo</code>
    */
   public float GetTotalVegetables() {
     float sum = 0;
@@ -480,8 +480,9 @@ public class Zoo {
 
   /**
    * MoveAnimal dengan posisi
-   * I.S: cells dan cages terdefenisi
-   * F.S: Animals dengan id=_id dan number=_number digerakkan ke arah direction jika ada
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
+   * F.S: <code>Animals</code> dengan <code>id</code>=<code>_id</code> dan
+   *      <code>number</code>=<code>_number</code> digerakkan ke arah <code>direction</code> jika ada
    *
    * @param pos posisi hewan
    * @param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
@@ -535,8 +536,10 @@ public class Zoo {
 
   /**
    * MoveAnimal dengan id
-   * I.S: cells dan cage terdefenisi
-   * F.S: Animal dengan id=_id dan number=_number digerakkan ke arah sesuai direction sebanyak 1 langkah jika memungkinkan (tidak melewati sekat)
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
+   * F.S: <code>Animal</code> dengan <code>id</code>=<code>_id</code> dan <code>number</code>=<code>_number</code>
+   *      digerakkan ke arah sesuai <code>direction</code> sebanyak 1 langkah jika memungkinkan (tidak melewati
+   *      <code>sekat</code>)
    *
    * @param _id jenis hewan
    * @param _number no number pada jenis hewan
@@ -554,7 +557,7 @@ public class Zoo {
 
   /**
    * MoveAllAnimal
-   * I.S: cells dan cage terdefenisi
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
    * F.S: Semua hewan bergerak secara acak jika memungkinkan
    */
   public void MoveAllAnimal() {
@@ -566,8 +569,9 @@ public class Zoo {
 
   /**
    * ToggleSekat
-   * I.S: cells dan cage terdefenisi
-   * F.S: Sekat pada posisi i,j ke arah direction dibuka/ditutup jika memungkinkan (tidak membuka ke luar cage)
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
+   * F.S: <code>Sekat</code> pada posisi i,j ke arah direction dibuka/ditutup jika memungkinkan (tidak membuka ke luar
+   *      cage)
    *
    * @param i posisi pada width
    * @param j posisi pada length
@@ -617,8 +621,8 @@ public class Zoo {
 
   /**
    * ToggleAllSekat
-   * I.S: cells terdefenisi
-   * F.S: Semua sekat terbuka/tertutup jika memungkinkan
+   * I.S: <code>cells</code> terdefenisi
+   * F.S: Semua <Code>Sekat</Code> terbuka/tertutup jika memungkinkan
    */
   public void ToggleAllSekat() {
     for (int i = 0; i < width; ++i) {
@@ -632,11 +636,11 @@ public class Zoo {
 
   /**
    * Tour
-   * I.S: cage terfenisi
+   * I.S: <code>cage_map</code> terdefenisi
    * F.S: Melakukan tour pada kebun binatang
    * Jalur tour akan dipilih secara acak
-   * Settiap cell yang ada di samping road yang dilalui akan diinteract. Suatu cell adalah bagian dari suatu cage,
-   * maka semua binatang pada cage tersebut akan diinteract
+   * Settiap <code>Cell</code> yang ada di samping road yang dilalui akan diinteract.
+   * Suatu <code>Cell</code> adalah bagian dari suatu cage, maka semua binatang pada cage tersebut akan diinteract
    */
   public void Tour() {
       Set<Pair> entrance;
@@ -795,8 +799,9 @@ public class Zoo {
 
   /**
    * InteractCage
-   * I.S: cage terdefenisi
-   * F.S: Melakukan interaksi dengan semua hewan yang ada di cage yang sama. Cage memiliki posisi pos dan nomor cage_number
+   * I.S: <code>cage_map</code> terdefenisi
+   * F.S: Melakukan interaksi dengan semua hewan yang ada di cage yang sama. Cage memiliki posisi
+   *      <code>pos</code> dan nomor <code>cage_number</code>
    *
    * @param pos posisi cage
    * @param cage_number nomor cage
