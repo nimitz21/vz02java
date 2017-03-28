@@ -334,7 +334,7 @@ public class AnimalTest extends TestCase {
 	  assert(a.GetLegend() == '&');
 	  a = new Animal ("BT", new Pair(0, 0));
 	  assert(a.GetLegend() == '*');
-	  a = new Animal ("PGN", new Pair(0, 0));
+	  a = new Animal ("PNG", new Pair(0, 0));
 	  assert(a.GetLegend() == '(');
 	  a = new Animal ("HPP", new Pair(0, 0));
 	  assert(a.GetLegend() == ')');
@@ -350,9 +350,6 @@ public class AnimalTest extends TestCase {
 	  assert(a.GetLegend() == '<');
 	  a = new Animal ("SGL", new Pair(0, 0));
 	  assert(a.GetLegend() == '>');
-
-
-
   }
 
   public void testGetHabitat() throws Exception {
@@ -498,7 +495,7 @@ public class AnimalTest extends TestCase {
 	  compatible.add(new String("CLG"));
 	  compatible.add(new String("SGL"));
 	  assert(a.GetCompatible().equals(compatible));
-	  a = new Animal ("ELF", new Pair(0, 0));
+	  a = new Animal ("ELP", new Pair(0, 0));
 	  compatible = new HashSet<String>();
 	  compatible.add(new String("WF"));
 	  compatible.add(new String("ZBR"));
