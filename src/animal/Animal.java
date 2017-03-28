@@ -1,6 +1,5 @@
 package animal;
 import java.util.HashSet;
-import java.util.TreeSet;
 import java.util.Set;
 import pair.Pair;
 /**
@@ -20,381 +19,380 @@ public class Animal{
         eat = _eat;
         type = _type;
         */
-        position.first = _position.first;
-        position.second = _position.second;
-        if(_id == "WF") {
+        position = new Pair(_position.first, _position.second);
+        if(_id.equals("WF")) {
             wolf_nb++;
             food = 0.2;
             weight = 45;
-            compatible.add("WF");
-            compatible.add("ELP");
-            compatible.add("HPP");
-            habitat.add('L');
-        } else if (_id == "LI") {
+            compatible.add(new String("WF"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("HPP"));
+            habitat.add(new Character('L'));
+        } else if (_id.equals("LI")) {
             lion_nb++;
             food = 0.5;
             weight = 158;
-            compatible.add("LI");
-            habitat.add('L');
-        } else if (_id == "ZBR") {
+            compatible.add(new String("LI"));
+            habitat.add(new Character('L'));
+        } else if (_id.equals("ZBR")) {
             zebra_nb++;
             food = 0.3;
             weight = 226;
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            habitat.add('L');
-        } else if (_id == "ELP") {
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            habitat.add(new Character('L'));
+        } else if (_id.equals("ELP")) {
             elephant_nb++;
             food = 0.7;
             weight = 5000;
-            habitat.add('L');
-            compatible.add("WF");
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-        } else if (_id == "MCQ") {
+            habitat.add(new Character('L'));
+            compatible.add(new String("WF"));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+        } else if (_id.equals("MCQ")) {
             macaque_nb++;
             food=0.2;
             weight = 9;
-            habitat.add('L');
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "HG") {
+            habitat.add(new Character('L'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("HG")) {
             hog_nb++;
             food = 0.2;
             weight = 68;
-            habitat.add('L');
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("HPP");
-        } else if (_id == "SHK") {
+            habitat.add(new Character('L'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("HPP"));
+        } else if (_id.equals("SHK")) {
             shark_nb++;
             food = 0.2;
             weight = 771;
-            habitat.add('W');
-            compatible.add("SHK");
-            compatible.add("WHL");
-        } else if (_id == "MRE") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("SHK"));
+            compatible.add(new String("WHL"));
+        } else if (_id.equals("MRE")) {
             moray_eel_nb++;
             food = 0.2;
             weight = 13;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("HPP");
-        } else if (_id == "DGG") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("HPP"));
+        } else if (_id.equals("DGG")) {
             dugong_nb++;
             food = 0.2;
             weight = 294;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "TRL") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("TRL")) {
             turtle_nb++;
             food = 0.05;
             weight = 453;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "DLP") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("DLP")) {
             dolphin_nb++;
             food = 0.2;
             weight = 220;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "WHL") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("WHL")) {
             whale_nb++;
             food = 0.1;
             weight = 40000;
-            habitat.add('W');
-            compatible.add("SHK");
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "EGL") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("SHK"));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("EGL")) {
             eagle_nb++;
             food = 0.7;
             weight = 4;
-            habitat.add('A');
-            compatible.add("EGL");
-            compatible.add("OW");
-            compatible.add("PLC");
-        } else if (_id == "OW") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("EGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("PLC"));
+        } else if (_id.equals("OW")) {
             owl_nb++;
             food = 0.3;
             weight = 2;
-            habitat.add('A');
-            compatible.add("EGL");
-            compatible.add("OW");
-            compatible.add("PLC");
-            compatible.add("DRL");
-        } else if (_id == "HMB") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("EGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("DRL"));
+        } else if (_id.equals("HMB")) {
             hummingbird_nb++;
             food = 0.3;
             weight = 0.0002;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "CKT") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("CKT")) {
             cockatoo_nb++;
             food = 0.3;
             weight = 0.09;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("CLG");
-        } else if (_id == "RBN") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("CLG"));
+        } else if (_id.equals("RBN")) {
             robin_nb++;
             food = 0.3;
             weight = 0.06;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("CLG");
-            compatible.add("DRL");
-        } else if (_id == "BT") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("DRL"));
+        } else if (_id.equals("BT")) {
             bat_nb++;
             food = 0.4;
             weight = 0.15;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "PNG") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("PNG")) {
             penguin_nb++;
             food = 0.25;
             weight = 22;
-            habitat.add('L');
-            habitat.add('W');
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "HPP") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('W'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("HPP")) {
             hippopotamus_nb++;
             food = 0.65;
             weight = 1496;
-            habitat.add('L');
-            habitat.add('W');
-            compatible.add("WF");
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("CLG");
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "PLC") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('W'));
+            compatible.add(new String("WF"));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("PLC")) {
             pelican_nb++;
             food = 0.3;
             weight = 7;
-            habitat.add('W');
-            habitat.add('A');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("EGL");
-            compatible.add("OW");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "GSE") {
+            habitat.add(new Character('W'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("EGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("GSE")) {
             goose_nb++;
             food = 0.3;
             weight = 4;
-            habitat.add('W');
-            habitat.add('A');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "CRN") {
+            habitat.add(new Character('W'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("CRN")) {
             crane_nb++;
             food = 0.3;
             weight = 3;
-            habitat.add('W');
-            habitat.add('A');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "DRL") {
+            habitat.add(new Character('W'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("DRL")) {
             draco_lizard_nb++;
             food = 0.2;
             weight = 0.2;
-            habitat.add('L');
-            habitat.add('A');
-            compatible.add("ZBR");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("OW");
-            compatible.add("RBN");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "CLG") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("CLG")) {
             colugo_nb++;
             food = 0.25;
             weight = 0.035;
-            habitat.add('L');
-            habitat.add('A');
-            compatible.add("ZBR");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "SGL") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("SGL")) {
             sugar_glider_nb++;
             food = 0.5;
             weight = 0.12;
-            habitat.add('L');
-            habitat.add('A');
-            compatible.add("ZBR");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("HMB");
-            compatible.add("GSE");
-            compatible.add("CRN");
+            habitat.add(new Character('L'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
         }
         else{
         	food = 0.1;
@@ -412,431 +410,431 @@ public class Animal{
         */
 				weight = _weight;
 				position = new Pair(_position.first, _position.second);
-        if(_id == "WF") {
+        if(_id.equals("WF")) {
         		number = ++wolf_nb; // ini jadi gini
         		legend = '1'; // ini juga
         		eat = 0.2; // ini diambil dari wolf.cpp yang dlu diliat isinya berapa
 						type = 'K'; // ini juga diliat
             food = 0.2;
-            compatible.add("WF");
-            compatible.add("ELP");
-            compatible.add("HPP");
+            compatible.add(new String("WF"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("HPP"));
             habitat.add(new Character('L'));
-        } else if (_id == "LI") {
+        } else if (_id.equals("LI")) {
             number = ++lion_nb;
             legend = '2';
             eat = 0.5;
             type = 'K';
             food = 0.5;
-            compatible.add("LI");
-            habitat.add('L');
-        } else if (_id == "ZBR") {
+            compatible.add(new String("LI"));
+            habitat.add(new Character('L'));
+        } else if (_id.equals("ZBR")) {
             number = ++zebra_nb;
             legend = '3';
             eat = 0.3;
             type = 'H';
             food = 0.3;
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            habitat.add('L');
-        } else if (_id == "ELP") {
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            habitat.add(new Character('L'));
+        } else if (_id.equals("ELP")) {
             number = ++elephant_nb;
             legend = '4';
             eat = 0.7;
             type = 'H';
             food = 0.7;
-            habitat.add('L');
-            compatible.add("WF");
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-        } else if (_id == "MCQ") {
+            habitat.add(new Character('L'));
+            compatible.add(new String("WF"));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+        } else if (_id.equals("MCQ")) {
             number = ++macaque_nb;
             legend = '5';
             eat = 0.2;
             type = 'O';
             food=0.2;
-            habitat.add('L');
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "HG") {
+            habitat.add(new Character('L'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("HG")) {
             number = ++hog_nb;
             legend = '6';
             eat = 0.2;
             type = 'O';
             food = 0.2;
-            habitat.add('L');
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("HPP");
-        } else if (_id == "SHK") {
+            habitat.add(new Character('L'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("HPP"));
+        } else if (_id.equals("SHK")) {
             number = ++shark_nb;
             legend = '7';
             eat = 0.2;
             type = 'K';
             food = 0.2;
-            habitat.add('W');
-            compatible.add("SHK");
-            compatible.add("WHL");
-        } else if (_id == "MRE") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("SHK"));
+            compatible.add(new String("WHL"));
+        } else if (_id.equals("MRE")) {
             number = ++moray_eel_nb;
             legend = '8';
             eat = 0.2;
             type = 'K';
             food = 0.2;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("HPP");
-        } else if (_id == "DGG") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("HPP"));
+        } else if (_id.equals("DGG")) {
             number = ++dugong_nb;
             legend = '9';
             eat = 0.2;
             type = 'H';
             food = 0.2;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "TRL") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("TRL")) {
             number = ++turtle_nb;
             legend = '0';
             eat = 0.05;
             type = 'H';
             food = 0.05;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "DLP") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("DLP")) {
             number = ++dolphin_nb;
             legend = '!';
             eat = 0.2;
             type = 'K';
             food = 0.2;
-            habitat.add('W');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "WHL") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("WHL")) {
             number = ++whale_nb;
             legend = '@';
             eat = 0.1;
             type = 'O';
             food = 0.1;
-            habitat.add('W');
-            compatible.add("SHK");
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "EGL") {
+            habitat.add(new Character('W'));
+            compatible.add(new String("SHK"));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("EGL")) {
             number = ++eagle_nb;
             legend = '#';
             eat = 0.7;
             type = 'K';
             food = 0.7;
-            habitat.add('A');
-            compatible.add("EGL");
-            compatible.add("OW");
-            compatible.add("PLC");
-        } else if (_id == "OW") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("EGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("PLC"));
+        } else if (_id.equals("OW")) {
             number = ++owl_nb;
             legend = '$';
             eat = 0.3;
             type = 'K';
             food = 0.3;
-            habitat.add('A');
-            compatible.add("EGL");
-            compatible.add("OW");
-            compatible.add("PLC");
-            compatible.add("DRL");
-        } else if (_id == "HMB") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("EGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("DRL"));
+        } else if (_id.equals("HMB")) {
             number = ++hummingbird_nb;
             legend = '%';
             eat = 0.3;
             type = 'H';
             food = 0.3;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "CKT") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("CKT")) {
             number = ++cockatoo_nb;
             legend = '^';
             eat = 0.3;
             type = 'H';
             food = 0.3;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("CLG");
-        } else if (_id == "RBN") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("CLG"));
+        } else if (_id.equals("RBN")) {
             number = ++robin_nb;
             legend = '&';
             eat = 0.3;
             type = 'O';
             food = 0.3;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("CLG");
-            compatible.add("DRL");
-        } else if (_id == "BT") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("DRL"));
+        } else if (_id.equals("BT")) {
             number = ++bat_nb;
             legend = '*';
             eat = 0.4;
             type = 'O';
             food = 0.4;
-            habitat.add('A');
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "PNG") {
+            habitat.add(new Character('A'));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("PNG")) {
             number = ++penguin_nb;
             legend = '(';
             eat = 0.25;
             type = 'K';
             food = 0.25;
-            habitat.add('L');
-            habitat.add('W');
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "HPP") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('W'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("HPP")) {
             number = ++hippopotamus_nb;
             legend = ')';
             eat = 0.65;
             type = 'H';
             food = 0.65;
-            habitat.add('L');
-            habitat.add('W');
-            compatible.add("WF");
-            compatible.add("ZBR");
-            compatible.add("ELP");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("CLG");
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "PLC") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('W'));
+            compatible.add(new String("WF"));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("ELP"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("PLC")) {
             number = ++pelican_nb;
             legend = '`';
             eat = 0.3;
             type = 'K';
             food = 0.3;
-            habitat.add('W');
-            habitat.add('A');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("EGL");
-            compatible.add("OW");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "GSE") {
+            habitat.add(new Character('W'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("EGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("GSE")) {
             number = ++goose_nb;
             legend = '+';
             eat = 0.3;
             type = 'H';
             food = 0.3;
-            habitat.add('W');
-            habitat.add('A');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "CRN") {
+            habitat.add(new Character('W'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("CRN")) {
             number = ++crane_nb;
             legend = '-';
             eat = 0.3;
             type = 'O';
             food = 0.3;
-            habitat.add('W');
-            habitat.add('A');
-            compatible.add("MRE");
-            compatible.add("DGG");
-            compatible.add("TRL");
-            compatible.add("DLP");
-            compatible.add("WHL");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("PLC");
-            compatible.add("GSE");
-            compatible.add("CRN");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("BT");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-        } else if (_id == "DRL") {
+            habitat.add(new Character('W'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("MRE"));
+            compatible.add(new String("DGG"));
+            compatible.add(new String("TRL"));
+            compatible.add(new String("DLP"));
+            compatible.add(new String("WHL"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("PLC"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("BT"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+        } else if (_id.equals("DRL")) {
             number = ++draco_lizard_nb;
             legend = '=';
             eat = 0.2;
             type = 'K';
             food = 0.2;
-            habitat.add('L');
-            habitat.add('A');
-            compatible.add("ZBR");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("OW");
-            compatible.add("RBN");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "CLG") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("OW"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("CLG")) {
             number = ++colugo_nb;
             legend = '<';
             eat = 0.25;
             type = 'H';
             food = 0.25;
-            habitat.add('L');
-            habitat.add('A');
-            compatible.add("ZBR");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("HPP");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("HMB");
-            compatible.add("CKT");
-            compatible.add("RBN");
-            compatible.add("GSE");
-            compatible.add("CRN");
-        } else if (_id == "SGL") {
+            habitat.add(new Character('L'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("HPP"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("CKT"));
+            compatible.add(new String("RBN"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
+        } else if (_id.equals("SGL")) {
             number = ++sugar_glider_nb;
             legend = '>';
             eat = 0.5;
             type = 'O';
             food = 0.5;
-            habitat.add('L');
-            habitat.add('A');
-            compatible.add("ZBR");
-            compatible.add("MCQ");
-            compatible.add("HG");
-            compatible.add("PNG");
-            compatible.add("DRL");
-            compatible.add("CLG");
-            compatible.add("SGL");
-            compatible.add("HMB");
-            compatible.add("GSE");
-            compatible.add("CRN");
+            habitat.add(new Character('L'));
+            habitat.add(new Character('A'));
+            compatible.add(new String("ZBR"));
+            compatible.add(new String("MCQ"));
+            compatible.add(new String("HG"));
+            compatible.add(new String("PNG"));
+            compatible.add(new String("DRL"));
+            compatible.add(new String("CLG"));
+            compatible.add(new String("SGL"));
+            compatible.add(new String("HMB"));
+            compatible.add(new String("GSE"));
+            compatible.add(new String("CRN"));
         }
         else{
         	food = 0.1;
@@ -863,7 +861,7 @@ public class Animal{
     public final char GetLegend() {
         return legend;
     }
-    public final Set<Character> GetHabitat() {
+    public final HashSet<Character> GetHabitat() {
         return habitat;
     }
     public void SetWeight(double _weight){
@@ -882,112 +880,112 @@ public class Animal{
             System.out.print("0");
         }
         System.out.print(number+": ");
-        if (id == "WF") {
+        if (id.equals("WF")) {
             System.out.println("*howl*");
-        } else if (id == "LI") {
+        } else if (id.equals("LI")) {
             System.out.println("*roar*");
-        } else if (id == "ZBR") {
+        } else if (id.equals("ZBR")) {
             System.out.println("*snort*");
-        } else if (id == "ELP") {
+        } else if (id.equals("ELP")) {
             System.out.println("*trumpet*");
-        } else if (id == "MCQ") {
+        } else if (id.equals("MCQ")) {
             System.out.println("*chatter*");
-        } else if (id == "HG") {
+        } else if (id.equals("HG")) {
             System.out.println("*oink*");
-        } else if (id == "SHK") {
+        } else if (id.equals("SHK")) {
             System.out.println("*cruise*");
-        } else if (id == "MRE") {
+        } else if (id.equals("MRE")) {
             System.out.println("*hide into rocks*");
-        } else if (id == "DGG") {
+        } else if (id.equals("DGG")) {
             System.out.println("*splash*");
-        } else if (id == "TRL") {
+        } else if (id.equals("TRL")) {
             System.out.println("*swim*");
-        } else if (id == "DLP") {
+        } else if (id.equals("DLP")) {
             System.out.println("*click*");
-        } else if (id == "WHL") {
+        } else if (id.equals("WHL")) {
             System.out.println("*sing*");
-        } else if (id == "EGL") {
+        } else if (id.equals("EGL")) {
             System.out.println("*scream*");
-        } else if (id == "OW") {
+        } else if (id.equals("OW")) {
             System.out.println("*hoot*");
-        } else if (id == "HMB") {
+        } else if (id.equals("HMB")) {
             System.out.println("*hum*");
-        } else if (id == "CKT") {
+        } else if (id.equals("CKT")) {
             System.out.println("*talk*");
-        } else if (id == "RBN") {
+        } else if (id.equals("RBN")) {
             System.out.println("*hoot*");
-        } else if (id == "BT") {
+        } else if (id.equals("BT")) {
             System.out.println("*screech*");
-        } else if (id == "PNG") {
+        } else if (id.equals("PNG")) {
             System.out.println("*slide*");
-        } else if (id == "HPP") {
+        } else if (id.equals("HPP")) {
             System.out.println("*grunt*");
-        } else if (id == "PLC") {
+        } else if (id.equals("PLC")) {
             System.out.println("\"hrraa-hrraa\"");
-        } else if (id == "GSE") {
+        } else if (id.equals("GSE")) {
             System.out.println("*quack*");
-        } else if (id == "CRN") {
+        } else if (id.equals("CRN")) {
             System.out.println("*soar*");
-        } else if (id == "DRL") {
+        } else if (id.equals("DRL")) {
             System.out.println("*jump*");
-        } else if (id == "CLG") {
+        } else if (id.equals("CLG")) {
             System.out.println("*glide*");
-        } else if (id == "SGL") {
+        } else if (id.equals("SGL")) {
             System.out.println("*crab*");
         }
     }
     public final void Interact() {
-        if(id == "WF") {
+        if(id.equals("WF")) {
             Desription("wolf");
-        } else if (id == "LI") {
+        } else if (id.equals("LI")) {
             Desription("lioin");
-        } else if (id == "ZBR") {
+        } else if (id.equals("ZBR")) {
             Desription("zebra");
-        } else if (id == "ELP") {
+        } else if (id.equals("ELP")) {
             Desription("elephant");
-        } else if (id == "MCQ") {
+        } else if (id.equals("MCQ")) {
             Desription("macaque");
-        } else if (id == "HG") {
+        } else if (id.equals("HG")) {
             Desription("hog");
-        } else if (id == "SHK") {
+        } else if (id.equals("SHK")) {
             Desription("shark");
-        } else if (id == "MRE") {
+        } else if (id.equals("MRE")) {
             Desription("moray eel");
-        } else if (id == "DGG") {
+        } else if (id.equals("DGG")) {
             Desription("dugong");
-        } else if (id == "TRL") {
+        } else if (id.equals("TRL")) {
             Desription("turtle");
-        } else if (id == "DLP") {
+        } else if (id.equals("DLP")) {
             Desription("dolphin");
-        } else if (id == "WHL") {
+        } else if (id.equals("WHL")) {
             Desription("whale");
-        } else if (id == "EGL") {
+        } else if (id.equals("EGL")) {
             Desription("eagle");
-        } else if (id == "OW") {
+        } else if (id.equals("OW")) {
             Desription("owl");
-        } else if (id == "HMB") {
+        } else if (id.equals("HMB")) {
             Desription("hummingbird");
-        } else if (id == "CKT") {
+        } else if (id.equals("CKT")) {
             Desription("cockatoo");
-        } else if (id == "RBN") {
+        } else if (id.equals("RBN")) {
             Desription("robin");
-        } else if (id == "BT") {
+        } else if (id.equals("BT")) {
             Desription("bat");
-        } else if (id == "PNG") {
+        } else if (id.equals("PNG")) {
             Desription("penguin");
-        } else if (id == "HPP") {
+        } else if (id.equals("HPP")) {
             Desription("hippopotamus");
-        } else if (id == "PLC") {
+        } else if (id.equals("PLC")) {
             Desription("pelican");
-        } else if (id == "GSE") {
+        } else if (id.equals("GSE")) {
             Desription("goose");
-        } else if (id == "CRN") {
+        } else if (id.equals("CRN")) {
             Desription("crane");
-        } else if (id == "DRL") {
+        } else if (id.equals("DRL")) {
             Desription("draco lizard");
-        } else if (id == "CLG") {
+        } else if (id.equals("CLG")) {
             Desription("colugo");
-        } else if (id == "SGL") {
+        } else if (id.equals("SGL")) {
             Desription("sugar glider");
         }
         Act();
@@ -1032,8 +1030,8 @@ public class Animal{
     private double eat;
     private char type;
     private Pair position = new Pair();
-    private Set<String> compatible = new HashSet<String>();
-    private Set<Character> habitat = new HashSet<Character>();
+    private HashSet<String> compatible = new HashSet<String>();
+    private HashSet<Character> habitat = new HashSet<Character>();
     private double food = 0;
     private static int bat_nb;
     private static int cockatoo_nb;
