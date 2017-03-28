@@ -388,6 +388,7 @@ public class Zoo {
             pos = new Pair(posx, posy);
             if (FindAnimal(pos) == animals.size()) {
                 if (hab.contains(cells[posx][posy].GetSymbol())) {
+									System.out.println("test");
                     boolean compatible = true;
                     // cek apakah ada hewan yang tidak kompatible dengan hewan animal
                     int count = 0; // count animal yang ada di cage yang sama
@@ -408,6 +409,7 @@ public class Zoo {
                         }
                     }
                     if (0.3 * max >= (count + 1) && compatible) { // masih muat cagenya
+												System.out.println("add animal");
                         animals.add(animal);
                         cells[posx][posy].SetSymbol(animal.GetLegend());
                     }
@@ -457,7 +459,10 @@ public class Zoo {
      */
     public float GetTotalMeat() {
         float sum = 0;
+        System.out.print("animals size :");
+        System.out.println(animals.size());
         for (int i = 0; i < animals.size(); i++) {
+
             if (animals.get(i).GetType() == 'K') {
                 sum += animals.get(i).GetWeight() * animals.get(i).GetEat();
             } else if (animals.get(i).GetType() == 'O') {

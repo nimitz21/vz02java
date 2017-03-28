@@ -1,4 +1,5 @@
 package animal;
+import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Set;
 import pair.Pair;
@@ -19,7 +20,8 @@ public class Animal{
         eat = _eat;
         type = _type;
         */
-        position = new Pair(_position.first, _position.second);
+        position.first = _position.first;
+        position.second = _position.second;
         if(_id == "WF") {
             wolf_nb++;
             food = 0.2;
@@ -419,7 +421,7 @@ public class Animal{
             compatible.add("WF");
             compatible.add("ELP");
             compatible.add("HPP");
-            habitat.add('L');
+            habitat.add(new Character('L'));
         } else if (_id == "LI") {
             number = ++lion_nb;
             legend = '2';
@@ -1030,8 +1032,8 @@ public class Animal{
     private double eat;
     private char type;
     private Pair position = new Pair();
-    private TreeSet<String> compatible = new TreeSet<String>();
-    private TreeSet<Character> habitat = new TreeSet<Character>();
+    private Set<String> compatible = new HashSet<String>();
+    private Set<Character> habitat = new HashSet<Character>();
     private double food = 0;
     private static int bat_nb;
     private static int cockatoo_nb;

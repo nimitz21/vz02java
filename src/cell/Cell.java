@@ -96,7 +96,7 @@ public class Cell {
    * \details membalikan nilai initial_symbol cell.
    * \return init symbol.
    */
-  public char GetInitSymbol() {
+  public Character GetInitSymbol() {
     return initial_symbol;
   }
 
@@ -105,7 +105,7 @@ public class Cell {
    * \details mengembalikan nilai simbol cell.
    * \return symbol.
    */
-  public char GetSymbol() {
+  public Character GetSymbol() {
     return symbol;
   }
 
