@@ -3,7 +3,7 @@ import zoo.Zoo;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Driver d = new Driver();
-    }
+  public static void main(String[] args) {
+    Driver d = new Driver();
+  }
 }

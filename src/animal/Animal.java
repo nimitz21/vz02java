@@ -1031,7 +1031,7 @@ public class Animal{
     private double weight;
     private double eat;
     private char type;
-    private Pair position;
+    private Pair position = new Pair();
     private TreeSet<String> compatible = new TreeSet<String>();
     private TreeSet<Character> habitat = new TreeSet<Character>();
     private double food = 0;
