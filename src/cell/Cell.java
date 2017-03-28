@@ -1,41 +1,49 @@
 /* File  : Cell.java */
-/* Author: Gisela Supardi */
 
 package cell;
 
-import java.io.FileInputStream;
 import java.util.Random;
 
 /**
- * \brief Class Cell.
- * \details Kelas untuk mengisi sel-sel dalam matriks pada Zoo.
+ * Kelas untuk mengisi sel-sel dalam matriks pada <code>Zoo</code>.
+ *
+ * @author Gisela Supardi
+ * @version %I%, %G%
  */
 public class Cell {
+	/**
+	 * simbol asli untuk sel dengan jenis tertentu
+	 */
   private Character initial_symbol;
-  /**
-   * < simbol asli untuk sel dengan jenis tertentu
-   */
+
+	/**
+	 * simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)
+	 */
   private Character symbol;
-  /**
-   * < simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)
-   */
+
+	/**
+	 * state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup
+	 */
   private Boolean[] sekat;
-  /**
-   * < state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup
-   */
+
+	/**
+	 * tanaman yang ditanam di taman
+	 */
   private String plant;
-  /**
-   * < tanaman yang ditanam di taman
-   */
+
+	/**
+	 * jenis makanan yang dijual di restoran
+	 */
   private String food;
-  /**
-   * < jenis makanan yang dijual di restoran
-   */
-  private Boolean open; /**< penanda restoran buka atau tutup; true untuk buka, false untuk tutup*/
+
+	/**
+	 * penanda restoran buka atau tutup; true untuk buka, false untuk tutup
+	 */
+	private Boolean open;
 
   /**
-   * \brief Constructor dengan parameter.
-   * \details Menciptakan cell dengan symbol default yaitu '-'.
+   * Constructor
+   * Menciptakan cell
    */
   public Cell(char _initial_symbol) {
     int i;
@@ -106,48 +114,55 @@ public class Cell {
     }
   }
 
-  /**
-   * \brief GetInitSymbol.
-   * \details membalikan nilai initial_symbol cell.
-   * \return init symbol.
-   */
+	/**
+	 * Membalikan nilai <code>initial_symbol</code> yang disimpan <code>Cell</code>.
+	 *
+	 * @return initial symbol.
+	 */
   public Character GetInitSymbol() {
     return initial_symbol;
   }
 
-  /**
-   * \brief GetSymbol.
-   * \details mengembalikan nilai simbol cell.
-   * \return symbol.
-   */
+	/**
+	 * Mengembalikan nilai simbol yang disimpan <code>Cell</code>.
+	 *
+	 * @return symbol.
+	 */
   public Character GetSymbol() {
     return symbol;
   }
 
-  /**
-   * \brief SetInitSymbol.
-   * \details mengubah initial_symbol dengan s.
-   * \param s initial_symbol yang baru.
-   */
+	/**
+	 * Mengubah <code>initial_symbol</code> dengan simbol baru
+	 * yaitu <code>s</code>.
+	 * I.S.: <code>initial_symbol</code> sembarang.
+	 * F.S.: <code>initial_symbol</code> telah terganti dengan <code>s</code>.
+	 *
+	 * @param s initial <code>symbol</code> yang baru.
+	 */
   public void SetInitSymbol(char s) {
     initial_symbol = new Character(s);
   }
 
-  /**
-   * \brief SetSymbol.
-   * \details mengubah symbol dengan s.
-   * \param s symbol yang baru.
-   */
+	/**
+	 * Mengubah <code>symbol</code> dengan simbol baru
+	 * yaitu <code>s</code>.
+	 * I.S.: <code>symbol</code> sembarang.
+	 * F.S.: <code>symbol</code> telah terganti dengan <code>s</code>.
+	 *
+	 * @param s <code>symbol</code> yang baru.
+	 */
   public void SetSymbol(char s) {
     symbol = new Character(s);
   }
 
-  /**
-   * \brief ToggleSekat
-   * \details Memasang atau menghilangkan sekat antar-Cell
-   * <p>
-   * \param direction arah yang ingin dibuka
-   */
+	/**
+	 * Memasang atau menghilangkan sekat antar-<code>Cell</code>;
+	 * I.S.: sembarang.
+	 * F.S.: sekat terbuka/tertutup tergantung kondisi awal.
+	 *
+	 * @param direction arah yang ingin dibuka
+	 */
   public void ToggleSekat(int direction) {
     if (sekat[direction]) {
       sekat[direction] = false;
@@ -156,19 +171,21 @@ public class Cell {
     }
   }
 
-  /**
-   * \brief GetSekat
-   * \details Mengecek apakah ke arah direction terdapat sekat
-   * <p>
-   * \param direction arah yang ingin dicek
-   */
+	/**
+	 * Mengecek apakah ke arah <code>direction</code>
+	 * terdapat <code>sekat</code>.
+	 *
+	 * @param direction arah yang ingin dicek
+	 * @return sekat dengan arah <code>direction</code>
+	 */
   public boolean GetSekat(int direction) {
     return sekat[direction];
   }
 
   /**
-   * \brief Interact
-   * \details Interaksi dengan Cell
+   * Interact
+   * I.S: sembarang
+   * F.S: Interaksi dengan restoran atau park dilakukan
    */
   public void Interact() {
     switch (initial_symbol) {
@@ -191,37 +208,40 @@ public class Cell {
     }
   }
 
-  /**
-   * \brief GetFood
-   * \details Mengembalikan jenis makanan yang dijual restoran
-   * \return jenis makanan
-   */
+	/**
+	 * Mengembalikan makanan yang dijual di restoran.
+	 *
+	 * @return food
+	 */
   public String GetFood() {
     return food;
   }
 
-  /**
-   * \brief GetOpen
-   * \details Mengembalikan status restoran
-   * \return bool true jika buka, false jika tutup
-   */
+	/**
+	 * Mengembalikan status buka restoran.
+	 *
+	 * @return open
+	 */
   public boolean GetOpen() {
     return open;
   }
 
-  /**
-   * \brief SetFood
-   * \details Mengubah jenis makanan yang dijual restoran
-   * \param f Jenis makanan yang akan dijual
-   */
+	/**
+	 * Mengubah jenis makanan yang dijual restoran menjadi jenis yang di-input.
+	 * I.S.: <code>food</code> sembarang.
+	 * F.S.: <code>food</code> telah terganti dengan <code>f</code>.
+	 *
+	 * @param f jenis makanan yang akan dijual
+	 */
   public void SetFood(String f) {
     food = f;
   }
 
-  /**
-   * \brief ToggleOpen
-   * \details Mengubah status restoran
-   */
+	/**
+	 * Mengubah status buka restoran menjadi kebalikan dari initial state.
+	 * I.S.: keadaan <code>open</code> sembarang.
+	 * F.S.: keadaan <code>open</code> menjadi kebalikan dari keadaan semula.
+	 */
   public void ToggleOpen() {
     if (open) {
       open = false;
@@ -230,20 +250,22 @@ public class Cell {
     }
   }
 
-  /**
-   * \brief GetPlant
-   * \details Mengembalikan tanaman yang tertanam pada taman
-   * \return jenis tanaman
-   */
+	/**
+	 * Mengembalikan nama tanaman yang tertanam pada taman.
+	 *
+	 * @return plant
+	 */
   public String GetPlant() {
     return plant;
   }
 
-  /**
-   * \brief SetPlant
-   * \details Mengubah tanaman yang tertanam pada taman dengan p
-   * \param p Tanaman yang ingin ditanam
-   */
+	/**
+	 * Mengubah nama tanaman yang tertanam pada taman dengan p.
+	 * I.S.: <code>plant</code> sembarang.
+	 * F.S.: <code>plant</code> telah terganti dengan <code>p</code>.
+	 *
+	 * @param p tanaman yang ingin ditanam
+	 */
   public void SetPlant(String p) {
     plant = p;
   }
