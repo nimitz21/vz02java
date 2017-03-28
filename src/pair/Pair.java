@@ -1,7 +1,8 @@
+/* File  : Pair.java */
 package pair;
 
 /**
- * Class Pair untuk menyimpan pasangan int.
+ * Kelas yang terdiri dari sepasang <code>integer</code>.
  *
  * @author Reinaldo Ignatius Wijaya
  * @version %I%, %G%
@@ -11,7 +12,7 @@ public class Pair {
   public int second;
 
   /**
-   * Ctor tanpa parameter.
+   * Konstruktor tanpa parameter.
    */
   public Pair() {
     first = 0;
@@ -19,10 +20,10 @@ public class Pair {
   }
 
   /**
-   * Ctor dengan parameter.
+   * Konstruktor dengan parameter.
    *
-   * @param _first  int pertama.
-   * @param _second int kedua.
+   * @param _first  <code>integer</code> pertama.
+   * @param _second <code>integer</code> kedua.
    */
   public Pair(int _first, int _second) {
     first = _first;
@@ -30,10 +31,10 @@ public class Pair {
   }
 
   /**
-   * Equals untuk mengecek kesamaan 2 buah Pair.
+   * Mengecek kesamaan 2 buah <code>Pair</code>.
    *
-   * @param pair Pair yang akan dicek kesamaannya.
-   * @return true jika kedua pair sama dan false jika tidak.
+   * @param pair pasangan <code>integer</code> yang akan dicek kesamaannya.
+   * @return <code>true</code> jika kedua <code>Pair</code> sama, <code>false</code> jika tidak.
    */
   public boolean Equals(Pair pair) {
     return first == pair.first && second == pair.second;

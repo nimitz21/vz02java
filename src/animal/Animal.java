@@ -1,3 +1,4 @@
+/* File  : Animal.java */
 package animal;
 
 import java.util.HashSet;
@@ -5,16 +6,47 @@ import java.util.Set;
 
 import pair.Pair;
 
-
 /**
- * Created by asuspc on 3/27/2017.
+ * Kelas yang bertanggung jawab atas terbentuknya
+ * hewan-hewan di dalam <code>Zoo</code>.
+ * Di dalam kelas ini terdapat 26 jenis hewan berbeda
+ * yang mungkin akan dihidupkan dalam <code>Zoo</code>.
+ *
+ * @author Vigor Akbar
+ * @version %I%, %G%
  */
 public class Animal {
+  /**
+   * Identitas dari hewan.
+   * Setiap jenis hewan memiliki <code>id</code> yang unik.
+   */
   private String id;
+
+  /**
+   * Identitas dari instansi hewan untuk membedakan
+   * dengan instansi lain pada jenis yang sama.
+   * Setiap instansi hewan memiliki nomor yang unik
+   * dari hewan lain yang sejenis.
+   */
   private int number;
+
+  /**
+   * Legenda hewan, yaitu simbol yang ditampilkan
+   * pada peta.
+   */
   private char legend;
+
+  /**
+   * Berat badan hewan.
+   */
   private double weight;
+
+  /**
+   * Persentase makanan yang dikonsumsi hewan
+   * terhadap berat badan hewan tersebut.
+   */
   private double eat;
+
   private char type;
   private Pair position = new Pair();
   private HashSet<String> compatible = new HashSet<String>();

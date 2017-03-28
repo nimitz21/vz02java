@@ -1,6 +1,4 @@
 /* File     : Driver.java */
-/* Author     : Andika Kusuma */
-
 package driver;
 
 import java.util.Scanner;
@@ -9,15 +7,14 @@ import zoo.Zoo;
 
 
 /**
- * Class Driver untuk menginisiasi <code>Zoo</code>.
+ * Kelas untuk menginisiasi <code>Zoo</code>.
  *
  * @author Andika Kusuma
  * @version %I%, %G%
  */
-
 public class Driver {
   /**
-   * Constructor
+   * Konstruktor
    */
   public Driver() {
     char option;
