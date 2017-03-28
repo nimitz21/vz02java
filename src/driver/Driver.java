@@ -51,20 +51,20 @@ public class Driver {
           System.out.println("Input koordinat pojok kiri atas:");
           int x1, x2, y1, y2;
           do {
-            System.out.print("x1: ");
+            System.out.print("x1(width): ");
             x1 = scanner.nextInt();
           } while (!(x1 >= 0 && x1 < width));
           do {
-            System.out.print("y1: ");
+            System.out.print("y1(length): ");
             y1 = scanner.nextInt();
           } while (!(y1 >= 0 && y1 < length));
           System.out.println("Input koordinat pojok kiri atas:");
           do {
-            System.out.print("x2: ");
+            System.out.print("x2(width): ");
             x2 = scanner.nextInt();
           } while (!(x2 >= x1 && x2 < width));
           do {
-            System.out.print("y2: ");
+            System.out.print("y2(length): ");
             y2 = scanner.nextInt();
           } while (!(y2 >= y1 && y2 < length));
           z.Display(x1, y1, x2, y2);
