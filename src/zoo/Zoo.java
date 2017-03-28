@@ -127,7 +127,7 @@ public class Zoo {
 				}
 			}
 		}
-		cage_nb = counter - 1;
+		cage_nb = counter;
 		int change = -1;
 		while (change != 0) {
 			change = 0;
@@ -257,10 +257,6 @@ public class Zoo {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-    System.out.println(animals.size());
-    for (i = 0; i < animals.size(); ++i) {
-      System.out.println(animals.get(i).GetId());
-    }
   }
 
   /**
@@ -342,7 +338,7 @@ public class Zoo {
   public int FindAnimal(Pair pos) {
     int i = 0;
     while (i < animals.size()) {
-      if (animals.get(i).GetPos() != pos) {
+      if (!animals.get(i).GetPos().Equals(pos)) {
         ++i;
       } else {
         break;
@@ -790,7 +786,6 @@ public class Zoo {
       bqueue.remove();
       Pair pair = new Pair(i, j);
       if (FindAnimal(pair) != animals.size()) {
-      	System.out.println("test");
         animals.get(FindAnimal(pair)).Interact();
       }
       if (i - 1 >= 0) {
