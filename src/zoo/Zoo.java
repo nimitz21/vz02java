@@ -69,9 +69,6 @@ public class Zoo {
 						boolean cek = true;
 						cage_map[i][j] = counter;
 						Pair[] moveable = new Pair [12];
-						for (int k = 0; k < 12; ++k) {
-							moveable[k] = new Pair();
-						}
 						int ii = 0;
 						int jj = 0;
 						int i_temp = i;
@@ -99,8 +96,7 @@ public class Zoo {
 								}
 								if (dummy) {
 									if (cells[ii][jj].GetSymbol() == c && cage_map[ii][jj] == -99) {
-										moveable[count].first = ii;
-										moveable[count].second = jj;
+										moveable[count] = new Pair(ii, jj);
 										++count;
 									}
 								}
@@ -109,13 +105,17 @@ public class Zoo {
 								cek = false;
 								break;
 							}
-							int move = random.nextInt(count);
+							int move;
+							if (count > 1) {
+								move = random.nextInt(count - 1);
+							} else {
+								move = 0;
+							}
 							i_temp = moveable[move].first;
 							j_temp = moveable[move].second;
 							array_i[times] = i_temp;
 							array_j[times] = j_temp;
-							moveable[move].first = moveable[count-1].first;
-							moveable[move].second = moveable[count-1].second;
+							moveable[move] = new Pair (moveable[count-1].first, moveable[count-1].second);
 							--count;
 							if (times == 2) {
 								++counter;
@@ -138,9 +138,6 @@ public class Zoo {
 				for (int j = 0; j < length; ++j) {
 					if (cage_map[i][j] == -99) {
 						Pair[] moveable = new Pair [4];
-						for (int k = 0; k < 4; ++k) {
-							moveable[k] = new Pair();
-						}
 						int count = 0;
 						int ii = 0;
 						int jj = 0;
@@ -165,14 +162,18 @@ public class Zoo {
 							}
 							if (dummy) {
 								if (cells[ii][jj].GetSymbol() == cells[i][j].GetSymbol() && cage_map[ii][jj] != -99) {
-									moveable[count].first = ii;
-									moveable[count].second = jj;
+									moveable[count] = new Pair(ii, jj);
 									++count;
 								}
 							}
 						}
 						if (count > 0) {
-							int move = random.nextInt(count);
+							int move;
+							if (count > 1) {
+								move = random.nextInt(count - 1);
+							} else {
+								move = 0;
+							}
 							ii = moveable[move].first;
 							jj = moveable[move].second;
 							cage_map[i][j] = cage_map[ii][jj];
@@ -211,9 +212,17 @@ public class Zoo {
 				++i;
 			}
 			CageInit();
+			for (i = 0; i < width; ++i) {
+				for (int j = 0; j < length; ++j) {
+					System.out.print(cage_map[i][j]);
+					System.out.print(" ");
+				}
+				System.out.println();
+			}
 			animals = new ArrayList<Animal>();
 			scanner = new Scanner(new FileInputStream("asset/animals.txt"));
 			while (scanner.hasNext()) {
+				line.delete(0, line.length());
 				line.append(scanner.nextLine());
 				StringBuffer id = new StringBuffer();
 				int px = 0;
@@ -235,25 +244,27 @@ public class Zoo {
 					py = 10 * py + line.charAt(j) - '0';
 					++j;
 				}
-				if (line.charAt(j) == '|') {
-					++j;
-					while (j < line.length()) {
-						if (line.charAt(j) != '.') {
-							weight = 10 * weight + line.charAt(j) - '0';
-						}
+				if (j < line.length()) {
+					if (line.charAt(j) == '|') {
 						++j;
-					}
-					if (j < line.length()) {
-						if (line.charAt(j) == '.') {
-							int multiplier = 1;
-							while (j < line.length()) {
-								multiplier *= 0.1;
-								decimal_weight += multiplier * (line.charAt(j) - '0');
-								++j;
+						while (j < line.length()) {
+							if (line.charAt(j) != '.') {
+								weight = 10 * weight + line.charAt(j) - '0';
+							}
+							++j;
+						}
+						if (j < line.length()) {
+							if (line.charAt(j) == '.') {
+								int multiplier = 1;
+								while (j < line.length()) {
+									multiplier *= 0.1;
+									decimal_weight += multiplier * (line.charAt(j) - '0');
+									++j;
+								}
 							}
 						}
+						weight += decimal_weight;
 					}
-					weight += decimal_weight;
 				}
 				Animal animal;
 				Pair position = new Pair(py, px);
@@ -549,7 +560,7 @@ public class Zoo {
     public void MoveAllAnimal() {
         Random random = new Random();
         for (int i = 0; i < animals.size(); i++) {
-            MoveAnimal(animals.get(i).GetPos(), random.nextInt(4));
+            MoveAnimal(animals.get(i).GetPos(), random.nextInt(4 - 1));
         }
     }
 
@@ -637,7 +648,7 @@ public class Zoo {
             }
         }
         Random random = new Random();
-        int selection = random.nextInt(entrance.size());
+        int selection = random.nextInt(entrance.size() - 1);
         Deque<Pair> dstack;
         dstack = new ArrayDeque<Pair>();
         ArrayList<Integer> route;
@@ -690,7 +701,7 @@ public class Zoo {
                     }
                 }
                 if (choice.size() > 0) {
-                    selection = random.nextInt(choice.size());
+                    selection = random.nextInt(choice.size() - 1);
                     List<Integer> listChoice;
                     listChoice = new ArrayList<Integer>(choice);
                     route.remove(listChoice.get(selection));
