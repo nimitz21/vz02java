@@ -11,7 +11,7 @@ import pair.Pair;
 public class Animal{
     public Animal(String _id,
                   Pair _position
-                  ) {
+    ) {
         id = _id;
         /*
         number = _number;
@@ -20,24 +20,30 @@ public class Animal{
         type = _type;
         */
         position = new Pair(_position.first, _position.second);
-        if(_id.equals("WF")) {
-            wolf_nb++;
-            food = 0.2;
+        if(_id == "WF") {
+            number = ++wolf_nb;
+            eat = 0.2;
+            legend = '1';
             weight = 45;
+            type = 'K';
             compatible.add(new String("WF"));
             compatible.add(new String("ELP"));
             compatible.add(new String("HPP"));
             habitat.add(new Character('L'));
-        } else if (_id.equals("LI")) {
-            lion_nb++;
-            food = 0.5;
+        } else if (_id == "LI") {
+            number = ++lion_nb;
+            eat = 0.5;
+            legend = '2';
             weight = 158;
+            type = 'K';
             compatible.add(new String("LI"));
             habitat.add(new Character('L'));
-        } else if (_id.equals("ZBR")) {
-            zebra_nb++;
-            food = 0.3;
+        } else if (_id == "ZBR") {
+            number = ++zebra_nb;
+            eat = 0.3;
+            legend = '3';
             weight = 226;
+            type = 'H';
             compatible.add(new String("ZBR"));
             compatible.add(new String("ELP"));
             compatible.add(new String("MCQ"));
@@ -48,10 +54,12 @@ public class Animal{
             compatible.add(new String("CLG"));
             compatible.add(new String("SGL"));
             habitat.add(new Character('L'));
-        } else if (_id.equals("ELP")) {
-            elephant_nb++;
-            food = 0.7;
+        } else if (_id == "ELP") {
+            number = ++elephant_nb;
+            eat = 0.7;
+            legend = '4';
             weight = 5000;
+            type = 'H';
             habitat.add(new Character('L'));
             compatible.add(new String("WF"));
             compatible.add(new String("ZBR"));
@@ -60,10 +68,12 @@ public class Animal{
             compatible.add(new String("HG"));
             compatible.add(new String("PNG"));
             compatible.add(new String("HPP"));
-        } else if (_id.equals("MCQ")) {
-            macaque_nb++;
-            food=0.2;
+        } else if (_id == "MCQ") {
+            number = ++macaque_nb;
+            eat=0.2;
+            legend = '5';
             weight = 9;
+            type = 'O';
             habitat.add(new Character('L'));
             compatible.add(new String("ZBR"));
             compatible.add(new String("ELP"));
@@ -73,27 +83,33 @@ public class Animal{
             compatible.add(new String("DRL"));
             compatible.add(new String("CLG"));
             compatible.add(new String("SGL"));
-        } else if (_id.equals("HG")) {
-            hog_nb++;
-            food = 0.2;
+        } else if (_id == "HG") {
+            number = ++hog_nb;
+            eat = 0.2;
+            legend = '6';
             weight = 68;
+            type = 'O';
             habitat.add(new Character('L'));
             compatible.add(new String("ZBR"));
             compatible.add(new String("ELP"));
             compatible.add(new String("MCQ"));
             compatible.add(new String("HG"));
             compatible.add(new String("HPP"));
-        } else if (_id.equals("SHK")) {
-            shark_nb++;
-            food = 0.2;
+        } else if (_id == "SHK") {
+            number = ++shark_nb;
+            eat = 0.2;
+            legend = '7';
             weight = 771;
+            type = 'K';
             habitat.add(new Character('W'));
             compatible.add(new String("SHK"));
             compatible.add(new String("WHL"));
-        } else if (_id.equals("MRE")) {
-            moray_eel_nb++;
-            food = 0.2;
+        } else if (_id == "MRE") {
+            number = ++moray_eel_nb;
+            eat = 0.2;
+            legend = '8';
             weight = 13;
+            type = 'K';
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -101,10 +117,12 @@ public class Animal{
             compatible.add(new String("DLP"));
             compatible.add(new String("WHL"));
             compatible.add(new String("HPP"));
-        } else if (_id.equals("DGG")) {
-            dugong_nb++;
-            food = 0.2;
+        } else if (_id == "DGG") {
+            number = ++dugong_nb;
+            eat = 0.2;
+            legend = '9';
             weight = 294;
+            type = 'H';
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -116,10 +134,12 @@ public class Animal{
             compatible.add(new String("PLC"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("TRL")) {
-            turtle_nb++;
-            food = 0.05;
+        } else if (_id == "TRL") {
+            number = ++turtle_nb;
+            eat = 0.05;
+            legend = '0';
             weight = 453;
+            type = 'H';
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -130,10 +150,12 @@ public class Animal{
             compatible.add(new String("HPP"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("DLP")) {
-            dolphin_nb++;
-            food = 0.2;
+        } else if (_id == "DLP") {
+            number = ++dolphin_nb;
+            eat = 0.2;
+            legend = '!';
             weight = 220;
+            type = 'K';
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -145,10 +167,12 @@ public class Animal{
             compatible.add(new String("PLC"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("WHL")) {
-            whale_nb++;
-            food = 0.1;
+        } else if (_id == "WHL") {
+            number = ++whale_nb;
+            eat = 0.1;
+            legend = '@';
             weight = 40000;
+            type = 'O';
             habitat.add(new Character('W'));
             compatible.add(new String("SHK"));
             compatible.add(new String("MRE"));
@@ -161,27 +185,33 @@ public class Animal{
             compatible.add(new String("PLC"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("EGL")) {
-            eagle_nb++;
-            food = 0.7;
+        } else if (_id == "EGL") {
+            number = ++eagle_nb;
+            eat = 0.7;
+            legend = '#';
             weight = 4;
+            type = 'K';
             habitat.add(new Character('A'));
             compatible.add(new String("EGL"));
             compatible.add(new String("OW"));
             compatible.add(new String("PLC"));
-        } else if (_id.equals("OW")) {
-            owl_nb++;
-            food = 0.3;
+        } else if (_id == "OW") {
+            number = ++owl_nb;
+            eat = 0.3;
+            legend = '$';
             weight = 2;
+            type = 'K';
             habitat.add(new Character('A'));
             compatible.add(new String("EGL"));
             compatible.add(new String("OW"));
             compatible.add(new String("PLC"));
             compatible.add(new String("DRL"));
-        } else if (_id.equals("HMB")) {
-            hummingbird_nb++;
-            food = 0.3;
+        } else if (_id == "HMB") {
+            number = ++hummingbird_nb;
+            eat = 0.3;
+            legend = '%';
             weight = 0.0002;
+            type = 'H';
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -192,10 +222,12 @@ public class Animal{
             compatible.add(new String("CRN"));
             compatible.add(new String("CLG"));
             compatible.add(new String("SGL"));
-        } else if (_id.equals("CKT")) {
-            cockatoo_nb++;
-            food = 0.3;
+        } else if (_id == "CKT") {
+            number = ++cockatoo_nb;
+            eat = 0.3;
+            legend = '^';
             weight = 0.09;
+            type = 'H';
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -205,10 +237,12 @@ public class Animal{
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
             compatible.add(new String("CLG"));
-        } else if (_id.equals("RBN")) {
-            robin_nb++;
-            food = 0.3;
+        } else if (_id == "RBN") {
+            number = ++robin_nb;
+            eat = 0.3;
+            legend = '&';
             weight = 0.06;
+            type = 'O';
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -219,10 +253,12 @@ public class Animal{
             compatible.add(new String("CRN"));
             compatible.add(new String("CLG"));
             compatible.add(new String("DRL"));
-        } else if (_id.equals("BT")) {
-            bat_nb++;
-            food = 0.4;
+        } else if (_id == "BT") {
+            number = ++bat_nb;
+            eat = 0.4;
+            legend = '*';
             weight = 0.15;
+            type = 'O';
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -231,10 +267,12 @@ public class Animal{
             compatible.add(new String("PLC"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("PNG")) {
-            penguin_nb++;
-            food = 0.25;
+        } else if (_id == "PNG") {
+            number = ++penguin_nb;
+            eat = 0.25;
+            legend = '(';
             weight = 22;
+            type = 'K';
             habitat.add(new Character('L'));
             habitat.add(new Character('W'));
             compatible.add(new String("ZBR"));
@@ -251,10 +289,12 @@ public class Animal{
             compatible.add(new String("PLC"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("HPP")) {
-            hippopotamus_nb++;
-            food = 0.65;
+        } else if (_id == "HPP") {
+            number = ++hippopotamus_nb;
+            eat = 0.65;
+            legend = ')';
             weight = 1496;
+            type = 'H';
             habitat.add(new Character('L'));
             habitat.add(new Character('W'));
             compatible.add(new String("WF"));
@@ -273,10 +313,12 @@ public class Animal{
             compatible.add(new String("PLC"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("PLC")) {
-            pelican_nb++;
-            food = 0.3;
+        } else if (_id == "PLC") {
+            number = ++pelican_nb;
+            eat = 0.3;
+            legend = '`';
             weight = 7;
+            type = 'K';
             habitat.add(new Character('W'));
             habitat.add(new Character('A'));
             compatible.add(new String("MRE"));
@@ -296,10 +338,12 @@ public class Animal{
             compatible.add(new String("BT"));
             compatible.add(new String("CLG"));
             compatible.add(new String("SGL"));
-        } else if (_id.equals("GSE")) {
-            goose_nb++;
-            food = 0.3;
+        } else if (_id == "GSE") {
+            number = ++goose_nb;
+            eat = 0.3;
+            legend = '+';
             weight = 4;
+            type = 'H';
             habitat.add(new Character('W'));
             habitat.add(new Character('A'));
             compatible.add(new String("MRE"));
@@ -318,10 +362,12 @@ public class Animal{
             compatible.add(new String("BT"));
             compatible.add(new String("CLG"));
             compatible.add(new String("SGL"));
-        } else if (_id.equals("CRN")) {
-            crane_nb++;
-            food = 0.3;
+        } else if (_id == "CRN") {
+            number = ++crane_nb;
+            eat = 0.3;
+            legend = '-';
             weight = 3;
+            type = 'O';
             habitat.add(new Character('W'));
             habitat.add(new Character('A'));
             compatible.add(new String("MRE"));
@@ -341,10 +387,12 @@ public class Animal{
             compatible.add(new String("DRL"));
             compatible.add(new String("CLG"));
             compatible.add(new String("SGL"));
-        } else if (_id.equals("DRL")) {
-            draco_lizard_nb++;
-            food = 0.2;
+        } else if (_id == "DRL") {
+            number = ++draco_lizard_nb;
+            eat = 0.2;
+            legend = '=';
             weight = 0.2;
+            type = 'K';
             habitat.add(new Character('L'));
             habitat.add(new Character('A'));
             compatible.add(new String("ZBR"));
@@ -358,10 +406,12 @@ public class Animal{
             compatible.add(new String("RBN"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("CLG")) {
-            colugo_nb++;
-            food = 0.25;
+        } else if (_id == "CLG") {
+            number = ++colugo_nb;
+            eat = 0.25;
+            legend = '<';
             weight = 0.035;
+            type = 'H';
             habitat.add(new Character('L'));
             habitat.add(new Character('A'));
             compatible.add(new String("ZBR"));
@@ -377,10 +427,12 @@ public class Animal{
             compatible.add(new String("RBN"));
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
-        } else if (_id.equals("SGL")) {
-            sugar_glider_nb++;
-            food = 0.5;
+        } else if (_id == "SGL") {
+            numebr = ++sugar_glider_nb;
+            eat = 0.5;
+            legend = '>';
             weight = 0.12;
+            type = 'O';
             habitat.add(new Character('L'));
             habitat.add(new Character('A'));
             compatible.add(new String("ZBR"));
@@ -395,8 +447,8 @@ public class Animal{
             compatible.add(new String("CRN"));
         }
         else{
-        	food = 0.1;
-				}
+            eat = 0.1;
+        }
     }
     public Animal(String _id,
                   double _weight,
@@ -411,11 +463,10 @@ public class Animal{
 				weight = _weight;
 				position = new Pair(_position.first, _position.second);
         if(_id.equals("WF")) {
-        		number = ++wolf_nb; // ini jadi gini
-        		legend = '1'; // ini juga
-        		eat = 0.2; // ini diambil dari wolf.cpp yang dlu diliat isinya berapa
-						type = 'K'; // ini juga diliat
-            food = 0.2;
+        	number = ++wolf_nb; // ini jadi gini
+        	legend = '1'; // ini juga
+            type = 'K'; // ini juga diliat
+            eat = 0.2;
             compatible.add(new String("WF"));
             compatible.add(new String("ELP"));
             compatible.add(new String("HPP"));
@@ -425,15 +476,13 @@ public class Animal{
             legend = '2';
             eat = 0.5;
             type = 'K';
-            food = 0.5;
             compatible.add(new String("LI"));
             habitat.add(new Character('L'));
         } else if (_id.equals("ZBR")) {
             number = ++zebra_nb;
             legend = '3';
-            eat = 0.3;
             type = 'H';
-            food = 0.3;
+            eat = 0.3;
             compatible.add(new String("ZBR"));
             compatible.add(new String("ELP"));
             compatible.add(new String("MCQ"));
@@ -449,7 +498,6 @@ public class Animal{
             legend = '4';
             eat = 0.7;
             type = 'H';
-            food = 0.7;
             habitat.add(new Character('L'));
             compatible.add(new String("WF"));
             compatible.add(new String("ZBR"));
@@ -463,7 +511,6 @@ public class Animal{
             legend = '5';
             eat = 0.2;
             type = 'O';
-            food=0.2;
             habitat.add(new Character('L'));
             compatible.add(new String("ZBR"));
             compatible.add(new String("ELP"));
@@ -478,7 +525,6 @@ public class Animal{
             legend = '6';
             eat = 0.2;
             type = 'O';
-            food = 0.2;
             habitat.add(new Character('L'));
             compatible.add(new String("ZBR"));
             compatible.add(new String("ELP"));
@@ -490,7 +536,6 @@ public class Animal{
             legend = '7';
             eat = 0.2;
             type = 'K';
-            food = 0.2;
             habitat.add(new Character('W'));
             compatible.add(new String("SHK"));
             compatible.add(new String("WHL"));
@@ -499,7 +544,6 @@ public class Animal{
             legend = '8';
             eat = 0.2;
             type = 'K';
-            food = 0.2;
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -512,7 +556,6 @@ public class Animal{
             legend = '9';
             eat = 0.2;
             type = 'H';
-            food = 0.2;
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -529,7 +572,6 @@ public class Animal{
             legend = '0';
             eat = 0.05;
             type = 'H';
-            food = 0.05;
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -545,7 +587,6 @@ public class Animal{
             legend = '!';
             eat = 0.2;
             type = 'K';
-            food = 0.2;
             habitat.add(new Character('W'));
             compatible.add(new String("MRE"));
             compatible.add(new String("DGG"));
@@ -562,7 +603,6 @@ public class Animal{
             legend = '@';
             eat = 0.1;
             type = 'O';
-            food = 0.1;
             habitat.add(new Character('W'));
             compatible.add(new String("SHK"));
             compatible.add(new String("MRE"));
@@ -580,7 +620,6 @@ public class Animal{
             legend = '#';
             eat = 0.7;
             type = 'K';
-            food = 0.7;
             habitat.add(new Character('A'));
             compatible.add(new String("EGL"));
             compatible.add(new String("OW"));
@@ -590,7 +629,6 @@ public class Animal{
             legend = '$';
             eat = 0.3;
             type = 'K';
-            food = 0.3;
             habitat.add(new Character('A'));
             compatible.add(new String("EGL"));
             compatible.add(new String("OW"));
@@ -601,7 +639,6 @@ public class Animal{
             legend = '%';
             eat = 0.3;
             type = 'H';
-            food = 0.3;
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -615,9 +652,8 @@ public class Animal{
         } else if (_id.equals("CKT")) {
             number = ++cockatoo_nb;
             legend = '^';
-            eat = 0.3;
             type = 'H';
-            food = 0.3;
+            eat = 0.3;
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -632,7 +668,6 @@ public class Animal{
             legend = '&';
             eat = 0.3;
             type = 'O';
-            food = 0.3;
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -648,7 +683,6 @@ public class Animal{
             legend = '*';
             eat = 0.4;
             type = 'O';
-            food = 0.4;
             habitat.add(new Character('A'));
             compatible.add(new String("HMB"));
             compatible.add(new String("CKT"));
@@ -662,7 +696,6 @@ public class Animal{
             legend = '(';
             eat = 0.25;
             type = 'K';
-            food = 0.25;
             habitat.add(new Character('L'));
             habitat.add(new Character('W'));
             compatible.add(new String("ZBR"));
@@ -684,7 +717,6 @@ public class Animal{
             legend = ')';
             eat = 0.65;
             type = 'H';
-            food = 0.65;
             habitat.add(new Character('L'));
             habitat.add(new Character('W'));
             compatible.add(new String("WF"));
@@ -708,7 +740,6 @@ public class Animal{
             legend = '`';
             eat = 0.3;
             type = 'K';
-            food = 0.3;
             habitat.add(new Character('W'));
             habitat.add(new Character('A'));
             compatible.add(new String("MRE"));
@@ -733,7 +764,6 @@ public class Animal{
             legend = '+';
             eat = 0.3;
             type = 'H';
-            food = 0.3;
             habitat.add(new Character('W'));
             habitat.add(new Character('A'));
             compatible.add(new String("MRE"));
@@ -757,7 +787,6 @@ public class Animal{
             legend = '-';
             eat = 0.3;
             type = 'O';
-            food = 0.3;
             habitat.add(new Character('W'));
             habitat.add(new Character('A'));
             compatible.add(new String("MRE"));
@@ -782,7 +811,6 @@ public class Animal{
             legend = '=';
             eat = 0.2;
             type = 'K';
-            food = 0.2;
             habitat.add(new Character('L'));
             habitat.add(new Character('A'));
             compatible.add(new String("ZBR"));
@@ -801,7 +829,6 @@ public class Animal{
             legend = '<';
             eat = 0.25;
             type = 'H';
-            food = 0.25;
             habitat.add(new Character('L'));
             habitat.add(new Character('A'));
             compatible.add(new String("ZBR"));
@@ -822,7 +849,6 @@ public class Animal{
             legend = '>';
             eat = 0.5;
             type = 'O';
-            food = 0.5;
             habitat.add(new Character('L'));
             habitat.add(new Character('A'));
             compatible.add(new String("ZBR"));
@@ -837,7 +863,7 @@ public class Animal{
             compatible.add(new String("CRN"));
         }
         else{
-        	food = 0.1;
+        	eat = 0.1;
 				}
     }
     public final String GetId(){
@@ -1032,7 +1058,6 @@ public class Animal{
     private Pair position = new Pair();
     private HashSet<String> compatible = new HashSet<String>();
     private HashSet<Character> habitat = new HashSet<Character>();
-    private double food = 0;
     private static int bat_nb;
     private static int cockatoo_nb;
     private static int colugo_nb;
