@@ -272,10 +272,10 @@ public class Zoo {
     Scanner scanner = new Scanner(System.in);
     StringBuffer line = new StringBuffer(length + 1);
     for (int i = 0; i < width; ++i) {
+    	line.delete(0, line.length());
       line.append(scanner.nextLine());
       for (int j = 0; j < length; ++j) {
-        cells[i][j].SetInitSymbol(line.charAt(j));
-        cells[i][j].SetSymbol(line.charAt(j));
+        cells[i][j] = new Cell(line.charAt(j));
       }
     }
     CageInit();
