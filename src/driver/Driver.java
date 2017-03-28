@@ -65,7 +65,7 @@ public class Driver {
                     break;
                 default :
             }
-            //z->MoveAllAnimal();
+            z.MoveAllAnimal();
         } while (option != '5');
     }
 }
