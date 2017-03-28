@@ -53,7 +53,7 @@ public class Zoo {
       }
     }
     int counter = 1;
-    Random random = new Random();
+    Random random = new Random(System.currentTimeMillis());
     for (int i = 0; i < width; ++i) {
       for (int j = 0; j < length; ++j) {
         if (cage_map[i][j] == -99) {
@@ -522,7 +522,7 @@ public class Zoo {
           if (FindAnimal(finalPos) == animals.size()) {
             animals.get(idx).Move(direction);
             cells[pos.first][pos.second].
-                    SetSymbol((cells[pos.first][pos.second].GetInitSymbol()));
+                    SetSymbol(((cells[pos.first][pos.second].GetInitSymbol())).charValue());
             cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
                     SetSymbol((animals.get(idx).GetLegend()));
           }
@@ -553,7 +553,7 @@ public class Zoo {
    * \details Menggerakkan semua hewan secara acak
    */
   public void MoveAllAnimal() {
-    Random random = new Random();
+    Random random = new Random(System.currentTimeMillis());
     for (int i = 0; i < animals.size(); i++) {
       MoveAnimal(animals.get(i).GetPos(), random.nextInt(4));
     }
@@ -642,7 +642,7 @@ public class Zoo {
         vis[i][j] = false;
       }
     }
-    Random random = new Random();
+    Random random = new Random(System.currentTimeMillis());
     int selection = random.nextInt(entrance.size() - 1);
     Stack<Pair> dstack = new Stack<Pair>();
     ArrayList<Integer> route = new ArrayList<Integer>();
