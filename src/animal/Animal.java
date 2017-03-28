@@ -700,18 +700,12 @@ public class Animal {
    */
   public Animal(String _id, double _weight, Pair _position) {
     id = _id;
-        /*
-        number = _number;
-        legend = _legend;
-        eat = _eat;
-        type = _type;
-        */
     weight = _weight;
     position = new Pair(_position.first, _position.second);
     if (_id.equals("WF")) {
-      number = ++wolf_nb; // ini jadi gini
-      legend = '1'; // ini juga
-      type = 'K'; // ini juga diliat
+      number = ++wolf_nb;
+      legend = '1';
+      type = 'K';
       eat = 0.2;
       compatible.add(new String("WF"));
       compatible.add(new String("ELP"));
@@ -1112,51 +1106,118 @@ public class Animal {
     }
   }
 
+  /**
+   * Mengembalikan identitas jenis hewan tersebut
+   *
+   * @return id
+   */
   public final String GetId() {
     return id;
   }
 
+  /**
+   * Mengembalikan identitas nomor hewan tersebut.
+   *
+   * @return number
+   */
   public final int GetNumber() {
     return number;
   }
 
+  /**
+   * Mengembalikan berat badan hewan tersebut.
+   *
+   * @return weight
+   */
   public final double GetWeight() {
     return weight;
   }
 
+  /**
+   * Mengembalikan persentase makanan hewan tersebut.
+   *
+   * @return eat
+   */
   public final double GetEat() {
     return eat;
   }
 
+  /**
+   * Mengembalikan posisi hewan tersebut.
+   *
+   * @return position
+   */
   public final Pair GetPos() {
     return position;
   }
 
+  /**
+   * Mengembalikan tipe hewan tersebut berdasarkan
+   * jenis makanannya.
+   *
+   * @return type
+   */
   public final char GetType() {
     return type;
   }
 
+  /**
+   * Mengembalikan legenda hewan tersebut.
+   *
+   * @return legend
+   */
   public final char GetLegend() {
     return legend;
   }
 
+  /**
+   * Mengembalikan daftar habitat yang dapat
+   * ditinggali hewan tersebut.
+   *
+   * @return habitat
+   */
   public final HashSet<Character> GetHabitat() {
     return habitat;
   }
 
+  /**
+   * Mengubah berat badan hewan menjadi <code>_weight</code>.
+   * I.S.: <code>weight</code> sembarang.
+   * F.S.: <code>weight</code> telah terganti dengan <code>_weight</code>.
+   *
+   * @param _weight berat badan baru hewan
+   */
   public void SetWeight(double _weight) {
     weight = _weight;
   }
 
+  /**
+   * Mengubah posisi hewan menjadi <code>_position</code>.
+   * I.S.: <code>position</code> sembarang.
+   * F.S.: <code>position</code> telah terganti dengan <code>_position</code>.
+   *
+   * @param _position berat badan baru hewan
+   */
   public void SetPos(Pair _position) {
     position.first = _position.first;
     position.second = _position.second;
   }
 
+  /**
+   * Mengembalikan daftar hewan yang aman diletakkan
+   * pada kandang yang sama dengan hewan tersebut.
+   *
+   * @return compatible
+   */
   public final Set<String> GetCompatible() {
     return compatible;
   }
 
+  /**
+   * Mencetak kelakuan hewan tersebut ke layar.
+   * I.S.: sembarang.
+   * F.S.: pada layar tercetak apa yang dilakukan hewan.
+   */
   public final void Act() {
     System.out.print(id + "-");
     if (number < 10) {
@@ -1218,11 +1279,17 @@ public class Animal {
     }
   }
 
+  /**
+   * Mencetak deskripsi dan kelakuan hewan pada layar.
+   * I.S.: sembarang.
+   * F.S.: pada layar tercetak hasil interaksi
+   * dengan hewan (deskripsi dan kelakuan).
+   */
   public final void Interact() {
     if (id.equals("WF")) {
       Desription("wolf");
     } else if (id.equals("LI")) {
-      Desription("lioin");
+      Desription("lion");
     } else if (id.equals("ZBR")) {
       Desription("zebra");
     } else if (id.equals("ELP")) {
@@ -1275,6 +1342,11 @@ public class Animal {
     Act();
   }
 
+  /**
+   * Mencetak deskripsi hewan tersebut ke layar.
+   * I.S.: sembarang.
+   * F.S.: pada layar tercetak deskripsi mengenai hewan tersebut.
+   */
   public final void Desription(String a) {
     System.out.print("This is a(n) " + a + " called " + id + "-");
     if (number < 10) {
@@ -1292,6 +1364,13 @@ public class Animal {
     System.out.println();
   }
 
+  /**
+   * Menggerakkan hewan dengan arah sesuai <code>direction</code>.
+   * I.S.: <code>direction</code> haruslah merupakan arah yang dapat dikunjungi hewan.
+   * F.S.: hewan telah bergerak sesuai <code>direction</code>.
+   *
+   * @param direction arah yang ingin dituju (0 ke atas, 1 ke kiri, 2 ke kanan, 3 ke bawah)
+   */
   public void Move(int direction) {
     switch (direction) {
       case 0:
