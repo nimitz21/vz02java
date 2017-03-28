@@ -116,6 +116,7 @@ public class Zoo {
 							array_i[times] = i_temp;
 							array_j[times] = j_temp;
 							moveable[move] = new Pair (moveable[count-1].first, moveable[count-1].second);
+							cage_map[i_temp][j_temp] = counter;
 							--count;
 							if (times == 2) {
 								++counter;
