@@ -520,9 +520,9 @@ public class Zoo {
           Pair finalPos;
           finalPos = new Pair(i, j);
           if (FindAnimal(finalPos) == animals.size()) {
-            animals.get(idx).Move(direction);
-            cells[pos.first][pos.second].
+            cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
                     SetSymbol(((cells[pos.first][pos.second].GetInitSymbol())).charValue());
+            animals.get(idx).Move(direction);
             cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
                     SetSymbol((animals.get(idx).GetLegend()));
           }
