@@ -13,12 +13,6 @@ public class Animal{
                   Pair _position
     ) {
         id = _id;
-        /*
-        number = _number;
-        legend = _legend;
-        eat = _eat;
-        type = _type;
-        */
         position = new Pair(_position.first, _position.second);
         if(_id.equals("WF")) {
             number = ++wolf_nb;
