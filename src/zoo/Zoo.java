@@ -12,46 +12,51 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
- * Kelas yang berisi kebun binatang itu sendiri beserta hewan-hewannya
+ * Kelas yang berisi kebun binatang itu sendiri beserta hewan-hewannya.
  *
- * @author Andikas Kusuma & Reinaldo Ignatius Wijaya
+ * @author Andikas Kusuma
+ * @author Reinaldo Ignatius Wijaya
  * @version %I%, %G%
  */
 public class Zoo {
 	/**
-	 * dimensi <code>Zoo</code>jumlah baris
+	 * Dimensi <code>Zoo</code>jumlah baris.
 	 */
   private int width;
 
 	/**
-	 * dimensi <code>Zoo</code> jumlah kolom
+	 * Dimensi <code>Zoo</code> jumlah kolom.
 	 */
   private int length;
 
 	/**
-	 * matriks <code>Cell</code> yang dimiliki <code>Zoo</code>
+	 * Matriks <code>Cell</code> yang dimiliki <code>Zoo</code>.
 	 */
   private Cell[][] cells;
 
 	/**
-	 * daftar <code>Animal</code> yang ada dalam <code>Zoo</code>
+	 * Daftar <code>Animal</code> yang ada dalam <code>Zoo</code>.
 	 */
   private ArrayList<Animal> animals;
 
 	/**
-	 * matriks penanda nomor cage dalam <code>Zoo</code>
+	 * Matriks penanda nomor cage dalam <code>Zoo</code>.
 	 */
   private int[][] cage_map;
 
 	/**
-	 *  jumlah cage yang ada dalam zoo
+	 * Jumlah cage yang ada dalam kebun binatang.
 	 */
   private int cage_nb;
 
 	/**
-	 * CageInit
-	 * I.S: <code>cage_map</code> tidak terdefenisi
-	 * F.S: <code>cage_map</code> terdefenisi
+	 * Melakukan penciptaan kandang-kandang dalam <code>Zoo</code>
+	 * dengan mengelompokkan sel-sel habitat yang sama
+   * menjadi suatu kandang. Minimal ada 4 sel di dalam
+   * sebuah kandang. Proses akan terus di-loop hingga semua
+   * sel habitat masuk ke dalam kandang.
+   * I.S: <code>cage_map</code> tidak terdefenisi.
+	 * F.S: tercipta kandang-kandang yand direpresentasikan sebagai <code>cage_map</code>.
 	 */
 	private void CageInit() {
 		cage_map = new int[width][length];
@@ -186,8 +191,8 @@ public class Zoo {
 	}
 
   /**
-   * Constructor tanpa parameter
-   * Mengenerate kebun binatang dari file eksternal
+   * Konstruktor tanpa parameter.
+   * Men-generate kebun binatang dari file eksternal.
    */
   public Zoo() {
     width = 33;
@@ -268,8 +273,8 @@ public class Zoo {
   }
 
   /**
-   * Constructor dengan parameter
-   * Mengenerate kebun binatang dengan input dari user
+   * Konstruktor dengan parameter.
+   * Men-generate kebun binatang dengan input dari user.
    *
    * @param _width lebar kebun binatang
    * @param _length panjang kebun binatang
@@ -327,9 +332,15 @@ public class Zoo {
   }
 
   /**
-   * Display
-   * I.S: <code>cells</code> terdefenisi
-   * F.S: <code>cells</code> tercetak di layar
+   * Menampilkan kebun binatang virtual ke layar dengan
+   * batasan koordinat yang dijadikan parameter.
+   * I.S: <code>cells</code> terdefenisi.
+   * F.S: <code>cells</code> tercetak di layar.
+   *
+   * @param x1 kolom awal yang ingin ditampilkan
+   * @param y1 baris awal yang ingin ditampilkan
+   * @param x2 kolom akhir yang ingin ditampilkan
+   * @param y2 baris akhir yang ingin ditampilkan
    */
   public void Display(int x1, int y1, int x2, int y2) {
     for (int i = x1; i <= x2; ++i) {
@@ -341,8 +352,8 @@ public class Zoo {
   }
 
   /**
-   * FindAnimal
-   * Mengembalikan iterator hewan yang berada di pos
+   * Mengembalikan iterator hewan yang berada di <code>pos</code>.
+   * Iterator ini berguna untuk mengambil nilai pada <code>set</code>.
    *
    * @param pos posisi Animal yang akan dicari di list
    * @return int untuk indeks arraylist animals
@@ -360,9 +371,11 @@ public class Zoo {
   }
 
   /**
-   * AddAnimal
-   * I.S: animal terdefenisi
-   * F.S: animal ditambahkan ke kebun binatang jika memenuhi syarat
+   * Menambahkan <code>animal</code> ke dalam kebun binatang.
+   * I.S: <code>animal</code> terdefenisi.
+   * F.S: <code>animal</code> ditambahkan ke kebun binatang jika memenuhi syarat,
+   * yaitu kompatibel dengan hewan lain di kandang itu, habitatnya sesuai,
+   * dan kandang belum penuh.
    *
    * @param animal hewan yang akan ditambahkan
    */
@@ -406,9 +419,9 @@ public class Zoo {
   }
 
   /**
-   * DelAnimal dengan id
-   * I.S: sembarang
-   * F.S: <code>Animal</code> dengan id=_id dan number=_number dihapus jika ada
+   * Menghapus hewan yang memiliki kode identifikasi tertentu.
+   * I.S: sembarang.
+   * F.S: <code>Animal</code> dengan id=_id dan number=_number dihapus jika ada.
    *
    * @param _id id jenis hewan
    * @param _number nomor pada jenis hewan tersebut
@@ -427,9 +440,9 @@ public class Zoo {
   }
 
   /**
-   * DelAnimal dengan posisi
-   * I.S: sembarang
-   * F.S: <code>Animal</code> pada posisi x y
+   * Menghapus hewan yang terletak pada posisi yang diinginkan.
+   * I.S: sembarang.
+   * F.S: <code>Animal</code> pada posisi <code>x</code>, <code>y</code>.
    *
    * @param x posisi pada width
    * @param y posisi pada length
@@ -444,10 +457,10 @@ public class Zoo {
   }
 
   /**
-   * GetTotalMeat
-   * Mengeluarkan total daging yang diperlukan di <code>Zoo</code> dalam kilogram
+   * Mengembalikan total daging yang diperlukan di
+   * <code>Zoo</code> dalam kilogram.
    *
-   * @return float Total daging yang dibutuhkan <code>Zoo</code>
+   * @return float total daging yang dibutuhkan <code>Zoo</code>
    */
   public float GetTotalMeat() {
     float sum = 0;
@@ -462,10 +475,10 @@ public class Zoo {
   }
 
   /**
-   * GetTotalVegetables
-   * Mengeluarkan total sayur yang diperlukan di <code>Zoo</code> dalam kilogram
+   * Mengembalikan total sayur yang diperlukan di
+   * <code>Zoo</code> dalam kilogram
    *
-   * @return float Total sayur yang dibutuhkan <code>Zoo</code>
+   * @return float total sayur yang dibutuhkan <code>Zoo</code>
    */
   public float GetTotalVegetables() {
     float sum = 0;
@@ -480,10 +493,10 @@ public class Zoo {
   }
 
   /**
-   * MoveAnimal dengan posisi
-   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
+   * Menggerakkan hewan yang berada pada posisi tertentu.
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi.
    * F.S: <code>Animals</code> dengan <code>id</code>=<code>_id</code> dan
-   *      <code>number</code>=<code>_number</code> digerakkan ke arah <code>direction</code> jika ada
+   *      <code>number</code>=<code>_number</code> digerakkan ke arah <code>direction</code> jika ada.
    *
    * @param pos posisi hewan
    * @param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
@@ -536,11 +549,11 @@ public class Zoo {
   }
 
   /**
-   * MoveAnimal dengan id
-   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
+   * Menggerakkan hewan yang memiliki kode identifikasi tertentu.
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi.
    * F.S: <code>Animal</code> dengan <code>id</code>=<code>_id</code> dan <code>number</code>=<code>_number</code>
    *      digerakkan ke arah sesuai <code>direction</code> sebanyak 1 langkah jika memungkinkan (tidak melewati
-   *      <code>sekat</code>)
+   *      <code>sekat</code>).
    *
    * @param _id jenis hewan
    * @param _number no number pada jenis hewan
@@ -557,9 +570,9 @@ public class Zoo {
   }
 
   /**
-   * MoveAllAnimal
-   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
-   * F.S: Semua hewan bergerak secara acak jika memungkinkan
+   * Menggerakkan semua hewan yang ada dalam kebun binatang secara acak.
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi.
+   * F.S: Semua hewan bergerak secara acak jika memungkinkan.
    */
   public void MoveAllAnimal() {
     Random random = new Random();
@@ -569,10 +582,10 @@ public class Zoo {
   }
 
   /**
-   * ToggleSekat
-   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi
+   * Mengubah keadaan sekat menjadi kebalikan dari keadaan semula.
+   * I.S: <code>cells</code> dan <code>cage_map</code> terdefenisi.
    * F.S: <code>Sekat</code> pada posisi i,j ke arah direction dibuka/ditutup jika memungkinkan (tidak membuka ke luar
-   *      cage)
+   *      cage).
    *
    * @param i posisi pada width
    * @param j posisi pada length
@@ -621,9 +634,10 @@ public class Zoo {
   }
 
   /**
-   * ToggleAllSekat
-   * I.S: <code>cells</code> terdefenisi
-   * F.S: Semua <Code>Sekat</Code> terbuka/tertutup jika memungkinkan
+   * Mengubah keadaan semua sekat dalam kebun binatang sehingga menjadi
+   * kebalikan dari keadaan semula.
+   * I.S: <code>cells</code> terdefenisi.
+   * F.S: Semua <Code>Sekat</Code> terbuka/tertutup jika memungkinkan.
    */
   public void ToggleAllSekat() {
     for (int i = 0; i < width; ++i) {
@@ -636,12 +650,14 @@ public class Zoo {
   }
 
   /**
-   * Tour
-   * I.S: <code>cage_map</code> terdefenisi
-   * F.S: Melakukan tour pada kebun binatang
-   * Jalur tour akan dipilih secara acak
-   * Settiap <code>Cell</code> yang ada di samping road yang dilalui akan diinteract.
-   * Suatu <code>Cell</code> adalah bagian dari suatu cage, maka semua binatang pada cage tersebut akan diinteract
+   * Melakukan tur di dalam kebun binatang virtual.
+   * Jalur tur akan dipilih secara acak.
+   * Setiap <code>Cell</code> yang berada di samping road
+   * yang dilalui akan diajak berinteraksi.
+   * Suatu <code>Cell</code> adalah bagian dari suatu cage,
+   * maka semua binatang pada cage tersebut akan diajak berinteraksi.
+   * I.S: <code>cage_map</code> terdefenisi.
+   * F.S: Tercetak interaksi-interaksi selama melakukan tur.
    */
   public void Tour() {
       Set<Pair> entrance;
@@ -799,10 +815,11 @@ public class Zoo {
   }
 
   /**
-   * InteractCage
-   * I.S: <code>cage_map</code> terdefenisi
-   * F.S: Melakukan interaksi dengan semua hewan yang ada di cage yang sama. Cage memiliki posisi
-   *      <code>pos</code> dan nomor <code>cage_number</code>
+   * Melakukan interaksi dengan semua hewan yang ada di cage yang sama.
+   * Cage memiliki posisi <code>pos</code> dan nomor <code>cage_number</code>.
+   * I.S: <code>cage_map</code> terdefenisi.
+   * F.S: interaksi dengan semua hewan dalam kandang
+   * tercetak ke layar.
    *
    * @param pos posisi cage
    * @param cage_number nomor cage
