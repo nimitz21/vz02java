@@ -11,11 +11,26 @@ import java.util.Random;
  * \details Kelas untuk mengisi sel-sel dalam matriks pada Zoo.
  */
 public class Cell {
-  private Character initial_symbol; /**< simbol asli untuk sel dengan jenis tertentu*/
-  private Character symbol; /**< simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)*/
-  private Boolean[] sekat; /**< state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup */
-  private String plant; /**< tanaman yang ditanam di taman*/
-  private String food; /**< jenis makanan yang dijual di restoran*/
+  private Character initial_symbol;
+  /**
+   * < simbol asli untuk sel dengan jenis tertentu
+   */
+  private Character symbol;
+  /**
+   * < simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)
+   */
+  private Boolean[] sekat;
+  /**
+   * < state dari sekat untuk habitat; true untuk terbuka, false untuk tertutup
+   */
+  private String plant;
+  /**
+   * < tanaman yang ditanam di taman
+   */
+  private String food;
+  /**
+   * < jenis makanan yang dijual di restoran
+   */
   private Boolean open; /**< penanda restoran buka atau tutup; true untuk buka, false untuk tutup*/
 
   /**
@@ -117,6 +132,7 @@ public class Cell {
   public void SetInitSymbol(char s) {
     initial_symbol = new Character(s);
   }
+
   /**
    * \brief SetSymbol.
    * \details mengubah symbol dengan s.
@@ -129,7 +145,7 @@ public class Cell {
   /**
    * \brief ToggleSekat
    * \details Memasang atau menghilangkan sekat antar-Cell
-   *
+   * <p>
    * \param direction arah yang ingin dibuka
    */
   public void ToggleSekat(int direction) {
@@ -143,7 +159,7 @@ public class Cell {
   /**
    * \brief GetSekat
    * \details Mengecek apakah ke arah direction terdapat sekat
-   *
+   * <p>
    * \param direction arah yang ingin dicek
    */
   public boolean GetSekat(int direction) {

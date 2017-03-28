@@ -41,141 +41,141 @@ public class Zoo {
    */
   private int cage_nb; /**< jumlah cage yang ada dalam zoo*/
 
-	/**
-	 * \brief initCage
-	 * \details Mengenerate cage dari matrix cell
-	 */
-	private void CageInit() {
-		cage_map = new int[width][length];
-		for (int i = 0; i < width; ++i) {
-			for (int j = 0; j < length; ++j) {
-				cage_map[i][j] = -99;
-			}
-		}
-		int counter = 1;
-		Random random = new Random();
-		for (int i = 0; i < width; ++i) {
-			for (int j = 0; j < length; ++j) {
-				if (cage_map[i][j] == -99) {
-					char c = cells[i][j].GetSymbol();
-					if (c != 'W' && c != 'A' && c != 'L') {
-						cage_map[i][j] = 0;
-					} else {
-						int[] array_i = new int [4];
-						int[] array_j = new int [4];
-						for (int k = 0; k < 4; ++k) {
-							array_i[k] = i;
-							array_j[k] = j;
-						}
-						boolean cek = true;
-						cage_map[i][j] = counter;
-						Pair[] moveable = new Pair [12];
-						int ii = 0;
-						int jj = 0;
-						int i_temp = i;
-						int j_temp = j;
-						int count = 0;
-						for (int times = 0; times < 3; times++) {
-							for (int k = 0; k < 4; ++k) {
-								boolean dummy = false;
-								if (k == 0 && i_temp != 0) {
-									ii = i_temp - 1;
-									jj = j_temp;
-									dummy = true;
-								} else if (k == 1 && j_temp != 0) {
-									ii = i_temp;
-									jj = j_temp - 1;
-									dummy = true;
-								} else if (k == 2 && i_temp != width - 1) {
-									ii = i_temp + 1;
-									jj = j_temp;
-									dummy = true;
-								} else if (k == 3 && j_temp != length - 1) {
-									ii = i_temp;
-									jj = j_temp + 1;
-									dummy = true;
-								}
-								if (dummy) {
-									if (cells[ii][jj].GetSymbol() == c && cage_map[ii][jj] == -99) {
-										moveable[count] = new Pair(ii, jj);
-										++count;
-									}
-								}
-							}
-							if (count == 0) {
-								cek = false;
-								break;
-							}
-							int move = random.nextInt(count);
-							i_temp = moveable[move].first;
-							j_temp = moveable[move].second;
-							array_i[times] = i_temp;
-							array_j[times] = j_temp;
-							moveable[move] = new Pair (moveable[count-1].first, moveable[count-1].second);
-							cage_map[i_temp][j_temp] = counter;
-							--count;
-							if (times == 2) {
-								++counter;
-							}
-						}
-						if (!cek) {
-							for (int k = 0; k < 4; ++k) {
-								cage_map[array_i[k]][array_j[k]] = -99;
-							}
-						}
-					}
-				}
-			}
-		}
-		cage_nb = counter;
-		int change = -1;
-		while (change != 0) {
-			change = 0;
-			for (int i = 0; i < width; ++i) {
-				for (int j = 0; j < length; ++j) {
-					if (cage_map[i][j] == -99) {
-						Pair[] moveable = new Pair [4];
-						int count = 0;
-						int ii = 0;
-						int jj = 0;
-						for (int k = 0; k < 4; ++k) {
-							boolean dummy = false;
-							if (k == 0 && i != 0) {
-								ii = i - 1;
-								jj = j;
-								dummy = true;
-							} else if (k == 1 && j != 0) {
-								ii = i;
-								jj = j - 1;
-								dummy = true;
-							} else if (k == 2 && i != width - 1) {
-								ii = i + 1;
-								jj = j;
-								dummy= true;
-							} else if (k == 3 && j != length - 1) {
-								ii = i;
-								jj = j + 1;
-								dummy = true;
-							}
-							if (dummy) {
-								if (cells[ii][jj].GetSymbol().equals(cells[i][j].GetSymbol()) && cage_map[ii][jj] != -99) {
-									moveable[count] = new Pair(ii, jj);
-									++count;
-								}
-							}
-						}
-						if (count > 0) {
-							int move = random.nextInt(count);
-							ii = moveable[move].first;
-							jj = moveable[move].second;
-							cage_map[i][j] = cage_map[ii][jj];
-							++change;
-						}
-					}
-				}
-			}
-		}
-	}
+  /**
+   * \brief initCage
+   * \details Mengenerate cage dari matrix cell
+   */
+  private void CageInit() {
+    cage_map = new int[width][length];
+    for (int i = 0; i < width; ++i) {
+      for (int j = 0; j < length; ++j) {
+        cage_map[i][j] = -99;
+      }
+    }
+    int counter = 1;
+    Random random = new Random();
+    for (int i = 0; i < width; ++i) {
+      for (int j = 0; j < length; ++j) {
+        if (cage_map[i][j] == -99) {
+          char c = cells[i][j].GetSymbol();
+          if (c != 'W' && c != 'A' && c != 'L') {
+            cage_map[i][j] = 0;
+          } else {
+            int[] array_i = new int[4];
+            int[] array_j = new int[4];
+            for (int k = 0; k < 4; ++k) {
+              array_i[k] = i;
+              array_j[k] = j;
+            }
+            boolean cek = true;
+            cage_map[i][j] = counter;
+            Pair[] moveable = new Pair[12];
+            int ii = 0;
+            int jj = 0;
+            int i_temp = i;
+            int j_temp = j;
+            int count = 0;
+            for (int times = 0; times < 3; times++) {
+              for (int k = 0; k < 4; ++k) {
+                boolean dummy = false;
+                if (k == 0 && i_temp != 0) {
+                  ii = i_temp - 1;
+                  jj = j_temp;
+                  dummy = true;
+                } else if (k == 1 && j_temp != 0) {
+                  ii = i_temp;
+                  jj = j_temp - 1;
+                  dummy = true;
+                } else if (k == 2 && i_temp != width - 1) {
+                  ii = i_temp + 1;
+                  jj = j_temp;
+                  dummy = true;
+                } else if (k == 3 && j_temp != length - 1) {
+                  ii = i_temp;
+                  jj = j_temp + 1;
+                  dummy = true;
+                }
+                if (dummy) {
+                  if (cells[ii][jj].GetSymbol() == c && cage_map[ii][jj] == -99) {
+                    moveable[count] = new Pair(ii, jj);
+                    ++count;
+                  }
+                }
+              }
+              if (count == 0) {
+                cek = false;
+                break;
+              }
+              int move = random.nextInt(count);
+              i_temp = moveable[move].first;
+              j_temp = moveable[move].second;
+              array_i[times] = i_temp;
+              array_j[times] = j_temp;
+              moveable[move] = new Pair(moveable[count - 1].first, moveable[count - 1].second);
+              cage_map[i_temp][j_temp] = counter;
+              --count;
+              if (times == 2) {
+                ++counter;
+              }
+            }
+            if (!cek) {
+              for (int k = 0; k < 4; ++k) {
+                cage_map[array_i[k]][array_j[k]] = -99;
+              }
+            }
+          }
+        }
+      }
+    }
+    cage_nb = counter;
+    int change = -1;
+    while (change != 0) {
+      change = 0;
+      for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < length; ++j) {
+          if (cage_map[i][j] == -99) {
+            Pair[] moveable = new Pair[4];
+            int count = 0;
+            int ii = 0;
+            int jj = 0;
+            for (int k = 0; k < 4; ++k) {
+              boolean dummy = false;
+              if (k == 0 && i != 0) {
+                ii = i - 1;
+                jj = j;
+                dummy = true;
+              } else if (k == 1 && j != 0) {
+                ii = i;
+                jj = j - 1;
+                dummy = true;
+              } else if (k == 2 && i != width - 1) {
+                ii = i + 1;
+                jj = j;
+                dummy = true;
+              } else if (k == 3 && j != length - 1) {
+                ii = i;
+                jj = j + 1;
+                dummy = true;
+              }
+              if (dummy) {
+                if (cells[ii][jj].GetSymbol().equals(cells[i][j].GetSymbol()) && cage_map[ii][jj] != -99) {
+                  moveable[count] = new Pair(ii, jj);
+                  ++count;
+                }
+              }
+            }
+            if (count > 0) {
+              int move = random.nextInt(count);
+              ii = moveable[move].first;
+              jj = moveable[move].second;
+              cage_map[i][j] = cage_map[ii][jj];
+              ++change;
+            }
+          }
+        }
+      }
+    }
+  }
 
   /**
    * \brief Constructor
@@ -272,7 +272,7 @@ public class Zoo {
     Scanner scanner = new Scanner(System.in);
     StringBuffer line = new StringBuffer(length + 1);
     for (int i = 0; i < width; ++i) {
-    	line.delete(0, line.length());
+      line.delete(0, line.length());
       line.append(scanner.nextLine());
       for (int j = 0; j < length; ++j) {
         cells[i][j] = new Cell(line.charAt(j));
@@ -603,165 +603,165 @@ public class Zoo {
     }
   }
 
-    /**
-     * \brief Melakukan tour pada kebun binatang
-     * \details Jalur tour akan dipilih secara acak
-     * \details Settiap cell yang ada di samping road yang dilalui akan diinteract. Suatu cell adalah bagian dari suatu cage, maka semua binatang pada cage tersebut akan diinteract
-     */
-    public void Tour() {
-        Set<Pair> entrance;
-        entrance = new HashSet<Pair>();
-        boolean vis[][];
-        vis = new boolean[width][length];
-        for (int i = 0; i < width; ++i) {
-            for (int j = 0; j < length; ++j) {
-                if (cells[i][j].GetSymbol() == 'N') {
-                    Pair pairInput = new Pair(i,j);
-                    entrance.add(pairInput);
-                }
-                vis[i][j] = false;
-            }
+  /**
+   * \brief Melakukan tour pada kebun binatang
+   * \details Jalur tour akan dipilih secara acak
+   * \details Settiap cell yang ada di samping road yang dilalui akan diinteract. Suatu cell adalah bagian dari suatu cage, maka semua binatang pada cage tersebut akan diinteract
+   */
+  public void Tour() {
+    Set<Pair> entrance;
+    entrance = new HashSet<Pair>();
+    boolean vis[][];
+    vis = new boolean[width][length];
+    for (int i = 0; i < width; ++i) {
+      for (int j = 0; j < length; ++j) {
+        if (cells[i][j].GetSymbol() == 'N') {
+          Pair pairInput = new Pair(i, j);
+          entrance.add(pairInput);
         }
-        Random random = new Random();
-        int selection = random.nextInt(entrance.size());
-        Stack<Pair> dstack = new Stack<Pair>();
-        ArrayList<Integer> route = new ArrayList<Integer>();
-        List<Pair> listEntrance = new ArrayList<Pair>(entrance);
-        int posi = listEntrance.get(selection).first, posj = listEntrance.get(selection).second;
-        dstack.push(listEntrance.get(selection));
-        boolean found = false;
-        while (!found) {
-	        int i = dstack.peek().first, j = dstack.peek().second;
-	        vis[i][j] = true;
-	        if (cells[i][j].GetSymbol() == 'X') {
-		        found = true;
-		        route.remove((Integer) 4);
-	        } else {
-		        char c;
-		        HashSet<Integer> choice;
-		        choice = new HashSet<Integer>();
-		        if (i - 1 >= 0) {
-			        c = cells[i - 1][j].GetSymbol();
-			        if (c == 'r' || c == 'X') {
-				        if (!vis[i - 1][j]) {
-					        choice.add(new Integer(0));
-				        }
-			        }
-		        }
-		        if (j - 1 >= 0) {
-			        c = cells[i][j - 1].GetSymbol();
-			        if (c == 'r' || c == 'X') {
-				        if (!vis[i][j - 1]) {
-					        choice.add(new Integer(1));
-				        }
-			        }
-		        }
-		        if (j + 1 < length) {
-			        c = cells[i][j + 1].GetSymbol();
-			        if (c == 'r' || c == 'X') {
-				        if (!vis[i][j + 1]) {
-					        choice.add(new Integer(2));
-				        }
-			        }
-		        }
-		        if (i + 1 < width) {
-			        c = cells[i + 1][j].GetSymbol();
-			        if (c == 'r' || c == 'X') {
-				        if (!vis[i + 1][j]) {
-					        choice.add(new Integer(3));
-				        }
-			        }
-		        }
-		        if (choice.size() > 0) {
-			        selection = random.nextInt(choice.size());
-			        ArrayList<Integer> listChoice = new ArrayList<Integer>(choice);
-			        route.add(listChoice.get(selection));
-			        switch (listChoice.get(selection)) {
-				        case 0:
-					        dstack.push(new Pair(i - 1, j));
-					        break;
-				        case 1:
-					        dstack.push(new Pair(i, j - 1));
-					        break;
-				        case 2:
-					        dstack.push(new Pair(i, j + 1));
-					        break;
-				        case 3:
-					        dstack.push(new Pair(i + 1, j));
-					        break;
-			        }
-		        } else {
-			        dstack.pop();
-			        route.remove(route.size() - 1);
-		        }
-	        }
-        }
-        boolean VisCage[] = new boolean[cage_nb+1];
-        for (int i = 0; i <= cage_nb; ++i) {
-            VisCage[i] = false;
-        }
-        while (!route.isEmpty()) {
-            if (posi - 1 >= 0) {
-                char c = cells[posi-1][posj].GetInitSymbol();
-                if (c == 'P' || c == 'R') {
-                    cells[posi-1][posj].Interact();
-                } else if (c == 'W' || c == 'L' || c == 'A') {
-                    if (!VisCage[cage_map[posi-1][posj]]) {
-                        InteractCage(new Pair(posi - 1, posj), cage_map[posi-1][posj]);
-                        VisCage[cage_map[posi-1][posj]] = true;
-                    }
-                }
-            }
-            if (posj - 1 >= 0) {
-                char c = cells[posi][posj-1].GetInitSymbol();
-                if (c == 'P' || c == 'R') {
-                    cells[posi][posj-1].Interact();
-                } else if (c == 'W' || c == 'L' || c == 'A') {
-                    if (!VisCage[cage_map[posi][posj-1]]) {
-                        InteractCage(new Pair(posi,posj - 1), cage_map[posi][posj-1]);
-                        VisCage[cage_map[posi][posj-1]] = true;
-                    }
-                }
-            }
-            if (posj + 1 < length) {
-                char c = cells[posi][posj+1].GetInitSymbol();
-                if (c == 'P' || c == 'R') {
-                    cells[posi][posj+1].Interact();
-                } else if (c == 'W' || c == 'L' || c == 'A') {
-                    if (!VisCage[cage_map[posi][posj+1]]) {
-                        InteractCage(new Pair(posi,posj + 1), cage_map[posi][posj+1]);
-                        VisCage[cage_map[posi][posj+1]] = true;
-                    }
-                }
-            }
-            if (posi + 1 < width) {
-                char c = cells[posi+1][posj].GetInitSymbol();
-                if (c == 'P' || c == 'R') {
-                    cells[posi+1][posj].Interact();
-                } else if (c == 'W' || c == 'L' || c == 'A') {
-                    if (!VisCage[cage_map[posi+1][posj]]) {
-                        InteractCage(new Pair(posi + 1, posj), cage_map[posi+1][posj]);
-                        VisCage[cage_map[posi+1][posj]] = true;
-                    }
-                }
-            }
-            switch (route.get(0)) {
-                case 0:
-                    --posi;
-                    break;
-                case 1:
-                    --posj;
-                    break;
-                case 2:
-                    ++posj;
-                    break;
-                case 3:
-                    ++posi;
-                    break;
-            }
-            route.remove(0);
-        }
+        vis[i][j] = false;
+      }
     }
+    Random random = new Random();
+    int selection = random.nextInt(entrance.size());
+    Stack<Pair> dstack = new Stack<Pair>();
+    ArrayList<Integer> route = new ArrayList<Integer>();
+    List<Pair> listEntrance = new ArrayList<Pair>(entrance);
+    int posi = listEntrance.get(selection).first, posj = listEntrance.get(selection).second;
+    dstack.push(listEntrance.get(selection));
+    boolean found = false;
+    while (!found) {
+      int i = dstack.peek().first, j = dstack.peek().second;
+      vis[i][j] = true;
+      if (cells[i][j].GetSymbol() == 'X') {
+        found = true;
+        route.remove((Integer) 4);
+      } else {
+        char c;
+        HashSet<Integer> choice;
+        choice = new HashSet<Integer>();
+        if (i - 1 >= 0) {
+          c = cells[i - 1][j].GetSymbol();
+          if (c == 'r' || c == 'X') {
+            if (!vis[i - 1][j]) {
+              choice.add(new Integer(0));
+            }
+          }
+        }
+        if (j - 1 >= 0) {
+          c = cells[i][j - 1].GetSymbol();
+          if (c == 'r' || c == 'X') {
+            if (!vis[i][j - 1]) {
+              choice.add(new Integer(1));
+            }
+          }
+        }
+        if (j + 1 < length) {
+          c = cells[i][j + 1].GetSymbol();
+          if (c == 'r' || c == 'X') {
+            if (!vis[i][j + 1]) {
+              choice.add(new Integer(2));
+            }
+          }
+        }
+        if (i + 1 < width) {
+          c = cells[i + 1][j].GetSymbol();
+          if (c == 'r' || c == 'X') {
+            if (!vis[i + 1][j]) {
+              choice.add(new Integer(3));
+            }
+          }
+        }
+        if (choice.size() > 0) {
+          selection = random.nextInt(choice.size());
+          ArrayList<Integer> listChoice = new ArrayList<Integer>(choice);
+          route.add(listChoice.get(selection));
+          switch (listChoice.get(selection)) {
+            case 0:
+              dstack.push(new Pair(i - 1, j));
+              break;
+            case 1:
+              dstack.push(new Pair(i, j - 1));
+              break;
+            case 2:
+              dstack.push(new Pair(i, j + 1));
+              break;
+            case 3:
+              dstack.push(new Pair(i + 1, j));
+              break;
+          }
+        } else {
+          dstack.pop();
+          route.remove(route.size() - 1);
+        }
+      }
+    }
+    boolean VisCage[] = new boolean[cage_nb + 1];
+    for (int i = 0; i <= cage_nb; ++i) {
+      VisCage[i] = false;
+    }
+    while (!route.isEmpty()) {
+      if (posi - 1 >= 0) {
+        char c = cells[posi - 1][posj].GetInitSymbol();
+        if (c == 'P' || c == 'R') {
+          cells[posi - 1][posj].Interact();
+        } else if (c == 'W' || c == 'L' || c == 'A') {
+          if (!VisCage[cage_map[posi - 1][posj]]) {
+            InteractCage(new Pair(posi - 1, posj), cage_map[posi - 1][posj]);
+            VisCage[cage_map[posi - 1][posj]] = true;
+          }
+        }
+      }
+      if (posj - 1 >= 0) {
+        char c = cells[posi][posj - 1].GetInitSymbol();
+        if (c == 'P' || c == 'R') {
+          cells[posi][posj - 1].Interact();
+        } else if (c == 'W' || c == 'L' || c == 'A') {
+          if (!VisCage[cage_map[posi][posj - 1]]) {
+            InteractCage(new Pair(posi, posj - 1), cage_map[posi][posj - 1]);
+            VisCage[cage_map[posi][posj - 1]] = true;
+          }
+        }
+      }
+      if (posj + 1 < length) {
+        char c = cells[posi][posj + 1].GetInitSymbol();
+        if (c == 'P' || c == 'R') {
+          cells[posi][posj + 1].Interact();
+        } else if (c == 'W' || c == 'L' || c == 'A') {
+          if (!VisCage[cage_map[posi][posj + 1]]) {
+            InteractCage(new Pair(posi, posj + 1), cage_map[posi][posj + 1]);
+            VisCage[cage_map[posi][posj + 1]] = true;
+          }
+        }
+      }
+      if (posi + 1 < width) {
+        char c = cells[posi + 1][posj].GetInitSymbol();
+        if (c == 'P' || c == 'R') {
+          cells[posi + 1][posj].Interact();
+        } else if (c == 'W' || c == 'L' || c == 'A') {
+          if (!VisCage[cage_map[posi + 1][posj]]) {
+            InteractCage(new Pair(posi + 1, posj), cage_map[posi + 1][posj]);
+            VisCage[cage_map[posi + 1][posj]] = true;
+          }
+        }
+      }
+      switch (route.get(0)) {
+        case 0:
+          --posi;
+          break;
+        case 1:
+          --posj;
+          break;
+        case 2:
+          ++posj;
+          break;
+        case 3:
+          ++posi;
+          break;
+      }
+      route.remove(0);
+    }
+  }
 
   /**
    * \brief InteractCage
