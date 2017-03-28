@@ -164,11 +164,7 @@ public class Cell {
 	 * @param direction arah yang ingin dibuka
 	 */
   public void ToggleSekat(int direction) {
-    if (sekat[direction]) {
-      sekat[direction] = false;
-    } else {
-      sekat[direction] = true;
-    }
+    sekat[direction] = !sekat[direction];
   }
 
 	/**
@@ -243,11 +239,7 @@ public class Cell {
 	 * F.S.: keadaan <code>open</code> menjadi kebalikan dari keadaan semula.
 	 */
   public void ToggleOpen() {
-    if (open) {
-      open = false;
-    } else {
-      open = true;
-    }
+    open = !open;
   }
 
 	/**

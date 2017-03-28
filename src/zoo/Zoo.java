@@ -8,7 +8,6 @@ import pair.Pair;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 import java.util.*;
 
@@ -419,7 +418,7 @@ public class Zoo {
     while (animals.get(i).GetId().equals(_id) && animals.get(i).GetNumber() != _number && i < animals.size() - 1) {
       ++i;
     }
-    if (animals.get(i).GetId() == _id && animals.get(i).GetNumber() == _number) {
+    if (animals.get(i).GetId().equals(_id) && animals.get(i).GetNumber() == _number) {
       animals.remove(i);
     }
     int posx = animals.get(i).GetPos().first;
@@ -549,10 +548,10 @@ public class Zoo {
    */
   public void MoveAnimal(String _id, int _number, int direction) {
     int i = 0;
-    while (animals.get(i).GetId() != _id && animals.get(i).GetNumber() != _number && i < animals.size() - 1) {
+    while (!animals.get(i).GetId().equals(_id) && animals.get(i).GetNumber() != _number && i < animals.size() - 1) {
       ++i;
     }
-    if (animals.get(i).GetId() == _id && animals.get(i).GetNumber() == _number) {
+    if (animals.get(i).GetId().equals(_id) && animals.get(i).GetNumber() == _number) {
       MoveAnimal(animals.get(i).GetPos(), direction);
     }
   }
