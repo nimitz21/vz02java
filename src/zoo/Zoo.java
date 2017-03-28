@@ -289,6 +289,7 @@ public class Zoo {
       }
     }
     CageInit();
+    animals = new ArrayList<Animal>();
     char option;
     do {
       System.out.println("Ingin menambah hewan lagi? (y/n)");
@@ -300,6 +301,7 @@ public class Zoo {
         int py;
         float weight = 0;
         System.out.print("Input id hewan: ");
+        id.append(scanner.nextLine());
         id.append(scanner.nextLine());
         System.out.print("Input posisi x: (kolom ke-)");
         px = scanner.nextInt();
