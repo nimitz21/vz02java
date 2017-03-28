@@ -47,7 +47,17 @@ public class Driver {
             option = scanner.next().charAt(0);
             switch (option) {
                 case '1':
-                    z.Display(0, 0, width-1, length-1);
+                    System.out.println("Input koordinat pojok kiri atas:");
+                    System.out.print("x1: ");
+                    int x1 = scanner.nextInt();
+                    System.out.print("y1: ");
+                    int y1 = scanner.nextInt();
+                    System.out.println("Input koordinat pojok kiri atas:");
+                    System.out.print("x2: ");
+                    int x2 = scanner.nextInt();
+                    System.out.print("y2: ");
+                    int y2 = scanner.nextInt();
+                    z.Display(x1,y1,x2,y2);
                     break;
                 case '2':
                     System.out.print("Daging: ");
