@@ -16,4 +16,7 @@ public class Pair {
     	first = _first;
     	second = _second;
     }
+    public boolean equals(Pair pair){
+      return first == pair.first && second == pair.second;
+    }
 }

@@ -700,8 +700,8 @@ public class Zoo {
 		        }
 	        }
         }
-        boolean VisCage[] = new boolean[cage_nb];
-        for (int i = 0; i < cage_nb; ++i) {
+        boolean VisCage[] = new boolean[cage_nb+1];
+        for (int i = 0; i <= cage_nb; ++i) {
             VisCage[i] = false;
         }
         while (!route.isEmpty()) {
@@ -789,11 +789,6 @@ public class Zoo {
       int i = bqueue.element().first, j = bqueue.element().second;
       bqueue.remove();
       Pair pair = new Pair(i, j);
-      System.out.print(pair.first);
-      System.out.print(", ");
-      System.out.print(pair.second);
-      System.out.print("= ");
-      System.out.println(FindAnimal(pair));
       if (FindAnimal(pair) != animals.size()) {
       	System.out.println("test");
         animals.get(FindAnimal(pair)).Interact();
