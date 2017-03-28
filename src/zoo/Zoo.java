@@ -105,12 +105,7 @@ public class Zoo {
 								cek = false;
 								break;
 							}
-							int move;
-							if (count > 1) {
-								move = random.nextInt(count - 1);
-							} else {
-								move = 0;
-							}
+							int move = random.nextInt(count);
 							i_temp = moveable[move].first;
 							j_temp = moveable[move].second;
 							array_i[times] = i_temp;
@@ -162,19 +157,14 @@ public class Zoo {
 								dummy = true;
 							}
 							if (dummy) {
-								if (cells[ii][jj].GetSymbol() == cells[i][j].GetSymbol() && cage_map[ii][jj] != -99) {
+								if (cells[ii][jj].GetSymbol().equals(cells[i][j].GetSymbol()) && cage_map[ii][jj] != -99) {
 									moveable[count] = new Pair(ii, jj);
 									++count;
 								}
 							}
 						}
 						if (count > 0) {
-							int move;
-							if (count > 1) {
-								move = random.nextInt(count - 1);
-							} else {
-								move = 0;
-							}
+							int move = random.nextInt(count);
 							ii = moveable[move].first;
 							jj = moveable[move].second;
 							cage_map[i][j] = cage_map[ii][jj];
@@ -266,10 +256,6 @@ public class Zoo {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		System.out.println(animals.size());
-		for (i = 0; i < animals.size(); ++i) {
-			System.out.println(animals.get(i).GetId());
-		}
   }
 
 	/**
@@ -287,8 +273,7 @@ public class Zoo {
 		for (int i = 0; i < width; ++i) {
 			line.append(scanner.nextLine());
 			for (int j = 0; j < length; ++j) {
-				cells[i][j].SetInitSymbol(line.charAt(j));
-				cells[i][j].SetSymbol(line.charAt(j));
+				cells[i][j] = new Cell(line.charAt(j));
 			}
 		}
 		CageInit();
@@ -377,9 +362,7 @@ public class Zoo {
             Pair pos;
             pos = new Pair(posx, posy);
             if (FindAnimal(pos) == animals.size()) {
-            	System.out.println("animal not found");
                 if (animal.GetHabitat().contains(cells[posx][posy].GetSymbol())) {
-                	System.out.println("habitat compatible");
                     boolean compatible = true;
                     // cek apakah ada hewan yang tidak kompatible dengan hewan animal
                     int count = 0; // count animal yang ada di cage yang sama
@@ -400,7 +383,6 @@ public class Zoo {
                         }
                     }
                     if (0.3 * max >= (count + 1) && compatible) { // masih muat cagenya
-	                      System.out.println("test");
                         animals.add(animal);
                         cells[posx][posy].SetSymbol(animal.GetLegend());
                     }
@@ -554,7 +536,7 @@ public class Zoo {
     public void MoveAllAnimal() {
         Random random = new Random();
         for (int i = 0; i < animals.size(); i++) {
-            MoveAnimal(animals.get(i).GetPos(), random.nextInt(4 - 1));
+            MoveAnimal(animals.get(i).GetPos(), random.nextInt(4));
         }
     }
 
@@ -634,15 +616,14 @@ public class Zoo {
         for (int i = 0; i < width; ++i) {
             for (int j = 0; j < length; ++j) {
                 if (cells[i][j].GetSymbol() == 'N') {
-                    Pair pairInput;
-                    pairInput = new Pair(i,j);
+                    Pair pairInput = new Pair(i,j);
                     entrance.add(pairInput);
                 }
                 vis[i][j] = false;
             }
         }
         Random random = new Random();
-        int selection = random.nextInt(entrance.size() - 1);
+        int selection = random.nextInt(entrance.size());
         Stack<Pair> dstack = new Stack<Pair>();
         ArrayList<Integer> route = new ArrayList<Integer>();
         List<Pair> listEntrance = new ArrayList<Pair>(entrance);
@@ -650,79 +631,72 @@ public class Zoo {
         dstack.push(listEntrance.get(selection));
         boolean found = false;
         while (!found) {
-            int i = dstack.peek().first, j = dstack.peek().second;
-            vis[i][j] = true;
-            if (cells[i][j].GetSymbol() == 'X') {
-                found = true;
-                route.remove((Integer)4);
-            } else {
-                char c;
-                HashSet<Integer> choice;
-                choice = new HashSet<Integer>();
-                if (i-1 >= 0) {
-                    c = cells[i-1][j].GetSymbol();
-                    if (c == 'r' || c == 'X') {
-                        if (!vis[i-1][j]) {
-                            choice.add(new Integer(0));
-                        }
-                    }
-                }
-                if (j - 1 >= 0) {
-                    c = cells[i][j-1].GetSymbol();
-                    if (c == 'r' || c == 'X') {
-                        if (!vis[i][j-1]) {
-                            choice.add(new Integer(1));
-                        }
-                    }
-                }
-                if (j + 1 < length) {
-                    c = cells[i][j+1].GetSymbol();
-                    if (c == 'r' || c == 'X') {
-                        if (!vis[i][j+1]) {
-                            choice.add(new Integer(2));
-                        }
-                    }
-                }
-                if (i+1 < width) {
-                    c = cells[i+1][j].GetSymbol();
-                    if (c == 'r' || c == 'X') {
-                        if (!vis[i+1][j]) {
-                            choice.add(new Integer(3));
-                        }
-                    }
-                }
-                if (choice.size() > 0) {
-                    selection = random.nextInt(choice.size() - 1);
-                    ArrayList<Integer> listChoice;
-                    listChoice = new ArrayList<Integer>(choice);
-                    route.remove(listChoice.get(selection));
-                    Pair pairInput;
-                    switch(listChoice.get(selection)) {
-                        case 0:
-                            pairInput = new Pair((i-1), j);
-                            dstack.push(pairInput);
-                            break;
-                        case 1:
-                            pairInput = new Pair(i, (j-1));
-                            dstack.push(pairInput);
-                            break;
-                        case 2:
-                            pairInput = new Pair(i, (j+1));
-                            dstack.push(pairInput);
-                            break;
-                        case 3:
-                            pairInput = new Pair((i+1), j);
-                            dstack.push(pairInput);
-                            break;
-                    }
-                } else {
-                    dstack.pop();
-                    route.remove(route.size()-1);
-                }
-            }
+	        int i = dstack.peek().first, j = dstack.peek().second;
+	        vis[i][j] = true;
+	        if (cells[i][j].GetSymbol() == 'X') {
+		        found = true;
+		        route.remove((Integer) 4);
+	        } else {
+		        char c;
+		        HashSet<Integer> choice;
+		        choice = new HashSet<Integer>();
+		        if (i - 1 >= 0) {
+			        c = cells[i - 1][j].GetSymbol();
+			        if (c == 'r' || c == 'X') {
+				        if (!vis[i - 1][j]) {
+					        choice.add(new Integer(0));
+				        }
+			        }
+		        }
+		        if (j - 1 >= 0) {
+			        c = cells[i][j - 1].GetSymbol();
+			        if (c == 'r' || c == 'X') {
+				        if (!vis[i][j - 1]) {
+					        choice.add(new Integer(1));
+				        }
+			        }
+		        }
+		        if (j + 1 < length) {
+			        c = cells[i][j + 1].GetSymbol();
+			        if (c == 'r' || c == 'X') {
+				        if (!vis[i][j + 1]) {
+					        choice.add(new Integer(2));
+				        }
+			        }
+		        }
+		        if (i + 1 < width) {
+			        c = cells[i + 1][j].GetSymbol();
+			        if (c == 'r' || c == 'X') {
+				        if (!vis[i + 1][j]) {
+					        choice.add(new Integer(3));
+				        }
+			        }
+		        }
+		        if (choice.size() > 0) {
+			        selection = random.nextInt(choice.size());
+			        ArrayList<Integer> listChoice = new ArrayList<Integer>(choice);
+			        route.add(listChoice.get(selection));
+			        switch (listChoice.get(selection)) {
+				        case 0:
+					        dstack.push(new Pair(i - 1, j));
+					        break;
+				        case 1:
+					        dstack.push(new Pair(i, j - 1));
+					        break;
+				        case 2:
+					        dstack.push(new Pair(i, j + 1));
+					        break;
+				        case 3:
+					        dstack.push(new Pair(i + 1, j));
+					        break;
+			        }
+		        } else {
+			        dstack.pop();
+			        route.remove(route.size() - 1);
+		        }
+	        }
         }
-        boolean VisCage[];
-        VisCage = new boolean[cage_nb];
+        boolean VisCage[] = new boolean[cage_nb];
         for (int i = 0; i < cage_nb; ++i) {
             VisCage[i] = false;
         }
