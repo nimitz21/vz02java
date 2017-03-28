@@ -75,61 +75,192 @@ public class Animal {
    * Jumlah kelelawar yang pernah dibentuk
    * (termasuk yang tidak dapat masuk ke kandang).
    */
-  private static int bat_nb = 0;
+  private static int bat_nb;
 
   /**
    * Jumlah burung kakak tua yang pernah dibentuk
    * (termasuk yang tidak dapat masuk ke kandang).
    */
-  private static int cockatoo_nb = 0;
+  private static int cockatoo_nb;
 
   /**
    * Jumlah lemur terbang Sunda yang pernah dibentuk
    * (termasuk yang tidak dapat masuk ke kandang).
    */
-  private static int colugo_nb = 0;
+  private static int colugo_nb;
 
   /**
    * Jumlah burung bangau yang pernah dibentuk
    * (termasuk yang tidak dapat masuk ke kandang).
    */
-  private static int crane_nb = 0;
+  private static int crane_nb;
 
   /**
    * Jumlah lumba-lumba yang pernah dibentuk
    * (termasuk yang tidak dapat masuk ke kandang).
    */
-  private static int dolphin_nb = 0;
+  private static int dolphin_nb;
 
   /**
-   * Jumlah kelelawar yang pernah dibentuk
+   * Jumlah kadal terbang yang pernah dibentuk
    * (termasuk yang tidak dapat masuk ke kandang).
    */
-  private static int draco_lizard_nb = 0;
-  private static int dugong_nb = 0;
-  private static int eagle_nb = 0;
-  private static int elephant_nb = 0;
-  private static int goose_nb = 0;
-  private static int hippopotamus_nb = 0;
-  private static int hog_nb = 0;
-  private static int hummingbird_nb = 0;
-  private static int lion_nb = 0;
-  private static int macaque_nb = 0;
-  private static int moray_eel_nb = 0;
-  private static int owl_nb = 0;
-  private static int pelican_nb = 0;
-  private static int penguin_nb = 0;
-  private static int robin_nb = 0;
-  private static int shark_nb = 0;
-  private static int sugar_glider_nb = 0;
-  private static int turtle_nb = 0;
-  private static int whale_nb = 0;
-  private static int wolf_nb = 0;
-  private static int zebra_nb = 0;
+  private static int draco_lizard_nb;
 
-  public Animal(String _id,
-                Pair _position
-  ) {
+  /**
+   * Jumlah dugong yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int dugong_nb;
+
+  /**
+   * Jumlah burung elang yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int eagle_nb;
+
+  /**
+   * Jumlah gajah yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int elephant_nb;
+
+  /**
+   * Jumlah angsa yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int goose_nb;
+
+  /**
+   * Jumlah kuda nil yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int hippopotamus_nb;
+
+  /**
+   * Jumlah babi hutan yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int hog_nb;
+
+  /**
+   * Jumlah burung kolibri yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int hummingbird_nb;
+
+  /**
+   * Jumlah singa yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int lion_nb;
+
+  /**
+   * Jumlah kera yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int macaque_nb;
+
+  /**
+   * Jumlah belut yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int moray_eel_nb;
+
+  /**
+   * Jumlah burung hantu yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int owl_nb;
+
+  /**
+   * Jumlah pelikan yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int pelican_nb;
+
+  /**
+   * Jumlah penguin yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int penguin_nb;
+
+  /**
+   * Jumlah burung robin yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int robin_nb;
+
+  /**
+   * Jumlah hiu yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int shark_nb;
+
+  /**
+   * Jumlah sugar glider yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int sugar_glider_nb;
+
+  /**
+   * Jumlah penyu yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int turtle_nb;
+
+  /**
+   * Jumlah paus yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int whale_nb;
+
+  /**
+   * Jumlah serigala yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int wolf_nb;
+
+  /**
+   * Jumlah zebra yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
+  private static int zebra_nb;
+
+  static {
+    bat_nb = 0;
+    cockatoo_nb = 0;
+    colugo_nb = 0;
+    crane_nb = 0;
+    dolphin_nb = 0;
+    draco_lizard_nb = 0;
+    dugong_nb = 0;
+    eagle_nb = 0;
+    elephant_nb = 0;
+    goose_nb = 0;
+    hippopotamus_nb = 0;
+    hog_nb = 0;
+    hummingbird_nb = 0;
+    lion_nb = 0;
+    macaque_nb = 0;
+    moray_eel_nb = 0;
+    owl_nb = 0;
+    pelican_nb = 0;
+    penguin_nb = 0;
+    robin_nb = 0;
+    shark_nb = 0;
+    sugar_glider_nb = 0;
+    turtle_nb = 0;
+    whale_nb = 0;
+    wolf_nb = 0;
+    zebra_nb = 0;
+  }
+
+  /**
+   * Konstruktor untuk menciptakan hewan
+   * berdasarkan permintaan <code>id</code> dan <code>position</code>.
+   */
+  public Animal(String _id, Pair _position) {
     id = _id;
     position = new Pair(_position.first, _position.second);
     if (_id.equals("WF")) {
@@ -562,9 +693,12 @@ public class Animal {
     }
   }
 
-  public Animal(String _id,
-                double _weight,
-                Pair _position) {
+  /**
+   * Konstruktor untuk menciptakan hewan
+   * berdasarkan permintaan <code>id</code>,
+   * <code>weight</code> dan <code>position</code>.
+   */
+  public Animal(String _id, double _weight, Pair _position) {
     id = _id;
         /*
         number = _number;
