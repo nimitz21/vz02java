@@ -501,9 +501,9 @@ public class Zoo {
           Pair finalPos;
           finalPos = new Pair(i, j);
           if (FindAnimal(finalPos) == animals.size()) {
+            cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
+                    SetSymbol((cells[pos.first][pos.second].GetInitSymbol()).charValue());
             animals.get(idx).Move(direction);
-            cells[pos.first][pos.second].
-                    SetSymbol((cells[pos.first][pos.second].GetInitSymbol()));
             cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
                     SetSymbol((animals.get(idx).GetLegend()));
           }
@@ -696,8 +696,8 @@ public class Zoo {
 		        }
 	        }
         }
-        boolean VisCage[] = new boolean[cage_nb];
-        for (int i = 0; i < cage_nb; ++i) {
+        boolean VisCage[] = new boolean[cage_nb+1];
+        for (int i = 0; i <= cage_nb; ++i) {
             VisCage[i] = false;
         }
         while (!route.isEmpty()) {
