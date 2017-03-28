@@ -428,7 +428,7 @@ public class Animal{
             compatible.add(new String("GSE"));
             compatible.add(new String("CRN"));
         } else if (_id == "SGL") {
-            numebr = ++sugar_glider_nb;
+            number = ++sugar_glider_nb;
             eat = 0.5;
             legend = '>';
             weight = 0.12;
