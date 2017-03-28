@@ -114,16 +114,16 @@ public class Cell {
    * \details mengubah initial_symbol dengan s.
    * \param s initial_symbol yang baru.
    */
-  public void SetInitSymbol(Character s) {
-    initial_symbol = s;
+  public void SetInitSymbol(char s) {
+    initial_symbol = new Character(s);
   }
   /**
    * \brief SetSymbol.
    * \details mengubah symbol dengan s.
    * \param s symbol yang baru.
    */
-  public void SetSymbol(Character s) {
-    symbol = s;
+  public void SetSymbol(char s) {
+    symbol = new Character(s);
   }
 
   /**
