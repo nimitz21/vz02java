@@ -7,17 +7,17 @@ import java.util.Scanner;
 
 import zoo.Zoo;
 
-/**
- * Created by ASUS INDONESIA on 3/27/2017.
- */
 
 /**
- * \brief Class Driver
- * \details Class yang digunakan untuk menginisiasi zoo
+ * Class Driver untuk menginisiasi <code>Zoo</code>.
+ *
+ * @author Andika Kusuma
+ * @version %I%, %G%
  */
+
 public class Driver {
   /**
-   * \brief Constructor
+   * Constructor
    */
   public Driver() {
     char option;
