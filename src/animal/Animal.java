@@ -47,15 +47,64 @@ public class Animal {
    */
   private double eat;
 
+  /**
+   * Jenis hewan berdasarkan makanan yang dikonsumsinya:
+   * K untuk karnnivor, H untuk herbivor, O untuk omnivor).
+   */
   private char type;
+
+  /**
+   * Pasangan <code>integer</code> yang merepresentasikan
+   * posisi dari hewan.
+   */
   private Pair position = new Pair();
+
+  /**
+   * Daftar hewan yang dapat digabungkan dengan
+   * hewan ini.
+   */
   private HashSet<String> compatible = new HashSet<String>();
+
+  /**
+   * Daftar habitat yang dapat ditinggali oleh
+   * hewan: A untuk udara, W untuk air, L untuk darat.
+   */
   private HashSet<Character> habitat = new HashSet<Character>();
+
+  /**
+   * Jumlah kelelawar yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
   private static int bat_nb = 0;
+
+  /**
+   * Jumlah burung kakak tua yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
   private static int cockatoo_nb = 0;
+
+  /**
+   * Jumlah lemur terbang Sunda yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
   private static int colugo_nb = 0;
+
+  /**
+   * Jumlah burung bangau yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
   private static int crane_nb = 0;
+
+  /**
+   * Jumlah lumba-lumba yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
   private static int dolphin_nb = 0;
+
+  /**
+   * Jumlah kelelawar yang pernah dibentuk
+   * (termasuk yang tidak dapat masuk ke kandang).
+   */
   private static int draco_lizard_nb = 0;
   private static int dugong_nb = 0;
   private static int eagle_nb = 0;
