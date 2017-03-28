@@ -342,7 +342,7 @@ public class Zoo {
   public int FindAnimal(Pair pos) {
     int i = 0;
     while (i < animals.size()) {
-      if (animals.get(i).GetPos() != pos) {
+      if (!animals.get(i).GetPos().equals(pos)) {
         ++i;
       } else {
         break;
@@ -505,9 +505,9 @@ public class Zoo {
           Pair finalPos;
           finalPos = new Pair(i, j);
           if (FindAnimal(finalPos) == animals.size()) {
+            cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
+                    SetSymbol((cells[pos.first][pos.second].GetInitSymbol()).charValue());
             animals.get(idx).Move(direction);
-            cells[pos.first][pos.second].
-                    SetSymbol((cells[pos.first][pos.second].GetInitSymbol()));
             cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
                     SetSymbol((animals.get(idx).GetLegend()));
           }
@@ -789,6 +789,11 @@ public class Zoo {
       int i = bqueue.element().first, j = bqueue.element().second;
       bqueue.remove();
       Pair pair = new Pair(i, j);
+      System.out.print(pair.first);
+      System.out.print(", ");
+      System.out.print(pair.second);
+      System.out.print("= ");
+      System.out.println(FindAnimal(pair));
       if (FindAnimal(pair) != animals.size()) {
       	System.out.println("test");
         animals.get(FindAnimal(pair)).Interact();
