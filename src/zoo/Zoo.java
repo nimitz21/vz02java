@@ -5,6 +5,7 @@ package zoo;
 
 import animal.Animal;
 import cell.Cell;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import pair.Pair;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -135,9 +136,6 @@ public class Zoo {
 			change = 0;
 			for (int i = 0; i < width; ++i) {
 				for (int j = 0; j < length; ++j) {
-					System.out.print(i);
-					System.out.print(" ");
-					System.out.println(j);
 					if (cage_map[i][j] == -99) {
 						Pair[] moveable = new Pair [4];
 						for (int k = 0; k < 4; ++k) {
@@ -160,7 +158,7 @@ public class Zoo {
 								ii = i + 1;
 								jj = j;
 								dummy= true;
-							} else if (k == 3 && i != length - 1) {
+							} else if (k == 3 && j != length - 1) {
 								ii = i;
 								jj = j + 1;
 								dummy = true;
@@ -204,7 +202,7 @@ public class Zoo {
 			Scanner scanner = new Scanner(new FileInputStream("asset/map.txt"));
 			StringBuffer line = new StringBuffer(length + 1);
 			while (scanner.hasNext()) {
-
+				line.delete(0, line.length());
 				line.append(scanner.nextLine());
 				for (int j = 0; j < length; ++j) {
 						cells[i][j].SetInitSymbol(line.charAt(j));
@@ -213,6 +211,7 @@ public class Zoo {
 				++i;
 			}
 			CageInit();
+			animals = new ArrayList<Animal>();
 			scanner = new Scanner(new FileInputStream("asset/animals.txt"));
 			while (scanner.hasNext()) {
 				line.append(scanner.nextLine());
@@ -241,8 +240,8 @@ public class Zoo {
 					while (j < line.length()) {
 						if (line.charAt(j) != '.') {
 							weight = 10 * weight + line.charAt(j) - '0';
-							++j;
 						}
+						++j;
 					}
 					if (j < line.length()) {
 						if (line.charAt(j) == '.') {
@@ -348,13 +347,16 @@ public class Zoo {
      */
     public int FindAnimal(Pair pos) {
         int i = 0;
-        while (animals.get(i).GetPos() != pos && i < animals.size() - 1) {
-            ++i;
+        while (i < animals.size()) {
+	        while (animals.get(i).GetPos() != pos) {
+		        ++i;
+	        }
         }
-        if (animals.get(i).GetPos() == pos) {
-            return i;
+        if (i < animals.size()) {
+	        return i;
+        } else {
+          return animals.size();
         }
-        return animals.size();
     }
 
     /**

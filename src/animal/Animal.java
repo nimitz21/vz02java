@@ -410,8 +410,7 @@ public class Animal{
         type = _type;
         */
 				weight = _weight;
-        position.first = _position.first;
-        position.second = _position.second;
+				position = new Pair(_position.first, _position.second);
         if(_id == "WF") {
         		number = ++wolf_nb; // ini jadi gini
         		legend = '1'; // ini juga
