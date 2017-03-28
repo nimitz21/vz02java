@@ -22,11 +22,11 @@ public class Cell {
    * \brief Constructor dengan parameter.
    * \details Menciptakan cell dengan symbol default yaitu '-'.
    */
-  public Cell() {
+  public Cell(char _initial_symbol) {
     int i;
     Random rand = new Random();
-    initial_symbol = new Character('-');
-    symbol = new Character('-');
+    initial_symbol = new Character(_initial_symbol);
+    symbol = new Character(_initial_symbol);
     sekat = new Boolean[4];
     plant = new String();
     food = new String();

@@ -193,11 +193,6 @@ public class Zoo {
 		width = 33;
 		length = 32;
 		cells = new Cell[width][length];
-		for (int i = 0; i < width; ++i) {
-			for (int j = 0; j < length; ++j) {
-				cells[i][j] = new Cell();
-			}
-		}
 		int i = 0;
 		try {
 			Scanner scanner = new Scanner(new FileInputStream("asset/map.txt"));
@@ -206,8 +201,7 @@ public class Zoo {
 				line.delete(0, line.length());
 				line.append(scanner.nextLine());
 				for (int j = 0; j < length; ++j) {
-						cells[i][j].SetInitSymbol(line.charAt(j));
-						cells[i][j].SetSymbol(line.charAt(j));
+						cells[i][j] = new Cell(line.charAt(j));
 				}
 				++i;
 			}
