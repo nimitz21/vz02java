@@ -50,14 +50,18 @@ public class Driver {
                     z.Display(0, 0, width-1, length-1);
                     break;
                 case '2':
-                    //System.out.println("Daging: " << z->GetTotalMeat() << " kg");
-                    //System.out.println("Tumbuhan: " << z->GetTotalVegetables() << "kg");
+                    System.out.print("Daging: ");
+                    System.out.print(z.GetTotalMeat());
+                    System.out.println(" kg");
+	                  System.out.print("Tumbuhan: ");
+	                  System.out.print(z.GetTotalVegetables());
+	                  System.out.println("kg");
                     break;
                 case '3':
-                    //z->Tour();
+                    z.Tour();
                     break;
                 case '4':
-                    //z->ToggleAllSekat();
+                    z.ToggleAllSekat();
                     break;
                 default :
             }

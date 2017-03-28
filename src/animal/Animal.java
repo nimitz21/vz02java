@@ -19,8 +19,7 @@ public class Animal{
         eat = _eat;
         type = _type;
         */
-        position.first = _position.first;
-        position.second = _position.second;
+        position = new Pair(_position.first, _position.second);
         if(_id == "WF") {
             wolf_nb++;
             food = 0.2;
