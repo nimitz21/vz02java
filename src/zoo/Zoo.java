@@ -177,142 +177,147 @@ public class Zoo {
 		}
 	}
 
-	/**
-	 * \brief Constructor
-	 * \details Mengenerate kebun binatang dari file eksternal denangan list hewan kosong
-	 */
-	public Zoo() {
-		width = 33;
-		length = 32;
-		cells = new Cell[width][length];
-		int i = 0;
-		try {
-			Scanner scanner = new Scanner(new FileInputStream("asset/map.txt"));
-			StringBuffer line = new StringBuffer(length + 1);
-			while (scanner.hasNext()) {
-				line.delete(0, line.length());
-				line.append(scanner.nextLine());
-				for (int j = 0; j < length; ++j) {
-						cells[i][j] = new Cell(line.charAt(j));
-				}
-				++i;
-			}
-			CageInit();
-			animals = new ArrayList<Animal>();
-			scanner = new Scanner(new FileInputStream("asset/animals.txt"));
-			while (scanner.hasNext()) {
-				line.delete(0, line.length());
-				line.append(scanner.nextLine());
-				StringBuffer id = new StringBuffer();
-				int px = 0;
-				int py = 0;
-				int j = 0;
-				int weight = 0;
-				int decimal_weight = 0;
-				while (line.charAt((j)) != '|') {
-					id.append(line.charAt((j)));
-					++j;
-				}
-				++j;
-				while (line.charAt(j) != '|') {
-					px = 10 * px + line.charAt(j) - '0';
-					++j;
-				}
-				++j;
-				while (j < line.length() && line.charAt(j) != '|') {
-					py = 10 * py + line.charAt(j) - '0';
-					++j;
-				}
-				if (j < line.length()) {
-					if (line.charAt(j) == '|') {
-						++j;
-						while (j < line.length()) {
-							if (line.charAt(j) != '.') {
-								weight = 10 * weight + line.charAt(j) - '0';
-							}
-							++j;
-						}
-						if (j < line.length()) {
-							if (line.charAt(j) == '.') {
-								int multiplier = 1;
-								while (j < line.length()) {
-									multiplier *= 0.1;
-									decimal_weight += multiplier * (line.charAt(j) - '0');
-									++j;
-								}
-							}
-						}
-						weight += decimal_weight;
-					}
-				}
-				Animal animal;
-				Pair position = new Pair(py, px);
-				if (weight != 0) {
-					animal = new Animal(id.toString(), weight, position);
-				} else {
-					animal = new Animal(id.toString(), position);
-				}
-				AddAnimal(animal);
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+  /**
+   * \brief Constructor
+   * \details Mengenerate kebun binatang dari file eksternal denangan list hewan kosong
+   */
+  public Zoo() {
+    width = 33;
+    length = 32;
+    cells = new Cell[width][length];
+    int i = 0;
+    try {
+      Scanner scanner = new Scanner(new FileInputStream("asset/map.txt"));
+      StringBuffer line = new StringBuffer(length + 1);
+      while (scanner.hasNext()) {
+        line.delete(0, line.length());
+        line.append(scanner.nextLine());
+        for (int j = 0; j < length; ++j) {
+          cells[i][j] = new Cell(line.charAt(j));
+        }
+        ++i;
+      }
+      CageInit();
+      animals = new ArrayList<Animal>();
+      scanner = new Scanner(new FileInputStream("asset/animals.txt"));
+      while (scanner.hasNext()) {
+        line.delete(0, line.length());
+        line.append(scanner.nextLine());
+        StringBuffer id = new StringBuffer();
+        int px = 0;
+        int py = 0;
+        int j = 0;
+        int weight = 0;
+        int decimal_weight = 0;
+        while (line.charAt((j)) != '|') {
+          id.append(line.charAt((j)));
+          ++j;
+        }
+        ++j;
+        while (line.charAt(j) != '|') {
+          px = 10 * px + line.charAt(j) - '0';
+          ++j;
+        }
+        ++j;
+        while (j < line.length() && line.charAt(j) != '|') {
+          py = 10 * py + line.charAt(j) - '0';
+          ++j;
+        }
+        if (j < line.length()) {
+          if (line.charAt(j) == '|') {
+            ++j;
+            while (j < line.length()) {
+              if (line.charAt(j) != '.') {
+                weight = 10 * weight + line.charAt(j) - '0';
+              }
+              ++j;
+            }
+            if (j < line.length()) {
+              if (line.charAt(j) == '.') {
+                int multiplier = 1;
+                while (j < line.length()) {
+                  multiplier *= 0.1;
+                  decimal_weight += multiplier * (line.charAt(j) - '0');
+                  ++j;
+                }
+              }
+            }
+            weight += decimal_weight;
+          }
+        }
+        Animal animal;
+        Pair position = new Pair(py, px);
+        if (weight != 0) {
+          animal = new Animal(id.toString(), weight, position);
+        } else {
+          animal = new Animal(id.toString(), position);
+        }
+        AddAnimal(animal);
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+    System.out.println(animals.size());
+    for (i = 0; i < animals.size(); ++i) {
+      System.out.println(animals.get(i).GetId());
+    }
   }
 
-	/**
-	 * \brief Constructor
-	 * \details Mengenerate kebun binatang dengan input dari user
-	 * \param w width lebar kebun binatang
-	 * \param l length panjang kebun binatang
-	 */
-	public Zoo(int _width, int _length){
-		width = _width;
-		length = _length;
-		cells = new Cell[width][length];
-		Scanner scanner = new Scanner(System.in);
-		StringBuffer line = new StringBuffer(length + 1);
-		for (int i = 0; i < width; ++i) {
-			line.append(scanner.nextLine());
-			for (int j = 0; j < length; ++j) {
-				cells[i][j] = new Cell(line.charAt(j));
-			}
-		}
-		CageInit();
-		char option;
-		do {
-			System.out.println("Ingin menambah hewan lagi? (y/n)");
-			option = scanner.next().charAt(0);
-			if (option == 'Y' || option == 'y') {
-				StringBuffer id = new StringBuffer();
-				char def_weight;
-				int px;
-				int py;
-				float weight = 0;
-				System.out.print("Input id hewan: ");
-				id.append(scanner.nextLine());
-				System.out.print("Input posisi x: (kolom ke-)");
-				px = scanner.nextInt();
-				System.out.print("Input posisi y: (baris ke-)");
-				py = scanner.nextInt();
-				System.out.print("Apakah ingin menggunakan berat default? (y/n)");
-				def_weight = scanner.next().charAt(0);
-				if (def_weight == 'N' || def_weight == 'n'){
-					do {
-						System.out.print("Input berat : (> 0)");
-						weight = scanner.nextFloat();
-					} while (weight <= 0);
-				}
-				Animal animal;
-				Pair position = new Pair(py, px);
-				if (weight != 0) {
-					animal = new Animal(id.toString(), weight, position);
-				} else {
-					animal = new Animal(id.toString(), position);
-				}
-				AddAnimal(animal);
-			}
-		} while (option == 'Y' || option == 'y');
-	}
+  /**
+   * \brief Constructor
+   * \details Mengenerate kebun binatang dengan input dari user
+   * \param w width lebar kebun binatang
+   * \param l length panjang kebun binatang
+   */
+  public Zoo(int _width, int _length) {
+    width = _width;
+    length = _length;
+    cells = new Cell[width][length];
+    Scanner scanner = new Scanner(System.in);
+    StringBuffer line = new StringBuffer(length + 1);
+    for (int i = 0; i < width; ++i) {
+      line.append(scanner.nextLine());
+      for (int j = 0; j < length; ++j) {
+        cells[i][j].SetInitSymbol(line.charAt(j));
+        cells[i][j].SetSymbol(line.charAt(j));
+      }
+    }
+    CageInit();
+    char option;
+    do {
+      System.out.println("Ingin menambah hewan lagi? (y/n)");
+      option = scanner.next().charAt(0);
+      if (option == 'Y' || option == 'y') {
+        StringBuffer id = new StringBuffer();
+        char def_weight;
+        int px;
+        int py;
+        float weight = 0;
+        System.out.print("Input id hewan: ");
+        id.append(scanner.nextLine());
+        System.out.print("Input posisi x: (kolom ke-)");
+        px = scanner.nextInt();
+        System.out.print("Input posisi y: (baris ke-)");
+        py = scanner.nextInt();
+        System.out.print("Apakah ingin menggunakan berat default? (y/n)");
+        def_weight = scanner.next().charAt(0);
+        if (def_weight == 'N' || def_weight == 'n') {
+          do {
+            System.out.print("Input berat : (> 0)");
+            weight = scanner.nextFloat();
+          } while (weight <= 0);
+        }
+        Animal animal;
+        Pair position = new Pair(py, px);
+        if (weight != 0) {
+          animal = new Animal(id.toString(), weight, position);
+        } else {
+          animal = new Animal(id.toString(), position);
+        }
+        AddAnimal(animal);
+      }
+    } while (option == 'Y' || option == 'y');
+  }
 
   /**
    * \brief Display
