@@ -49,7 +49,7 @@ public class Zoo {
   private int cage_nb;
 
 	/**
-	 * initCage
+	 * CageInit
 	 * I.S: <code>cage_map</code> tidak terdefenisi
 	 * F.S: <code>cage_map</code> terdefenisi
 	 */

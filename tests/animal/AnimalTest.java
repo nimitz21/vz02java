@@ -6,7 +6,7 @@ import pair.Pair;
 import java.util.HashSet;
 
 /**
- * Created by ASUS INDONESIA on 3/28/2017.
+ * @author Andika Kusuma & Reinaldo Ignatius Wijaya
  */
 public class AnimalTest extends TestCase {
   public void testGetId() throws Exception {

@@ -3,7 +3,7 @@ package cell;
 import junit.framework.TestCase;
 
 /**
- * Created by ASUS INDONESIA on 3/28/2017.
+ * @author Andika Kusuma
  */
 public class CellTest extends TestCase {
   public void testGetInitSymbol() throws Exception {
