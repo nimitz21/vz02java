@@ -507,9 +507,9 @@ public class Zoo {
           if (FindAnimal(finalPos) == animals.size()) {
             animals.get(idx).Move(direction);
             cells[pos.first][pos.second].
-                    SetSymbol(new Character(cells[pos.first][pos.second].GetInitSymbol()));
+                    SetSymbol((cells[pos.first][pos.second].GetInitSymbol()));
             cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
-                    SetSymbol(new Character(animals.get(idx).GetLegend()));
+                    SetSymbol((animals.get(idx).GetLegend()));
           }
         }
       }
