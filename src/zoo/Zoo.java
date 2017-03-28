@@ -366,9 +366,7 @@ public class Zoo {
       Pair pos;
       pos = new Pair(posx, posy);
       if (FindAnimal(pos) == animals.size()) {
-        System.out.println("animal not found");
         if (animal.GetHabitat().contains(cells[posx][posy].GetSymbol())) {
-          System.out.println("habitat compatible");
           boolean compatible = true;
           // cek apakah ada hewan yang tidak kompatible dengan hewan animal
           int count = 0; // count animal yang ada di cage yang sama
@@ -389,7 +387,6 @@ public class Zoo {
             }
           }
           if (0.3 * max >= (count + 1) && compatible) { // masih muat cagenya
-            System.out.println("test");
             animals.add(animal);
             cells[posx][posy].SetSymbol(animal.GetLegend());
           }
@@ -510,9 +507,9 @@ public class Zoo {
           if (FindAnimal(finalPos) == animals.size()) {
             animals.get(idx).Move(direction);
             cells[pos.first][pos.second].
-                    SetSymbol(cells[pos.first][pos.second].GetInitSymbol());
+                    SetSymbol(new Character(cells[pos.first][pos.second].GetInitSymbol()));
             cells[animals.get(idx).GetPos().first][animals.get(idx).GetPos().second].
-                    SetSymbol(animals.get(idx).GetLegend());
+                    SetSymbol(new Character(animals.get(idx).GetLegend()));
           }
         }
       }
