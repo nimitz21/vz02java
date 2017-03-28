@@ -3,7 +3,7 @@ package pair;
 import junit.framework.TestCase;
 
 /**
- * Created by Reinaldo on 3/28/2017.
+ * @author Reinaldo Ignatius Wijaya
  */
 public class PairTest extends TestCase {
 	public void testEquals() throws Exception {
