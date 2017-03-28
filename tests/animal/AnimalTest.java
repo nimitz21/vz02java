@@ -45,7 +45,15 @@ public class AnimalTest extends TestCase {
   }
 
   public void testMove() throws Exception {
-
+		Animal a= new Animal ("WF", new Pair(0, 0));
+		a.Move(0);
+		assert(a.GetPos().first == -1 && a.GetPos().second == 0);
+		a.Move(1);
+		assert(a.GetPos().first == -1 && a.GetPos().second == -1);
+		a.Move(2);
+		assert(a.GetPos().first == -1 && a.GetPos().second == 0);
+		a.Move(3);
+		assert(a.GetPos().first == 0 && a.GetPos().second == 0);
   }
 
 }
