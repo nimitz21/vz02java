@@ -1009,16 +1009,16 @@ public class Animal{
     public void Move(int direction) {
       switch(direction){
         case 0:
-          position.first--;
+          (position.first)--;
           break;
         case 1:
-          position.second--;
+          (position.second)--;
           break;
         case 2:
-          position.second++;
+          (position.second)++;
           break;
         case 3:
-          position.first++;
+          (position.first)++;
           break;
       }
     }
