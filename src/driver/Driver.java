@@ -14,7 +14,7 @@ import zoo.Zoo;
  */
 public class Driver {
   /**
-   * Konstruktor
+   * Konstruktor.
    */
   public Driver() {
     char option;

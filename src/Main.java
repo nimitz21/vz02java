@@ -15,7 +15,7 @@ public class Main {
    *
    * @param args argumen untuk menjalankan main
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     Driver d = new Driver();
   }
 }

@@ -260,8 +260,8 @@ public class Animal {
    * Konstruktor untuk menciptakan hewan
    * berdasarkan permintaan <code>id</code> dan <code>position</code>.
    */
-  public Animal(String _id, Pair _position) {
-    id = _id;
+  public Animal(final String _id, final Pair _position) {
+    id = new String(_id.toString());
     position = new Pair(_position.first, _position.second);
     if (_id.equals("WF")) {
       number = ++wolf_nb;
@@ -695,11 +695,11 @@ public class Animal {
 
   /**
    * Konstruktor untuk menciptakan hewan
-   * berdasarkan permintaan <code>id</code>,
+   * berdasarkan permintaan <code>id</code>,7
    * <code>weight</code> dan <code>position</code>.
    */
-  public Animal(String _id, double _weight, Pair _position) {
-    id = _id;
+  public Animal(final String _id, final double _weight, final Pair _position) {
+    id = new String(_id.toString());
     weight = _weight;
     position = new Pair(_position.first, _position.second);
     if (_id.equals("WF")) {
@@ -1107,7 +1107,7 @@ public class Animal {
   }
 
   /**
-   * Mengembalikan identitas jenis hewan tersebut
+   * Mengembalikan identitas jenis hewan tersebut.
    *
    * @return id
    */
@@ -1181,13 +1181,23 @@ public class Animal {
   }
 
   /**
+	 * Mengembalikan daftar hewan yang aman diletakkan
+	 * pada kandang yang sama dengan hewan tersebut.
+	 *
+	 * @return compatible
+	 */
+	public final Set<String> GetCompatible() {
+		return compatible;
+	}
+
+  /**
    * Mengubah berat badan hewan menjadi <code>_weight</code>.
    * I.S.: <code>weight</code> sembarang.
    * F.S.: <code>weight</code> telah terganti dengan <code>_weight</code>.
    *
    * @param _weight berat badan baru hewan
    */
-  public void SetWeight(double _weight) {
+  public void SetWeight(final double _weight) {
     weight = _weight;
   }
 
@@ -1198,19 +1208,9 @@ public class Animal {
    *
    * @param _position berat badan baru hewan
    */
-  public void SetPos(Pair _position) {
+  public void SetPos(final Pair _position) {
     position.first = _position.first;
     position.second = _position.second;
-  }
-
-  /**
-   * Mengembalikan daftar hewan yang aman diletakkan
-   * pada kandang yang sama dengan hewan tersebut.
-   *
-   * @return compatible
-   */
-  public final Set<String> GetCompatible() {
-    return compatible;
   }
 
   /**
@@ -1347,7 +1347,7 @@ public class Animal {
    * I.S.: sembarang.
    * F.S.: pada layar tercetak deskripsi mengenai hewan tersebut.
    */
-  public final void Desription(String a) {
+  public final void Desription(final String a) {
     System.out.print("This is a(n) " + a + " called " + id + "-");
     if (number < 10) {
       System.out.print("0");
@@ -1371,7 +1371,7 @@ public class Animal {
    *
    * @param direction arah yang ingin dituju (0 ke atas, 1 ke kiri, 2 ke kanan, 3 ke bawah)
    */
-  public void Move(int direction) {
+  public void Move(final int direction) {
     switch (direction) {
       case 0:
         (position.first)--;

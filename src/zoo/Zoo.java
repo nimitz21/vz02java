@@ -74,15 +74,15 @@ public class Zoo {
 					if (c != 'W' && c != 'A' && c != 'L') {
 						cage_map[i][j] = 0;
 					} else {
-						int[] array_i = new int [4];
-						int[] array_j = new int [4];
+						int[] array_i = new int[4];
+						int[] array_j = new int[4];
 						for (int k = 0; k < 4; ++k) {
 							array_i[k] = i;
 							array_j[k] = j;
 						}
 						boolean cek = true;
 						cage_map[i][j] = counter;
-						Pair[] moveable = new Pair [12];
+						Pair[] moveable = new Pair[12];
 						int ii = 0;
 						int jj = 0;
 						int i_temp = i;
@@ -124,7 +124,7 @@ public class Zoo {
 							j_temp = moveable[move].second;
 							array_i[times] = i_temp;
 							array_j[times] = j_temp;
-							moveable[move] = new Pair (moveable[count-1].first, moveable[count-1].second);
+							moveable[move] = new Pair(moveable[count - 1].first, moveable[count - 1].second);
 							cage_map[i_temp][j_temp] = counter;
 							--count;
 							if (times == 2) {
@@ -147,7 +147,7 @@ public class Zoo {
 			for (int i = 0; i < width; ++i) {
 				for (int j = 0; j < length; ++j) {
 					if (cage_map[i][j] == -99) {
-						Pair[] moveable = new Pair [4];
+						Pair[] moveable = new Pair[4];
 						int count = 0;
 						int ii = 0;
 						int jj = 0;
@@ -164,7 +164,7 @@ public class Zoo {
 							} else if (k == 2 && i != width - 1) {
 								ii = i + 1;
 								jj = j;
-								dummy= true;
+								dummy = true;
 							} else if (k == 3 && j != length - 1) {
 								ii = i;
 								jj = j + 1;
@@ -279,7 +279,7 @@ public class Zoo {
    * @param _width lebar kebun binatang
    * @param _length panjang kebun binatang
    */
-  public Zoo(int _width, int _length) {
+  public Zoo(final int _width, final int _length) {
     width = _width;
     length = _length;
     cells = new Cell[width][length];
@@ -342,7 +342,7 @@ public class Zoo {
    * @param x2 kolom akhir yang ingin ditampilkan
    * @param y2 baris akhir yang ingin ditampilkan
    */
-  public void Display(int x1, int y1, int x2, int y2) {
+  public final void Display(final int x1, final int y1, final int x2, final int y2) {
     for (int i = x1; i <= x2; ++i) {
       for (int j = y1; j <= y2; ++j) {
         System.out.print(cells[i][j].GetSymbol());
@@ -358,7 +358,7 @@ public class Zoo {
    * @param pos posisi Animal yang akan dicari di list
    * @return int untuk indeks arraylist animals
    */
-  public int FindAnimal(Pair pos) {
+  public final int FindAnimal(final Pair pos) {
     int i = 0;
     while (i < animals.size()) {
       if (!animals.get(i).GetPos().Equals(pos)) {
@@ -379,7 +379,7 @@ public class Zoo {
    *
    * @param animal hewan yang akan ditambahkan
    */
-  public void AddAnimal(Animal animal) {
+  public void AddAnimal(final Animal animal) {
     int posx = animal.GetPos().first;
     int posy = animal.GetPos().second;
     if (posx >= 0 && posx < width && posy >= 0 && posy < length) {
@@ -426,7 +426,7 @@ public class Zoo {
    * @param _id id jenis hewan
    * @param _number nomor pada jenis hewan tersebut
    */
-  public void DelAnimal(String _id, int _number) {
+  public void DelAnimal(final String _id, final int _number) {
     int i = 0;
     while (animals.get(i).GetId().equals(_id) && animals.get(i).GetNumber() != _number && i < animals.size() - 1) {
       ++i;
@@ -447,7 +447,7 @@ public class Zoo {
    * @param x posisi pada width
    * @param y posisi pada length
    */
-  public void DelAnimal(int x, int y) {
+  public void DelAnimal(final int x, final int y) {
     Pair pos;
     pos = new Pair(x, y);
     if (FindAnimal(pos) != animals.size()) {
@@ -462,7 +462,7 @@ public class Zoo {
    *
    * @return float total daging yang dibutuhkan <code>Zoo</code>
    */
-  public float GetTotalMeat() {
+  public final float GetTotalMeat() {
     float sum = 0;
     for (int i = 0; i < animals.size(); i++) {
       if (animals.get(i).GetType() == 'K') {
@@ -480,7 +480,7 @@ public class Zoo {
    *
    * @return float total sayur yang dibutuhkan <code>Zoo</code>
    */
-  public float GetTotalVegetables() {
+  public final float GetTotalVegetables() {
     float sum = 0;
     for (int i = 0; i < animals.size(); i++) {
       if (animals.get(i).GetType() == 'H') {
@@ -501,7 +501,7 @@ public class Zoo {
    * @param pos posisi hewan
    * @param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
    */
-  public void MoveAnimal(Pair pos, int direction) {
+  public void MoveAnimal(final Pair pos, final int direction) {
     int idx = FindAnimal(pos);
     if (idx != animals.size()) {
       if (cells[pos.first][pos.second].GetSekat(direction)) {
@@ -559,7 +559,7 @@ public class Zoo {
    * @param _number no number pada jenis hewan
    * @param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
    */
-  public void MoveAnimal(String _id, int _number, int direction) {
+  public void MoveAnimal(final String _id, final int _number, final int direction) {
     int i = 0;
     while (!animals.get(i).GetId().equals(_id) && animals.get(i).GetNumber() != _number && i < animals.size() - 1) {
       ++i;
@@ -591,7 +591,7 @@ public class Zoo {
    * @param j posisi pada length
    * @param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
    */
-  public void ToggleSekat(int i, int j, int direction) {
+  public void ToggleSekat(final int i, final int j, final int direction) {
     if (i >= 0 && i < width && j >= 0 && j < length) {
       char c = cells[i][j].GetInitSymbol();
       if (c == 'W' || c == 'L' || c == 'A') {
@@ -659,15 +659,14 @@ public class Zoo {
    * I.S: <code>cage_map</code> terdefenisi.
    * F.S: Tercetak interaksi-interaksi selama melakukan tur.
    */
-  public void Tour() {
+  public final void Tour() {
       Set<Pair> entrance;
       entrance = new HashSet<Pair>();
-      boolean vis[][];
-      vis = new boolean[width][length];
+      boolean[][] vis = new boolean[width][length];
       for (int i = 0; i < width; ++i) {
           for (int j = 0; j < length; ++j) {
               if (cells[i][j].GetSymbol() == 'N') {
-                  Pair pairInput = new Pair(i,j);
+                  Pair pairInput = new Pair(i, j);
                   entrance.add(pairInput);
               }
               vis[i][j] = false;
@@ -747,52 +746,52 @@ public class Zoo {
 	        }
         }
       }
-      boolean VisCage[] = new boolean[cage_nb+1];
+      boolean[] VisCage = new boolean[cage_nb + 1];
       for (int i = 0; i <= cage_nb; ++i) {
           VisCage[i] = false;
       }
       while (!route.isEmpty()) {
           if (posi - 1 >= 0) {
-              char c = cells[posi-1][posj].GetInitSymbol();
+              char c = cells[posi - 1][posj].GetInitSymbol();
               if (c == 'P' || c == 'R') {
-                  cells[posi-1][posj].Interact();
+                  cells[posi - 1][posj].Interact();
               } else if (c == 'W' || c == 'L' || c == 'A') {
-                  if (!VisCage[cage_map[posi-1][posj]]) {
-                      InteractCage(new Pair(posi - 1, posj), cage_map[posi-1][posj]);
-                      VisCage[cage_map[posi-1][posj]] = true;
+                  if (!VisCage[cage_map[posi - 1][posj]]) {
+                      InteractCage(new Pair(posi - 1, posj), cage_map[posi - 1][posj]);
+                      VisCage[cage_map[posi - 1][posj]] = true;
                   }
               }
           }
           if (posj - 1 >= 0) {
-              char c = cells[posi][posj-1].GetInitSymbol();
+              char c = cells[posi][posj - 1].GetInitSymbol();
               if (c == 'P' || c == 'R') {
-                  cells[posi][posj-1].Interact();
+                  cells[posi][posj - 1].Interact();
               } else if (c == 'W' || c == 'L' || c == 'A') {
-                  if (!VisCage[cage_map[posi][posj-1]]) {
-                      InteractCage(new Pair(posi,posj - 1), cage_map[posi][posj-1]);
-                      VisCage[cage_map[posi][posj-1]] = true;
+                  if (!VisCage[cage_map[posi][posj - 1]]) {
+                      InteractCage(new Pair(posi, posj - 1), cage_map[posi][posj - 1]);
+                      VisCage[cage_map[posi][posj - 1]] = true;
                   }
               }
           }
           if (posj + 1 < length) {
-              char c = cells[posi][posj+1].GetInitSymbol();
+              char c = cells[posi][posj + 1].GetInitSymbol();
               if (c == 'P' || c == 'R') {
-                  cells[posi][posj+1].Interact();
+                  cells[posi][posj + 1].Interact();
               } else if (c == 'W' || c == 'L' || c == 'A') {
-                  if (!VisCage[cage_map[posi][posj+1]]) {
-                      InteractCage(new Pair(posi,posj + 1), cage_map[posi][posj+1]);
-                      VisCage[cage_map[posi][posj+1]] = true;
+                  if (!VisCage[cage_map[posi][posj + 1]]) {
+                      InteractCage(new Pair(posi, posj + 1), cage_map[posi][posj + 1]);
+                      VisCage[cage_map[posi][posj + 1]] = true;
                   }
               }
           }
           if (posi + 1 < width) {
-              char c = cells[posi+1][posj].GetInitSymbol();
+              char c = cells[posi + 1][posj].GetInitSymbol();
               if (c == 'P' || c == 'R') {
-                  cells[posi+1][posj].Interact();
+                  cells[posi + 1][posj].Interact();
               } else if (c == 'W' || c == 'L' || c == 'A') {
-                  if (!VisCage[cage_map[posi+1][posj]]) {
-                      InteractCage(new Pair(posi + 1, posj), cage_map[posi+1][posj]);
-                      VisCage[cage_map[posi+1][posj]] = true;
+                  if (!VisCage[cage_map[posi + 1][posj]]) {
+                      InteractCage(new Pair(posi + 1, posj), cage_map[posi + 1][posj]);
+                      VisCage[cage_map[posi + 1][posj]] = true;
                   }
               }
           }
@@ -824,9 +823,8 @@ public class Zoo {
    * @param pos posisi cage
    * @param cage_number nomor cage
    */
-  public void InteractCage(Pair pos, int cage_number) {
-    boolean Vis[][];
-    Vis = new boolean[width][length];
+  public final void InteractCage(final Pair pos, final int cage_number) {
+    boolean[][] Vis = new boolean[width][length];
     for (int i = 0; i < width; ++i) {
       for (int j = 0; j < length; ++j) {
         Vis[i][j] = false;

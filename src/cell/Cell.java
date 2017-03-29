@@ -120,7 +120,7 @@ public class Cell {
      *
      * @return initial symbol.
      */
-    public Character GetInitSymbol() {
+    public final Character GetInitSymbol() {
         return initial_symbol;
     }
 
@@ -129,7 +129,7 @@ public class Cell {
      *
      * @return symbol.
      */
-    public Character GetSymbol() {
+    public final Character GetSymbol() {
         return symbol;
     }
 
@@ -141,7 +141,7 @@ public class Cell {
      *
      * @param s initial <code>symbol</code> yang baru.
      */
-    public void SetInitSymbol(char s) {
+    public void SetInitSymbol(final char s) {
         initial_symbol = new Character(s);
     }
 
@@ -153,7 +153,7 @@ public class Cell {
      *
      * @param s <code>symbol</code> yang baru.
      */
-    public void SetSymbol(char s) {
+    public void SetSymbol(final char s) {
         symbol = new Character(s);
     }
 
@@ -164,7 +164,7 @@ public class Cell {
      *
      * @param direction arah yang ingin dibuka
      */
-    public void ToggleSekat(int direction) {
+    public void ToggleSekat(final int direction) {
         sekat[direction] = !sekat[direction];
     }
 
@@ -175,16 +175,16 @@ public class Cell {
      * @param direction arah yang ingin dicek
      * @return sekat dengan arah <code>direction</code>
      */
-    public boolean GetSekat(int direction) {
+    public final boolean GetSekat(final int direction) {
         return sekat[direction];
     }
 
     /**
-     * Interact
+     * Interact.
      * I.S: sembarang
      * F.S: Interaksi dengan restoran atau park dilakukan
      */
-    public void Interact() {
+    public final void Interact() {
         switch (initial_symbol) {
             case 'P': {
                 System.out.print("This park has ");
@@ -210,7 +210,7 @@ public class Cell {
      *
      * @return food
      */
-    public String GetFood() {
+    public final String GetFood() {
         return food;
     }
 
@@ -219,7 +219,7 @@ public class Cell {
      *
      * @return open
      */
-    public boolean GetOpen() {
+    public final boolean GetOpen() {
         return open;
     }
 
@@ -230,7 +230,7 @@ public class Cell {
      *
      * @param f jenis makanan yang akan dijual
      */
-    public void SetFood(String f) {
+    public void SetFood(final String f) {
         food = f;
     }
 
@@ -248,7 +248,7 @@ public class Cell {
      *
      * @return plant
      */
-    public String GetPlant() {
+    public final String GetPlant() {
         return plant;
     }
 
@@ -259,7 +259,7 @@ public class Cell {
      *
      * @param p tanaman yang ingin ditanam
      */
-    public void SetPlant(String p) {
+    public void SetPlant(final String p) {
         plant = p;
     }
 }
