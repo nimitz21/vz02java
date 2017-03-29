@@ -11,109 +11,99 @@ import java.util.Random;
  * @version %I%, %G%
  */
 public class Cell {
-    /**
-     * Simbol asli untuk sel dengan jenis tertentu.
-     */
-    private Character initial_symbol;
+  /**
+   * Simbol asli untuk sel dengan jenis tertentu.
+   */
+  private Character initial_symbol;
 
-    /**
-     * Simbol yang akan ditampilkan pada layar (dapat dioverwrite animal).
-     */
-    private Character symbol;
+  /**
+   * Simbol yang akan ditampilkan pada layar (dapat dioverwrite animal).
+   */
+  private Character symbol;
 
-    /**
-     * State dari sekat untuk habitat; true untuk terbuka, false untuk tertutup.
-     */
-    private Boolean[] sekat;
+  /**
+   * State dari sekat untuk habitat; true untuk terbuka, false untuk tertutup.
+   */
+  private Boolean[] sekat;
 
-    /**
-     * Tanaman yang ditanam di taman.
-     */
-    private String plant;
+  /**
+   * Tanaman yang ditanam di taman.
+   */
+  private String plant;
 
-    /**
-     * Jenis makanan yang dijual di restoran.
-     */
-    private String food;
+  /**
+   * Jenis makanan yang dijual di restoran.
+   */
+  private String food;
 
-    /**
-     * Penanda restoran buka atau tutup; true untuk buka, false untuk tutup.
-     */
-    private Boolean open;
+  /**
+   * Penanda restoran buka atau tutup; true untuk buka, false untuk tutup.
+   */
+  private Boolean open;
 
-    /**
-     * Constructor.
-     * @param _initial_symbol initial symbol untuk diisi ke <code>Cell</code>
-     * Menciptakan cell
-     */
-    public Cell(final char _initial_symbol) {
-        int i;
-        Random rand = new Random();
-        initial_symbol = new Character(_initial_symbol);
-        symbol = new Character(_initial_symbol);
-        sekat = new Boolean[4];
-        plant = new String();
-        food = new String();
-        open = new Boolean(true);
-        for (i = 0; i < 4; ++i) {
-            sekat[i] = false;
-        }
-        i = rand.nextInt(10);
-        switch (i) {
-            case 0: {
-                plant = "";
-                food = "ekkado";
-                open = false;
-            }
-            break;
-            case 1: {
-                plant = "apple trees";
-                food = "batagor";
-            }
-            break;
-            case 2: {
-                plant = "roses";
-                food = "pizza";
-            }
-            break;
-            case 3: {
-                plant = "dandelions";
-                food = "ketoprak";
-            }
-            break;
-            case 4: {
-                plant = "sokas";
-                food = "sushi";
-            }
-            break;
-            case 5: {
-                plant = "cambodias";
-                food = "gado-gado";
-            }
-            break;
-            case 6: {
-                plant = "tulips";
-                food = "Padang food";
-            }
-            break;
-            case 7: {
-                plant = "sunflowers";
-                food = "fried rice";
-            }
-            break;
-            case 8: {
-                plant = "daisies";
-                food = "meatball";
-            }
-            break;
-            case 9: {
-                plant = "maze-shaped bushes";
-                food = "pho";
-                open = false;
-            }
-            break;
-        }
+  /**
+   * Constructor.
+   * @param _initial_symbol initial symbol untuk diisi ke <code>Cell</code>
+   * Menciptakan cell
+   */
+  public Cell(final char _initial_symbol) {
+    int i;
+    Random rand = new Random();
+    initial_symbol = new Character(_initial_symbol);
+    symbol = new Character(_initial_symbol);
+    sekat = new Boolean[4];
+    plant = new String();
+    food = new String();
+    open = new Boolean(true);
+    for (i = 0; i < 4; ++i) {
+      sekat[i] = false;
     }
+    i = rand.nextInt(10);
+    switch (i) {
+      case 0:
+        plant = "";
+        food = "ekkado";
+        open = false;
+        break;
+      case 1:
+        plant = "apple trees";
+        food = "batagor";
+        break;
+      case 2:
+        plant = "roses";
+        food = "pizza";
+        break;
+      case 3:
+        plant = "dandelions";
+        food = "ketoprak";
+        break;
+      case 4:
+        plant = "sokas";
+        food = "sushi";
+        break;
+      case 5:
+        plant = "cambodias";
+        food = "gado-gado";
+        break;
+      case 6:
+        plant = "tulips";
+        food = "Padang food";
+        break;
+      case 7:
+        plant = "sunflowers";
+        food = "fried rice";
+        break;
+      case 8:
+        plant = "daisies";
+        food = "meatball";
+        break;
+      case 9:
+        plant = "maze-shaped bushes";
+        food = "pho";
+        open = false;
+        break;
+    }
+  }
 
     /**
      * Membalikan nilai <code>initial_symbol</code> yang disimpan <code>Cell</code>.
@@ -234,14 +224,14 @@ public class Cell {
         food = f;
     }
 
-    /**
-     * Mengubah status buka restoran menjadi kebalikan dari initial state.
-     * I.S.: keadaan <code>open</code> sembarang.
-     * F.S.: keadaan <code>open</code> menjadi kebalikan dari keadaan semula.
-     */
-    public void ToggleOpen() {
-        open = !open;
-    }
+  /**
+   * Mengubah status buka restoran menjadi kebalikan dari initial state.
+   * I.S.: keadaan <code>open</code> sembarang.
+   * F.S.: keadaan <code>open</code> menjadi kebalikan dari keadaan semula.
+   */
+  public void ToggleOpen() {
+    open = !open;
+  }
 
     /**
      * Mengembalikan nama tanaman yang tertanam pada taman.
