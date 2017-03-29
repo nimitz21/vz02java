@@ -6,7 +6,8 @@ import pair.Pair;
 import java.util.HashSet;
 
 /**
- * @author Andika Kusuma & Reinaldo Ignatius Wijaya
+ * @author Andika Kusuma
+ * @author Reinaldo Ignatius Wijaya
  */
 public class AnimalTest extends TestCase {
   public void testGetId() throws Exception {
