@@ -105,124 +105,124 @@ public class Cell {
     }
   }
 
-    /**
-     * Membalikan nilai <code>initial_symbol</code> yang disimpan <code>Cell</code>.
-     *
-     * @return initial symbol.
-     */
-    public final Character GetInitSymbol() {
-        return initial_symbol;
-    }
+  /**
+   * Membalikan nilai <code>initial_symbol</code> yang disimpan <code>Cell</code>.
+   *
+   * @return initial symbol.
+   */
+  public final Character GetInitSymbol() {
+    return initial_symbol;
+  }
 
-    /**
-     * Mengembalikan nilai simbol yang disimpan <code>Cell</code>.
-     *
-     * @return symbol.
-     */
-    public final Character GetSymbol() {
-        return symbol;
-    }
+  /**
+   * Mengembalikan nilai simbol yang disimpan <code>Cell</code>.
+   *
+   * @return symbol.
+   */
+  public final Character GetSymbol() {
+    return symbol;
+  }
 
-    /**
-     * Mengubah <code>initial_symbol</code> dengan simbol baru
-     * yaitu <code>s</code>.
-     * I.S.: <code>initial_symbol</code> sembarang.
-     * F.S.: <code>initial_symbol</code> telah terganti dengan <code>s</code>.
-     *
-     * @param s initial <code>symbol</code> yang baru.
-     */
-    public void SetInitSymbol(final char s) {
-        initial_symbol = new Character(s);
-    }
+  /**
+   * Mengubah <code>initial_symbol</code> dengan simbol baru
+   * yaitu <code>s</code>.
+   * I.S.: <code>initial_symbol</code> sembarang.
+   * F.S.: <code>initial_symbol</code> telah terganti dengan <code>s</code>.
+   *
+   * @param s initial <code>symbol</code> yang baru.
+   */
+  public void SetInitSymbol(final char s) {
+    initial_symbol = new Character(s);
+  }
 
-    /**
-     * Mengubah <code>symbol</code> dengan simbol baru
-     * yaitu <code>s</code>.
-     * I.S.: <code>symbol</code> sembarang.
-     * F.S.: <code>symbol</code> telah terganti dengan <code>s</code>.
-     *
-     * @param s <code>symbol</code> yang baru.
-     */
-    public void SetSymbol(final char s) {
-        symbol = new Character(s);
-    }
+  /**
+   * Mengubah <code>symbol</code> dengan simbol baru
+   * yaitu <code>s</code>.
+   * I.S.: <code>symbol</code> sembarang.
+   * F.S.: <code>symbol</code> telah terganti dengan <code>s</code>.
+   *
+   * @param s <code>symbol</code> yang baru.
+   */
+  public void SetSymbol(final char s) {
+    symbol = new Character(s);
+  }
 
-    /**
-     * Memasang atau menghilangkan sekat antar-<code>Cell</code>;
-     * I.S.: sembarang.
-     * F.S.: sekat terbuka/tertutup tergantung kondisi awal.
-     *
-     * @param direction arah yang ingin dibuka
-     */
-    public void ToggleSekat(final int direction) {
-        sekat[direction] = !sekat[direction];
-    }
+  /**
+   * Memasang atau menghilangkan sekat antar-<code>Cell</code>;
+   * I.S.: sembarang.
+   * F.S.: sekat terbuka/tertutup tergantung kondisi awal.
+   *
+   * @param direction arah yang ingin dibuka
+   */
+  public void ToggleSekat(final int direction) {
+    sekat[direction] = !sekat[direction];
+  }
 
-    /**
-     * Mengecek apakah ke arah <code>direction</code>
-     * terdapat <code>sekat</code>.
-     *
-     * @param direction arah yang ingin dicek
-     * @return sekat dengan arah <code>direction</code>
-     */
-    public final boolean GetSekat(final int direction) {
-        return sekat[direction];
-    }
+  /**
+   * Mengecek apakah ke arah <code>direction</code>
+   * terdapat <code>sekat</code>.
+   *
+   * @param direction arah yang ingin dicek
+   * @return sekat dengan arah <code>direction</code>
+   */
+  public final boolean GetSekat(final int direction) {
+    return sekat[direction];
+  }
 
-    /**
-     * Interact.
-     * I.S: sembarang
-     * F.S: Interaksi dengan restoran atau park dilakukan
-     */
-    public final void Interact() {
-        switch (initial_symbol) {
-            case 'P': {
-                System.out.print("This park has ");
-                if (!"".equals(plant)) {
-                    System.out.print(plant);
-                } else {
-                    System.out.print("nothing");
-                }
-                System.out.println(" planted on it.");
-            }
-            case 'R': {
-                if (open) {
-                    System.out.println("This restaurant sells " + food + ".");
-                } else {
-                    System.out.println("This restaurant is closed.");
-                }
-            }
+  /**
+   * Interact.
+   * I.S: sembarang
+   * F.S: Interaksi dengan restoran atau park dilakukan
+   */
+  public final void Interact() {
+    switch (initial_symbol) {
+      case 'P': {
+        System.out.print("This park has ");
+        if (!"".equals(plant)) {
+          System.out.print(plant);
+        } else {
+          System.out.print("nothing");
         }
+        System.out.println(" planted on it.");
+      }
+      case 'R': {
+        if (open) {
+          System.out.println("This restaurant sells " + food + ".");
+        } else {
+          System.out.println("This restaurant is closed.");
+        }
+      }
     }
+  }
 
-    /**
-     * Mengembalikan makanan yang dijual di restoran.
-     *
-     * @return food
-     */
-    public final String GetFood() {
-        return food;
-    }
+  /**
+   * Mengembalikan makanan yang dijual di restoran.
+   *
+   * @return food
+   */
+  public final String GetFood() {
+    return food;
+  }
 
-    /**
-     * Mengembalikan status buka restoran.
-     *
-     * @return open
-     */
-    public final boolean GetOpen() {
-        return open;
-    }
+  /**
+   * Mengembalikan status buka restoran.
+   *
+   * @return open
+   */
+  public final boolean GetOpen() {
+    return open;
+  }
 
-    /**
-     * Mengubah jenis makanan yang dijual restoran menjadi jenis yang di-input.
-     * I.S.: <code>food</code> sembarang.
-     * F.S.: <code>food</code> telah terganti dengan <code>f</code>.
-     *
-     * @param f jenis makanan yang akan dijual
-     */
-    public void SetFood(final String f) {
-        food = f;
-    }
+  /**
+   * Mengubah jenis makanan yang dijual restoran menjadi jenis yang di-input.
+   * I.S.: <code>food</code> sembarang.
+   * F.S.: <code>food</code> telah terganti dengan <code>f</code>.
+   *
+   * @param f jenis makanan yang akan dijual
+   */
+  public void SetFood(final String f) {
+      food = f;
+  }
 
   /**
    * Mengubah status buka restoran menjadi kebalikan dari initial state.
@@ -238,18 +238,18 @@ public class Cell {
      *
      * @return plant
      */
-    public final String GetPlant() {
-        return plant;
-    }
+  public final String GetPlant() {
+  	return plant;
+  }
 
-    /**
-     * Mengubah nama tanaman yang tertanam pada taman dengan p.
-     * I.S.: <code>plant</code> sembarang.
-     * F.S.: <code>plant</code> telah terganti dengan <code>p</code>.
-     *
-     * @param p tanaman yang ingin ditanam
-     */
-    public void SetPlant(final String p) {
-        plant = p;
-    }
+  /**
+   * Mengubah nama tanaman yang tertanam pada taman dengan p.
+   * I.S.: <code>plant</code> sembarang.
+   * F.S.: <code>plant</code> telah terganti dengan <code>p</code>.
+   *
+   * @param p tanaman yang ingin ditanam
+   */
+  public void SetPlant(final String p) {
+    plant = p;
+  }
 }
