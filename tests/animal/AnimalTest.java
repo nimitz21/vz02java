@@ -65,62 +65,6 @@ public class AnimalTest extends TestCase {
     assert (a.GetId().equals("SGL"));
   }
 
-  public void testGetNumber() throws Exception {
-    Animal a;
-    a = new Animal("WF", new Pair(3, 3));
-    assert (a.GetNumber() == 7);
-    a = new Animal("LI", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("ZBR", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("ELP", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("MCQ", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("HG", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("SHK", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("MRE", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("DGG", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("TRL", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("DLP", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("WHL", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("EGL", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("OW", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("HMB", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("CKT", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("RBN", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("BT", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("PNG", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("HPP", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("PLC", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("GSE", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("CRN", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("DRL", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("CLG", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-    a = new Animal("SGL", new Pair(3, 3));
-    assert (a.GetNumber() == 6);
-  }
-
   public void testGetWeight() throws Exception {
     Animal a;
     a = new Animal("WF", new Pair(3, 3));
